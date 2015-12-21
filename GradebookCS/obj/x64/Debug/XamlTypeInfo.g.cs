@@ -132,21 +132,23 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[6];
-            _typeNameTable[0] = "GradebookCS.MainPage";
+            _typeNameTable = new string[7];
+            _typeNameTable[0] = "GradebookCS.View.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "GradebookCS.userinterface.pages.CoursesViewer";
-            _typeNameTable[4] = "GradebookCS.userinterface.pages.DetailedCourseViewer";
-            _typeNameTable[5] = "GradebookCS.userinterface.usercontrols.CourseViewer";
+            _typeNameTable[3] = "GradebookCS.View.CoursesViewer";
+            _typeNameTable[4] = "GradebookCS.View.UserControls.AssignmentViewer";
+            _typeNameTable[5] = "GradebookCS.View.DetailedCourseViewer";
+            _typeNameTable[6] = "GradebookCS.View.UserControls.CourseViewer";
 
-            _typeTable = new global::System.Type[6];
-            _typeTable[0] = typeof(global::GradebookCS.MainPage);
+            _typeTable = new global::System.Type[7];
+            _typeTable[0] = typeof(global::GradebookCS.View.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::GradebookCS.userinterface.pages.CoursesViewer);
-            _typeTable[4] = typeof(global::GradebookCS.userinterface.pages.DetailedCourseViewer);
-            _typeTable[5] = typeof(global::GradebookCS.userinterface.usercontrols.CourseViewer);
+            _typeTable[3] = typeof(global::GradebookCS.View.CoursesViewer);
+            _typeTable[4] = typeof(global::GradebookCS.View.UserControls.AssignmentViewer);
+            _typeTable[5] = typeof(global::GradebookCS.View.DetailedCourseViewer);
+            _typeTable[6] = typeof(global::GradebookCS.View.UserControls.CourseViewer);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -181,10 +183,11 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_MainPage() { return new global::GradebookCS.MainPage(); }
-        private object Activate_3_CoursesViewer() { return new global::GradebookCS.userinterface.pages.CoursesViewer(); }
-        private object Activate_4_DetailedCourseViewer() { return new global::GradebookCS.userinterface.pages.DetailedCourseViewer(); }
-        private object Activate_5_CourseViewer() { return new global::GradebookCS.userinterface.usercontrols.CourseViewer(); }
+        private object Activate_0_MainPage() { return new global::GradebookCS.View.MainPage(); }
+        private object Activate_3_CoursesViewer() { return new global::GradebookCS.View.CoursesViewer(); }
+        private object Activate_4_AssignmentViewer() { return new global::GradebookCS.View.UserControls.AssignmentViewer(); }
+        private object Activate_5_DetailedCourseViewer() { return new global::GradebookCS.View.DetailedCourseViewer(); }
+        private object Activate_6_CourseViewer() { return new global::GradebookCS.View.UserControls.CourseViewer(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -196,7 +199,7 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  GradebookCS.MainPage
+            case 0:   //  GradebookCS.View.MainPage
                 userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_0_MainPage;
                 userType.SetIsLocalType();
@@ -211,23 +214,30 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
                 xamlType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  GradebookCS.userinterface.pages.CoursesViewer
+            case 3:   //  GradebookCS.View.CoursesViewer
                 userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_3_CoursesViewer;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  GradebookCS.userinterface.pages.DetailedCourseViewer
-                userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_DetailedCourseViewer;
+            case 4:   //  GradebookCS.View.UserControls.AssignmentViewer
+                userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_4_AssignmentViewer;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 5:   //  GradebookCS.userinterface.usercontrols.CourseViewer
+            case 5:   //  GradebookCS.View.DetailedCourseViewer
+                userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_5_DetailedCourseViewer;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 6:   //  GradebookCS.View.UserControls.CourseViewer
                 userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_5_CourseViewer;
+                userType.Activator = Activate_6_CourseViewer;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

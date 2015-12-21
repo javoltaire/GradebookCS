@@ -98,17 +98,24 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="userinterface\pages\MainPage.xaml.cs">
+    <Compile Include="Model\Assignment.cs" />
+    <Compile Include="Model\Grade.cs" />
+    <Compile Include="Model\LetterGradeRange.cs" />
+    <Compile Include="ViewModel\UserControls\AssignmentViewerViewModel.cs" />
+    <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="userinterface\pages\CoursesViewer.xaml.cs">
+    <Compile Include="View\CoursesViewer.xaml.cs">
       <DependentUpon>CoursesViewer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="userinterface\pages\DetailedCourseViewer.xaml.cs">
+    <Compile Include="View\DetailedCourseViewer.xaml.cs">
       <DependentUpon>DetailedCourseViewer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="userinterface\usercontrols\CourseViewer.xaml.cs">
+    <Compile Include="View\UserControls\AssignmentViewer.xaml.cs">
+      <DependentUpon>AssignmentViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\CourseViewer.xaml.cs">
       <DependentUpon>CourseViewer.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -133,22 +140,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="userinterface\pages\MainPage.xaml">
+    <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="userinterface\pages\CoursesViewer.xaml">
+    <Page Include="View\CoursesViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="userinterface\pages\DetailedCourseViewer.xaml">
+    <Page Include="View\DetailedCourseViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="userinterface\usercontrols\CourseViewer.xaml">
+    <Page Include="View\UserControls\AssignmentViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\UserControls\CourseViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\Commands\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

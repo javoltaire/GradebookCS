@@ -1,0 +1,22 @@
+﻿<UserControl
+    x:Class="GradebookCS.View.UserControls.CourseViewer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GradebookCS.userinterface.usercontrols"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <RelativePanel>
+        <Button x:Name="editButton" Content="E" Width="15" Height="15" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True"/>
+        <Button x:Name="deleteButton" Content="X" Width="15" Height="15" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+        <RelativePanel x:Name="nameRelativePanel" Height="30" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="editButton">
+            <TextBox x:Name="nameTextBox" Visibility="Collapsed" PlaceholderText="Course Name" MinHeight="0" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True"/>
+            <TextBlock x:Name="nameTextBlock" Text="Course Name" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True"/>
+        </RelativePanel>
+        <TextBlock x:Name="letterGradeTextBlock" Text="A" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="nameRelativePanel" RelativePanel.Above="numberGradeTextBlock" />
+        <TextBlock x:Name="numberGradeTextBlock" Text="~/~" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+    </RelativePanel>
+</UserControl>
