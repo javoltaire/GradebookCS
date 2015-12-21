@@ -8,5 +8,6 @@ namespace GradebookCS.ViewModel.UserControls
 {
     public class AssignmentViewerViewModel
     {
+        
     }
 }
