@@ -14,7 +14,19 @@ namespace GradebookCS.Model
         #endregion
 
         #region Properties
-        public string Name { get; set; }
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (String.IsNullOrEmpty(value) || String.IsNullOrWhiteSpace(value))
+                    throw new Exception("Name cannot be empty");
+                else if (!name.Equals(value))
+                {
+                    name = value;
+                }
+            }
+        }
         public double Weight { get; set; }
         public ComputedGrade TotalGrade { get; }
         public ComputedGrade WeightedGrade { get { return (ComputedGrade) TotalGrade.Scale(Weight); } }
