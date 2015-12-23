@@ -99,6 +99,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\AdjustableGrade.cs" />
+    <Compile Include="Model\Assignment.cs" />
     <Compile Include="Model\ComputedGrade.cs" />
     <Compile Include="Model\GradeBase.cs" />
     <Compile Include="Model\LetterGradeRange.cs" />
