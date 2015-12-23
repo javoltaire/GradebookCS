@@ -102,6 +102,7 @@
     <Compile Include="Model\Assignment.cs" />
     <Compile Include="Model\Component.cs" />
     <Compile Include="Model\ComputedGrade.cs" />
+    <Compile Include="Model\Course.cs" />
     <Compile Include="Model\GradeBase.cs" />
     <Compile Include="Model\LetterGradeRange.cs" />
     <Compile Include="ViewModel\Converters\BooleanToVisibilityConverter.cs" />
