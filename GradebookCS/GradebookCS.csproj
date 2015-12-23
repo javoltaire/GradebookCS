@@ -98,6 +98,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\LetterGradeRange.cs" />
     <Compile Include="ViewModel\Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="ViewModel\UserControls\AssignmentViewerViewModel.cs" />
     <Compile Include="View\MainPage.xaml.cs">
@@ -160,7 +161,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="ViewModel\Commands\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
