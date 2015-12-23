@@ -22,16 +22,6 @@ namespace GradebookCS.Model
         /// The letter associated with this <see cref="LetterGradeRange"/>
         /// </summary>
         private string letter = "";
-
-        /// <summary>
-        /// The lower part of the <see cref="LetterGradeRange"/>
-        /// </summary>
-        private double lowEnd = 0;
-
-        /// <summary>
-        /// The higher part of the <see cref="LetterGradeRange"/>
-        /// </summary>
-        private double highEnd = 1;
         #endregion
 
         #region Properties
@@ -53,38 +43,16 @@ namespace GradebookCS.Model
         }
 
         /// <summary>
-        /// Gets or Sets the <see cref="lowEnd"/> of this <see cref="LetterGradeRange"/>
+        /// Gets or sets the <see cref="lowEnd"/> of this <see cref="LetterGradeRange"/>
         /// </summary>
         /// <value> The <see cref="lowEnd"/> of the <see cref="LetterGradeRange"/>.</value>
-        /// <exception cref="Exception">Thrown when the value is greater than <see cref="highEnd"/> or value is negative.</exception>
-        public double LowEnd
-        {
-            get { return lowEnd; }
-            set
-            {
-                if (value > highEnd || value < 0)
-                    throw new Exception("Low end cannot be negative or greater than high end");
-                else
-                    lowEnd = value;
-            }
-        }
+        public double LowEnd { get; private set; } = 0;
 
         /// <summary>
-        /// Gets or Sets the <see cref="highEnd"/> of this <see cref="LetterGradeRange"/>
+        /// Gets or sets the <see cref="highEnd"/> of this <see cref="LetterGradeRange"/>
         /// </summary>
         /// <value> The <see cref="highEnd"/> of the <see cref="LetterGradeRange"/>.</value>
-        /// <exception cref="Exception">Thrown when the value is less than <see cref="lowEnd"/> or value is negative.</exception>
-        public double HighEnd
-        {
-            get { return highEnd; }
-            set
-            {
-                if (value < lowEnd || value < 0)
-                    throw new Exception("High end cannot be negative or less than low end");
-                else
-                    highEnd = value;
-            }
-        }
+        public double HighEnd { get; private set; } = 1;
         #endregion
 
         #region Constructors
@@ -102,12 +70,30 @@ namespace GradebookCS.Model
         public LetterGradeRange(string letter, double lowEnd, double highEnd)
         {
             Letter = letter;
-            LowEnd = lowEnd;
-            HighEnd = highEnd;
+            this.LowEnd = lowEnd;
+            this.HighEnd = highEnd;
         }
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Updates the values of the <see cref="LetterGradeRange"/> with the new given values
+        /// </summary>
+        /// <param name="newLowEnd">The new <see cref="lowEnd"/> value</param>
+        /// <param name="newHighEnd">The new <see cref="highEnd"/> value</param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown When the new values are negative or the newLowEnd value is greater than the newHighValue</exception>
+        public void updateRangeValues(double newLowEnd, double newHighEnd)
+        {
+            if (newLowEnd < 0)
+                throw new ArgumentOutOfRangeException("Values cannot be Negative");
+            else if (newLowEnd > newHighEnd)
+                throw new ArgumentOutOfRangeException("Low End has to be less than High end");
+            else
+            {
+                this.LowEnd = newLowEnd;
+                this.HighEnd = newHighEnd;
+            }
+        }
         /// <summary>
         /// Determines whether a given value is between the <see cref="lowEnd"/> and <see cref="highEnd"/>
         /// </summary>
@@ -115,7 +101,7 @@ namespace GradebookCS.Model
         /// <returns>True if the value is between <see cref="lowEnd"/> and <see cref="highEnd"/>, and false otherwise.</returns>
         public bool IsInRange(double value)
         {
-            return value > lowEnd && value < highEnd;
+            return value > LowEnd && value < HighEnd;
         }
         #endregion
         
