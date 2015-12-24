@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GradebookCS.DataBase;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace GradebookCS.View.UserControls
         public AssignmentViewer()
         {
             this.InitializeComponent();
+            CoursesManagerSingleton.INSTANCE.PopulateCoursesList();
+            PercentageLabel.Text = CoursesManagerSingleton.INSTANCE.Courses.ElementAt(0).Components.ElementAt(0).TotalGrade.Percent.ToString();
         }
     }
 }

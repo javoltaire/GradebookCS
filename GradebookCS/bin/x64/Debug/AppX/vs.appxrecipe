@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-12-23T04:36:23.790</Modified>
+      <Modified>2015-12-24T17:48:14.625</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.exe">
       <PackagePath>entrypoint\GradebookCS.exe</PackagePath>
-      <Modified>2015-12-23T04:36:22.158</Modified>
+      <Modified>2015-12-24T17:48:14.118</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -498,7 +498,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.xr.xml">
       <PackagePath>GradebookCS.xr.xml</PackagePath>
-      <Modified>2015-12-21T16:02:33.232</Modified>
+      <Modified>2015-12-23T18:06:07.577</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -506,11 +506,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-12-23T04:36:23.449</Modified>
+      <Modified>2015-12-24T00:12:51.864</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\Core\GradebookCS.exe">
       <PackagePath>GradebookCS.exe</PackagePath>
-      <Modified>2015-12-23T04:36:23.784</Modified>
+      <Modified>2015-12-24T17:48:14.619</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -25,6 +25,7 @@ namespace GradebookCS.View
         public DetailedCourseViewer()
         {
             this.InitializeComponent();
+
         }
     }
 }

@@ -29,14 +29,17 @@ namespace GradebookCS.Model
         /// Gets or Sets the <see cref="letter"/> of this <see cref="LetterGradeRange"/>
         /// </summary>
         /// <value> The <see cref="letter"/> Associated with the <see cref="LetterGradeRange"/>.</value>
-        /// <exception cref="Exception">Thrown when the value has more than two characters.</exception>
+        /// <exception cref="ArgumentException">Thrown when the value for letter has more than 2 characters</exception>
+        /// <exception cref="ArgumentNullException">Thrown when the value has more than two characters.</exception>
         public string Letter
         {
             get { return letter; }
             set
             {
-                if (value.Length > 2)
-                    throw new Exception("Letter should not have more than 2 characters");
+                if (String.IsNullOrEmpty(value) || String.IsNullOrWhiteSpace(value))
+                    throw new ArgumentNullException("Letter Should not be empty, null, or WhiteSpaces");
+                else if(value.Length > 2)
+                    throw new ArgumentException("Letter should not have more than 2 characters"); 
                 else
                     letter = value;
             }
@@ -81,13 +84,14 @@ namespace GradebookCS.Model
         /// </summary>
         /// <param name="newLowEnd">The new <see cref="lowEnd"/> value</param>
         /// <param name="newHighEnd">The new <see cref="highEnd"/> value</param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown When the new values are negative or the newLowEnd value is greater than the newHighValue</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown When the new values are negative</exception>
+        /// <exception cref="ArgumentException">Throw when the LowEnd argument value is greater than the highEnd argument</exception>
         public void updateRangeValues(double newLowEnd, double newHighEnd)
         {
             if (newLowEnd < 0)
                 throw new ArgumentOutOfRangeException("Values cannot be Negative");
             else if (newLowEnd > newHighEnd)
-                throw new ArgumentOutOfRangeException("Low End has to be less than High end");
+                throw new ArgumentException("Low End has to be less than High end");
             else
             {
                 this.LowEnd = newLowEnd;
@@ -101,7 +105,7 @@ namespace GradebookCS.Model
         /// <returns>True if the value is between <see cref="lowEnd"/> and <see cref="highEnd"/>, and false otherwise.</returns>
         public bool IsInRange(double value)
         {
-            return value > LowEnd && value < HighEnd;
+            return value >= LowEnd && value <= HighEnd;
         }
         #endregion
         

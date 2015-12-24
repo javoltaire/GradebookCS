@@ -103,7 +103,7 @@
     <Compile Include="Model\Component.cs" />
     <Compile Include="Model\ComputedGrade.cs" />
     <Compile Include="Model\Course.cs" />
-    <Compile Include="Model\CoursesManagerSingleton.cs" />
+    <Compile Include="DataBase\CoursesManagerSingleton.cs" />
     <Compile Include="Model\GradeBase.cs" />
     <Compile Include="Model\LetterGradeRange.cs" />
     <Compile Include="ViewModel\Converters\BooleanToVisibilityConverter.cs" />

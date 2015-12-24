@@ -27,7 +27,7 @@
         <TextBox Text="98" VerticalAlignment="Center" Grid.Column="1"/>
         <TextBlock Text="100" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2"/>
         <TextBox Text="100" VerticalAlignment="Center" Grid.Column="2" />
-        <TextBlock Text="98%" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="3"/>
+        <TextBlock x:ConnectionId='1' x:Name="PercentageLabel" Text="98%" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="3"/>
         <ToggleButton Content="Ed" VerticalAlignment="Center" Grid.Column="4"/>
         <Button Content="X" VerticalAlignment="Center" Grid.Column="5"/>
     </Grid>
