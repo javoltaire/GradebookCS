@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GradebookCS.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,12 @@ namespace GradebookCS.View
         public CourseListPage()
         {
             this.InitializeComponent();
+        }
+
+        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Course item = (Course)e.ClickedItem;
+            ContextName.Text = item.Grade.Percent.ToString();
         }
     }
 }

@@ -4,6 +4,10 @@
     <RootPropertyPathName Name="CourseListPageViewModel" />
     <RootPropertyPathName Name="AddNewCourseCommand" />
     <RootPropertyPathName Name="Courses" />
+    <RootPropertyPathName Name="Grade" />
+    <RootPropertyPathName Name="Letter" />
+    <RootPropertyPathName Name="Score" />
+    <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="CurrentPageType" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
@@ -22,6 +26,8 @@
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="GradebookCS.View.CourseDetailsPage" />
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
@@ -30,6 +36,8 @@
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
       <RootProperty Name="Background" />
       <RootProperty Name="Children" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
       <RootProperty Name="DataContext" />
       <RootMethod Name="GetAlignBottomWithPanel" />
       <RootMethod Name="SetAlignBottomWithPanel" />
@@ -39,16 +47,22 @@
       <RootMethod Name="SetAlignTopWithPanel" />
       <RootMethod Name="GetAlignRightWithPanel" />
       <RootMethod Name="SetAlignRightWithPanel" />
-      <RootMethod Name="GetAlignVerticalCenterWith" />
-      <RootMethod Name="SetAlignVerticalCenterWith" />
+      <RootMethod Name="GetAlignHorizontalCenterWithPanel" />
+      <RootMethod Name="SetAlignHorizontalCenterWithPanel" />
       <RootMethod Name="GetBelow" />
       <RootMethod Name="SetBelow" />
+      <RootMethod Name="GetAbove" />
+      <RootMethod Name="SetAbove" />
+      <RootMethod Name="GetAlignVerticalCenterWith" />
+      <RootMethod Name="SetAlignVerticalCenterWith" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.GridView">
       <RootProperty Name="Padding" />
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="IsItemClickEnabled" />
       <RootProperty Name="SelectionMode" />
+      <RootProperty Name="ItemTemplate" />
+      <RootEvent Name="ItemClick" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Margin" />
@@ -56,9 +70,17 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Command" />
       <RootProperty Name="Content" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="MinHeight" />
+      <RootProperty Name="MinWidth" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.SymbolIcon">
       <RootProperty Name="Symbol" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
+      <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="GradebookCS.View.CourseListPage" />
     <RootType FullName="GradebookCS.ViewModel.MainPageViewModel" />

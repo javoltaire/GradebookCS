@@ -49,6 +49,8 @@ namespace GradebookCS.Model
         {
             get
             {
+                if (maximumScore < 1)
+                    return 0;
                 return 100 * score / maximumScore;
             }
         }
