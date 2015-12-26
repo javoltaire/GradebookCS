@@ -14,7 +14,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// The name of the <see cref="Course"/>
         /// </summary>
-        private string name;
+        private string name = String.Empty;
         #endregion
 
         #region Properties
@@ -72,6 +72,7 @@ namespace GradebookCS.Model
             Name = name;
             this.Grade = new ComputedGrade();
             Components = new ObservableCollection<Component>();
+            this.Components.CollectionChanged += Components_CollectionChanged;
         }
         #endregion
 

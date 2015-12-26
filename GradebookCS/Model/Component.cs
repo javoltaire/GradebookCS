@@ -14,13 +14,13 @@ namespace GradebookCS.Model
         /// <summary>
         /// The name of the <see cref="Component"/>
         /// </summary>
-        private string name;
+        private string name = String.Empty;
 
         /// <summary>
         /// The weight for this component
         /// </summary>
         /// <remarks>weight is how much is this component worth for a <see cref="Course"/></remarks>
-        private double weight;
+        private double weight = 0;
         #endregion
 
         #region Properties
@@ -103,7 +103,7 @@ namespace GradebookCS.Model
         /// <param name="weight">The weight of the component</param>
         public Component(string name, double weight)
         {
-            this.name = "Component";
+            this.Name = name;
             this.Weight = weight;
             TotalGrade = new ComputedGrade();
             Assignments = new ObservableCollection<Assignment>();

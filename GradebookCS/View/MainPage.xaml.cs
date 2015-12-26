@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,27 @@ namespace GradebookCS.View
         public MainPage()
         {
             this.InitializeComponent();
+            //Shows the back button in the title bar
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            //Adds an event to the back button
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += ContentFrame_BackRequested;
+        }
+
+        /// <summary>
+        /// Handles what happens the back button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ContentFrame_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            if (ContentFrame == null)
+                return;
+
+            if(ContentFrame.CanGoBack && e.Handled == false)
+            {
+                e.Handled = true;
+                ContentFrame.GoBack();
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// The name of the Assingment
         /// </summary>
-        private string name;
+        private string name = String.Empty;
         #endregion
 
         #region Properties
@@ -63,7 +63,7 @@ namespace GradebookCS.Model
         /// <param name="name">The name of the assignment</param>
         public Assignment(string name)
         {
-            this.name = name;
+            this.Name = name;
             this.Grade = new AdjustableGrade();
         }
 

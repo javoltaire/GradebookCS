@@ -22,17 +22,17 @@
     <AppXManifest Include="C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCSTest\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-12-24T18:52:53.546</Modified>
+      <Modified>2015-12-25T04:18:38.085</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCSTest\bin\x64\Debug\GradebookCSTest.exe">
       <PackagePath>entrypoint\GradebookCSTest.exe</PackagePath>
-      <Modified>2015-12-24T18:52:52.673</Modified>
+      <Modified>2015-12-25T04:18:33.032</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.exe">
       <PackagePath>GradebookCS.exe</PackagePath>
-      <Modified>2015-12-24T18:48:03.271</Modified>
+      <Modified>2015-12-25T04:18:31.006</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\TestPlatform.Universal\14.0\References\CommonConfiguration\neutral\Microsoft.VisualStudio.TestPlatform.TestExecutor.Core.dll">
       <PackagePath>Microsoft.VisualStudio.TestPlatform.TestExecutor.Core.dll</PackagePath>
@@ -470,38 +470,6 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2015-12-19T09:40:27.945</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\.nuget\packages\Microsoft.NETCore.Runtime.CoreCLR-x64\1.0.0\runtimes\win7-x64\native\clretwrc.dll">
-      <PackagePath>clretwrc.dll</PackagePath>
-      <Modified>2015-12-19T09:40:34.920</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\.nuget\packages\Microsoft.NETCore.Runtime.CoreCLR-x64\1.0.0\runtimes\win7-x64\native\coreclr.dll">
-      <PackagePath>coreclr.dll</PackagePath>
-      <Modified>2015-12-19T09:40:35.159</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\.nuget\packages\Microsoft.NETCore.Runtime.CoreCLR-x64\1.0.0\runtimes\win7-x64\native\dbgshim.dll">
-      <PackagePath>dbgshim.dll</PackagePath>
-      <Modified>2015-12-19T09:40:35.179</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\.nuget\packages\Microsoft.NETCore.Runtime.CoreCLR-x64\1.0.0\runtimes\win7-x64\native\mscordaccore.dll">
-      <PackagePath>mscordaccore.dll</PackagePath>
-      <Modified>2015-12-19T09:40:35.253</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\.nuget\packages\Microsoft.NETCore.Runtime.CoreCLR-x64\1.0.0\runtimes\win7-x64\native\mscordbi.dll">
-      <PackagePath>mscordbi.dll</PackagePath>
-      <Modified>2015-12-19T09:40:35.322</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\.nuget\packages\Microsoft.NETCore.Runtime.CoreCLR-x64\1.0.0\runtimes\win7-x64\native\mscorrc.debug.dll">
-      <PackagePath>mscorrc.debug.dll</PackagePath>
-      <Modified>2015-12-19T09:40:35.340</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\.nuget\packages\Microsoft.NETCore.Runtime.CoreCLR-x64\1.0.0\runtimes\win7-x64\native\mscorrc.dll">
-      <PackagePath>mscorrc.dll</PackagePath>
-      <Modified>2015-12-19T09:40:35.351</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\.nuget\packages\Microsoft.NETCore.Runtime.CoreCLR-x64\1.0.0\runtimes\win7-x64\lib\dotnet\mscorlib.ni.dll">
-      <PackagePath>mscorlib.ni.dll</PackagePath>
-      <Modified>2015-12-19T09:40:35.801</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\TestPlatform.Universal\14.0\Redist\CommonConfiguration\neutral\Microsoft.VisualStudio.TestPlatform.Common.dll">
       <PackagePath>Microsoft.VisualStudio.TestPlatform.Common.dll</PackagePath>
       <Modified>2015-11-20T02:31:16.000</Modified>
@@ -578,7 +546,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.xr.xml">
       <PackagePath>GradebookCS.xr.xml</PackagePath>
-      <Modified>2015-12-23T18:06:07.577</Modified>
+      <Modified>2015-12-25T04:10:14.199</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
@@ -590,11 +558,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCSTest\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-12-24T18:48:10.503</Modified>
+      <Modified>2015-12-25T04:18:37.958</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCSTest\bin\x64\Debug\Core\GradebookCSTest.exe">
       <PackagePath>GradebookCSTest.exe</PackagePath>
-      <Modified>2015-12-24T18:52:53.543</Modified>
+      <Modified>2015-12-25T04:18:38.082</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

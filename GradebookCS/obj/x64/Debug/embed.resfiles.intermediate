@@ -1,6 +1,4 @@
 App.xbf
-View\CoursesViewer.xbf
-View\DetailedCourseViewer.xbf
+View\CourseDetailsPage.xbf
+View\CourseListPage.xbf
 View\MainPage.xbf
-View\UserControls\AssignmentViewer.xbf
-View\UserControls\CourseViewer.xbf

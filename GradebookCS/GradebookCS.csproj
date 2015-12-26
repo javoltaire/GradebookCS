@@ -106,24 +106,19 @@
     <Compile Include="DataBase\CoursesManagerSingleton.cs" />
     <Compile Include="Model\GradeBase.cs" />
     <Compile Include="Model\LetterGradeRange.cs" />
-    <Compile Include="ViewModel\Converters\BooleanToVisibilityConverter.cs" />
-    <Compile Include="ViewModel\UserControls\AssignmentViewerViewModel.cs" />
+    <Compile Include="ViewModel\Commands\AddNewCourseCommand.cs" />
+    <Compile Include="ViewModel\CourseListPageViewModel.cs" />
+    <Compile Include="ViewModel\MainPageViewModel.cs" />
+    <Compile Include="View\CourseDetailsPage.xaml.cs">
+      <DependentUpon>CourseDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CourseListPage.xaml.cs">
+      <DependentUpon>CourseListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\CoursesViewer.xaml.cs">
-      <DependentUpon>CoursesViewer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\DetailedCourseViewer.xaml.cs">
-      <DependentUpon>DetailedCourseViewer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserControls\AssignmentViewer.xaml.cs">
-      <DependentUpon>AssignmentViewer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserControls\CourseViewer.xaml.cs">
-      <DependentUpon>CourseViewer.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -146,29 +141,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\CourseDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CourseListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\CoursesViewer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\DetailedCourseViewer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\UserControls\AssignmentViewer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\UserControls\CourseViewer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModel\Commands\" />
+    <Folder Include="View\UserControls\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
