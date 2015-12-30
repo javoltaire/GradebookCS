@@ -15,6 +15,8 @@ namespace GradebookCS.ViewModel
 {
     public class CourseListPageViewModel
     {
+        private CourseViewModel selectedCourseViewModel;
+        private MainPageViewModel mainPageViewModel;
         #region Properties
         /// <summary>
         /// Gets the list of courses
@@ -26,10 +28,22 @@ namespace GradebookCS.ViewModel
         /// Command to add a new Course
         /// </summary>
         public AddNewCourseCommand AddNewCourseCommand { get; private set; }
-        #endregion
-        
 
-        
+        public CourseViewModel SelectedCourseViewModel
+        {
+            get { return selectedCourseViewModel; }
+            set
+            {
+                selectedCourseViewModel = value;
+                mainPageViewModel.CurrentPageType = typeof(CourseDetailsPage);
+                selectedCourseViewModel = null;
+
+            }
+        }
+        #endregion
+
+
+
 
 
         #endregion
@@ -38,8 +52,9 @@ namespace GradebookCS.ViewModel
         /// <summary>
         /// Constructor to initialize a new instance of this class.
         /// </summary>
-        public CourseListPageViewModel()
+        public CourseListPageViewModel(MainPageViewModel mainPageViewModel)
         {
+            this.mainPageViewModel = mainPageViewModel;
             CourseViewModels = new ObservableCollection<CourseViewModel>();
             AddNewCourseCommand = new AddNewCourseCommand(this);
         }
@@ -53,11 +68,6 @@ namespace GradebookCS.ViewModel
             ContentDialogResult result = await courseInfoDialogViewModel.DialogResult();
             if (result == ContentDialogResult.Primary)
                 CourseViewModels.Add(newCourseViewModel);
-        }
-
-        public static void RemoveCourse(CourseViewModel courseViewModel)
-        {
-            CourseViewModels.Remove(courseViewModel);
         }
         #endregion
 

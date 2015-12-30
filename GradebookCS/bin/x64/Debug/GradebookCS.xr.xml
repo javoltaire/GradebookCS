@@ -15,6 +15,7 @@
     <RootPropertyPathName Name="CourseListPageViewModel" />
     <RootPropertyPathName Name="AddNewCourseCommand" />
     <RootPropertyPathName Name="CourseViewModels" />
+    <RootPropertyPathName Name="SelectedCourseViewModel" />
     <RootPropertyPathName Name="Course" />
     <RootPropertyPathName Name="Letter" />
     <RootPropertyPathName Name="Score" />
@@ -100,7 +101,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.GridView">
       <RootProperty Name="Padding" />
       <RootProperty Name="ItemsSource" />
-      <RootProperty Name="IsItemClickEnabled" />
+      <RootProperty Name="SelectedItem" />
       <RootProperty Name="SelectionMode" />
       <RootProperty Name="ItemTemplate" />
       <RootEvent Name="ItemClick" />

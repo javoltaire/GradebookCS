@@ -9,7 +9,7 @@
     DataContext="{Binding CourseListPageViewModel}">
 
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <GridView ItemClick="GridView_ItemClick" Padding="10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" ItemsSource="{Binding CourseViewModels}" IsItemClickEnabled="True" SelectionMode="None">
+        <GridView ItemClick="GridView_ItemClick" Padding="10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" ItemsSource="{Binding CourseViewModels}" SelectedItem="{Binding SelectedCourseViewModel, Mode=TwoWay}" SelectionMode="Single">
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <RelativePanel Width="130" Height="130">

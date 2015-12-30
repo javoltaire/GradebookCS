@@ -205,7 +205,6 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
         private object Activate_3_CourseInfoDialog() { return new global::GradebookCS.View.CourseInfoDialog(); }
         private object Activate_6_CourseListPage() { return new global::GradebookCS.View.CourseListPage(); }
         private object Activate_7_MainPageViewModel() { return new global::GradebookCS.ViewModel.MainPageViewModel(); }
-        private object Activate_13_CourseListPageViewModel() { return new global::GradebookCS.ViewModel.CourseListPageViewModel(); }
         private object Activate_14_MainPage() { return new global::GradebookCS.View.MainPage(); }
         private object Activate_15_SettingsPage() { return new global::GradebookCS.View.SettingsPage(); }
 

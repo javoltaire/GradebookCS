@@ -14,11 +14,20 @@ namespace GradebookCS.ViewModel
 {
     public class MainPageViewModel : ViewModelBase
     {
+        private Type currentPageType;
         #region Properties
         /// <summary>
         /// Gets the page type being shown
         /// </summary>
-        public Type CurrentPageType { get; set; }
+        public Type CurrentPageType
+        {
+            get { return currentPageType; }
+            set
+            {
+                currentPageType = value;
+                onPropertyChanged("CurrentPageType");
+            }
+        }
 
         /// <summary>
         /// Gets the boolean indicating wheter the current page is already the settings page
@@ -49,7 +58,7 @@ namespace GradebookCS.ViewModel
         {
             CurrentPageType = typeof(CourseListPage);
             ViewSettingsCommand = new ViewSettingsCommand(this);
-            CourseListPageViewModel = new CourseListPageViewModel();
+            CourseListPageViewModel = new CourseListPageViewModel(this);
         }
         #endregion
 
@@ -60,7 +69,6 @@ namespace GradebookCS.ViewModel
         public void ViewSettingsPage()
         {
             CurrentPageType = typeof(SettingsPage);
-            onPropertyChanged("CurrentPageType");
         }
         #endregion
 
