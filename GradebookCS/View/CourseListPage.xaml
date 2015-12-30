@@ -14,7 +14,7 @@
                 <DataTemplate>
                     <RelativePanel Width="130" Height="130">
                         <RelativePanel x:Name="EditDeleteButtonCOntainer" Height="20" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
-                            <Button Background="Transparent" Padding="0" MinHeight="0" MinWidth="0" Width="20" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Command="{Binding ViewCourseInfoCommand}">
+                            <Button Background="Transparent" Padding="0" MinHeight="0" MinWidth="0" Width="20" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Command="{Binding EditCourseInfoCommand}">
                                 <SymbolIcon Symbol="Edit"/>
                             </Button>
                             <Button Background="Transparent" Padding="0" MinHeight="0" MinWidth="0" Width="20" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True">

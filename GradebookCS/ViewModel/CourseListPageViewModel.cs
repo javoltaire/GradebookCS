@@ -48,25 +48,11 @@ namespace GradebookCS.ViewModel
         #region Methods
         public async void AddNewCourse()
         {
-            //Course course = new Course();
-            //CourseInfoDialog dialog = new CourseInfoDialog();
-            //dialog.DataContext = course;
-            //dialog.PrimaryButtonText = "Create";
-            //await dialog.ShowAsync();
-            //if(dialog.Result == "OK")
-            //Courses.Add(course);
             CourseViewModel newCourseViewModel = new CourseViewModel();
             CourseInfoDialogViewModel courseInfoDialogViewModel = new CourseInfoDialogViewModel(newCourseViewModel.Course);
             ContentDialogResult result = await courseInfoDialogViewModel.DialogResult();
             if (result == ContentDialogResult.Primary)
                 CourseViewModels.Add(newCourseViewModel);
-        }
-
-        public async void ShowCourseInfoDialog(Course course)
-        {
-            CourseInfoDialog dialog = new CourseInfoDialog();
-            dialog.DataContext = course;
-            await dialog.ShowAsync();
         }
         #endregion
 

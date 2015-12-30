@@ -9,10 +9,10 @@ using System.Windows.Input;
 
 namespace GradebookCS.ViewModel.Commands
 {
-    public class ViewCourseInfoCommand : ICommand
+    public class EditCourseInfoCommand : ICommand
     {
         private CourseViewModel courseViewModel;
-        public ViewCourseInfoCommand(CourseViewModel courseViewModel)
+        public EditCourseInfoCommand(CourseViewModel courseViewModel)
         {
             this.courseViewModel = courseViewModel;
         }
@@ -26,7 +26,7 @@ namespace GradebookCS.ViewModel.Commands
 
         public void Execute(object parameter)
         {
-            courseViewModel.ViewCourseInfo();
+            courseViewModel.EditCourseInfo();
         }
     }
 }
