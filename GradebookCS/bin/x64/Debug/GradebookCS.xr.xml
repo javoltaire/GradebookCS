@@ -18,6 +18,7 @@
     <RootPropertyPathName Name="Course" />
     <RootPropertyPathName Name="Letter" />
     <RootPropertyPathName Name="Score" />
+    <RootPropertyPathName Name="DeleteCourseCommand" />
     <RootPropertyPathName Name="EditCourseInfoCommand" />
     <RootPropertyPathName Name="CurrentPageType" />
     <RootPropertyPathName Name="ViewSettingsCommand" />

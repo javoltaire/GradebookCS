@@ -19,7 +19,7 @@ namespace GradebookCS.ViewModel
         /// <summary>
         /// Gets the list of courses
         /// </summary>
-        public ObservableCollection<CourseViewModel> CourseViewModels { get; private set; }
+        public static ObservableCollection<CourseViewModel> CourseViewModels { get; private set; }
 
         #region CommandProperties
         /// <summary>
@@ -53,6 +53,11 @@ namespace GradebookCS.ViewModel
             ContentDialogResult result = await courseInfoDialogViewModel.DialogResult();
             if (result == ContentDialogResult.Primary)
                 CourseViewModels.Add(newCourseViewModel);
+        }
+
+        public static void RemoveCourse(CourseViewModel courseViewModel)
+        {
+            CourseViewModels.Remove(courseViewModel);
         }
         #endregion
 

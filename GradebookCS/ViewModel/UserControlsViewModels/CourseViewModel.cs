@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 
 namespace GradebookCS.ViewModel.UserControlsViewModels
@@ -14,6 +15,7 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
         
         public Course Course { get; private set; }
         public EditCourseInfoCommand EditCourseInfoCommand { get; private set; }
+        public DeleteCourseCommand DeleteCourseCommand { get; private set; }
 
 
         public CourseViewModel()
@@ -21,6 +23,7 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
             Course = new Course();
 
             EditCourseInfoCommand = new EditCourseInfoCommand(this);
+            DeleteCourseCommand = new DeleteCourseCommand(this);
         }
 
         public async void EditCourseInfo()
@@ -48,6 +51,17 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
                 Course.Grade.NRRangeHighEnd = nrHigh;
             }
 
+        }
+
+        public async void Delete()
+        {
+            ContentDialog deleteDialog = new ContentDialog();
+            deleteDialog.Title = "Are you Sure you want to delete this course?";
+            deleteDialog.PrimaryButtonText = "Yes";
+            deleteDialog.SecondaryButtonText = "No";
+            var result = await deleteDialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+                CourseListPageViewModel.CourseViewModels.Remove(this);
         }
     }
 }
