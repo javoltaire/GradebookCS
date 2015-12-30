@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="using:GradebookCS.ViewModel"
-    xmlns:navsystem="using:Windows.UI.Core"
+    xmlns:views="using:GradebookCS.View"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -14,7 +14,7 @@
     </Page.Resources>
 
     <RelativePanel x:Name="rootPane" DataContext="{StaticResource MainPageViewModel}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="settingsButton" RelativePanel.AlignRightWithPanel="True" Height="40" Width="40">
+        <Button x:Name="settingsButton" RelativePanel.AlignRightWithPanel="True" Height="40" Width="40" Command="{Binding ViewSettingsCommand}">
             <SymbolIcon Symbol="Setting"/>
         </Button>
         <TextBlock x:Name="welcomeTextBlock" Text="Welcome" RelativePanel.AlignVerticalCenterWith="settingsButton"/>

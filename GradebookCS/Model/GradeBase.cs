@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace GradebookCS.Model
 {
+    /// <summary>
+    /// An abstract class to Represent a Grade, Something like 90 out of 100.
+    /// </summary>
     public abstract class GradeBase
     {
         #region Attributes
@@ -15,7 +18,7 @@ namespace GradebookCS.Model
         protected double score;
 
         /// <summary>
-        /// The maximim score
+        /// The maximim score possible
         /// </summary>
         protected double maximumScore;
 
@@ -44,21 +47,20 @@ namespace GradebookCS.Model
         /// <summary>
         /// Gets the percentage of the Grade
         /// </summary>
-        /// <value>The percentage, essensially  a scaled score out of 100</value>
+        /// <value>The percentage, essensially a scaled score out of 100</value>
         public double Percent
         {
             get
             {
-                if (maximumScore < 1)
+                if (maximumScore < 1 || score < 0)
                     return 0;
                 return 100 * score / maximumScore;
             }
         }
 
         /// <summary>
-        /// Gets the letter Based on the score and the range for this grade
+        /// Gets the letter based on the percentage and the ranges for this grade
         /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when the score isn't in between in any of the ranges.</exception>
         public string Letter
         {
             get
@@ -73,55 +75,87 @@ namespace GradebookCS.Model
                 else if (nrRange.IsInRange(tempPercent))
                     return nrRange.Letter;
                 else
-                    throw new ArgumentOutOfRangeException("Range not found");
+                    return "N/A";
             }
         }
 
         /// <summary>
-        /// Gets the low end of the A range
+        /// Gets or Sets the low end of the A range
         /// </summary>
-        public double ARangeLowEnd { get { return aRange.LowEnd; } }
+        public double ARangeLowEnd
+        {
+            get { return aRange.LowEnd; }
+            set { aRange.LowEnd = value; }
+        }
 
         /// <summary>
-        /// Gets the High end of the A range
+        /// Gets or Sets the High end of the A range
         /// </summary>
-        public double ARangeHighEnd { get { return aRange.HighEnd; } }
+        public double ARangeHighEnd
+        {
+            get { return aRange.HighEnd; }
+            set { aRange.HighEnd = value; }
+        }
 
         /// <summary>
-        /// Gets the low end of the B range
+        /// Gets or Sets the low end of the B range
         /// </summary>
-        public double BRangeLowEnd { get { return bRange.LowEnd; } }
+        public double BRangeLowEnd
+        {
+            get { return bRange.LowEnd; }
+            set { bRange.LowEnd = value; }
+        }
 
         /// <summary>
-        /// Gets the High end of the B range
+        /// Gets or Sets the High end of the B range
         /// </summary>
-        public double BRangeHighEnd { get { return bRange.HighEnd; } }
+        public double BRangeHighEnd
+        {
+            get { return bRange.HighEnd; }
+            set { bRange.HighEnd = value; }
+        }
 
         /// <summary>
-        /// Gets the low end of the C range
+        /// Gets or Sets the low end of the C range
         /// </summary>
-        public double CRangeLowEnd { get { return cRange.LowEnd; } }
+        public double CRangeLowEnd
+        {
+            get { return cRange.LowEnd; }
+            set { cRange.LowEnd = value; }
+        }
 
         /// <summary>
-        /// Gets the High end of the C range
+        /// Gets or Sets the High end of the C range
         /// </summary>
-        public double CRangeHighEnd { get { return cRange.HighEnd; } }
+        public double CRangeHighEnd
+        {
+            get { return cRange.HighEnd; }
+            set { cRange.HighEnd = value; }
+        }
 
         /// <summary>
-        /// Gets the low end of the NR range
+        /// Gets or Sets the low end of the NR range
         /// </summary>
-        public double NRRangeLowEnd { get { return nrRange.LowEnd; } }
+        public double NRRangeLowEnd
+        {
+            get { return nrRange.LowEnd; }
+            set { nrRange.LowEnd = value; }
+        }
 
         /// <summary>
-        /// Gets the High end of the NR range
+        /// Gets or Sets the High end of the NR range
         /// </summary>
-        public double NRRangeHighEnd { get { return nrRange.HighEnd; } }
+        public double NRRangeHighEnd
+        {
+            get { return nrRange.HighEnd; }
+            set { nrRange.HighEnd = value; }
+        }
+
         #endregion
 
         #region Constructors
-
         /// <summary>
-        /// Constructor to intantiate this class and initialize its attributes and properties with default values
+        /// Initializes an instance of the GradeBase class with default values
         /// </summary>
         protected GradeBase()
         {
@@ -134,7 +168,7 @@ namespace GradebookCS.Model
         }
 
         /// <summary>
-        /// Constructor to intantiate this class and initialize its attributes and properties with the given values
+        /// Initializes an instance of the GradeBase class with given values
         /// </summary>
         /// <param name="score">The score of the grade</param>
         /// <param name="maximumScore">The Maximum score of the grade</param>
@@ -151,7 +185,7 @@ namespace GradebookCS.Model
 
         #region Methods
         /// <summary>
-        /// Adds up another grade to this grade
+        /// Adds another grade to this grade
         /// </summary>
         /// <remarks>Adds up the scores together and maxscores together</remarks>
         /// <param name="grade">The grade to add to this</param>
@@ -159,26 +193,6 @@ namespace GradebookCS.Model
         {
             this.score += grade.score;
             this.maximumScore += grade.maximumScore;
-        }
-
-        /// <summary>
-        /// Updates The values of all the <see cref="LetterGradeRange"/>s
-        /// </summary>
-        /// <param name="aRangeLow">The low end of the A Range</param>
-        /// <param name="aRangeHigh">The high end of the A Range</param>
-        /// <param name="bRangeLow">The low end of the B Range</param>
-        /// <param name="bRangeHigh">The high end of the B Range</param>
-        /// <param name="cRangeLow">The low end of the C Range</param>
-        /// <param name="cRangeHigh">The high end of the C Range</param>
-        /// <param name="nrRangeLow">The low end of the NR Range</param>
-        /// <param name="nrRangeHigh">The high end of the NR Range</param>
-        public void UpdateRangeValue(double aRangeLow, double aRangeHigh, double bRangeLow,
-            double bRangeHigh, double cRangeLow, double cRangeHigh, double nrRangeLow, double nrRangeHigh)
-        {
-            aRange.updateRangeValues(aRangeLow, aRangeHigh);
-            bRange.updateRangeValues(bRangeLow, bRangeHigh);
-            cRange.updateRangeValues(cRangeLow, cRangeHigh);
-            nrRange.updateRangeValues(nrRangeLow,nrRangeHigh);
         }
         #endregion
     }

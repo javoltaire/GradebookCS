@@ -1,48 +1,94 @@
 ﻿using GradebookCS.Model;
+using GradebookCS.View;
 using GradebookCS.ViewModel.Commands;
+using GradebookCS.ViewModel.UserControlsViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GradebookCS.Enums;
+using Windows.UI.Xaml.Controls;
 
 namespace GradebookCS.ViewModel
 {
     public class CourseListPageViewModel
     {
-        #region Attributes
-        private MainPageViewModel mainPageViewModel;
-        #endregion
-
         #region Properties
         /// <summary>
         /// Gets the list of courses
         /// </summary>
-        public ObservableCollection<Course> Courses { get; private set; }
+        public ObservableCollection<CourseViewModel> CourseViewModels { get; private set; }
 
+        #region CommandProperties
+        /// <summary>
+        /// Command to add a new Course
+        /// </summary>
         public AddNewCourseCommand AddNewCourseCommand { get; private set; }
+        #endregion
+        
+
+        
+
+
         #endregion
 
         #region Constructor
         /// <summary>
         /// Constructor to initialize a new instance of this class.
         /// </summary>
-        /// <param name="mainPageViewModel"></param>
-        public CourseListPageViewModel(MainPageViewModel mainPageViewModel)
+        public CourseListPageViewModel()
         {
-            this.mainPageViewModel = mainPageViewModel;
-            Courses = new ObservableCollection<Course>();
+            CourseViewModels = new ObservableCollection<CourseViewModel>();
             AddNewCourseCommand = new AddNewCourseCommand(this);
         }
         #endregion
 
         #region Methods
-        public void AddNewCourse()
+        public async void AddNewCourse()
         {
-            Course course = new Course();
-            Courses.Add(course);
+            //Course course = new Course();
+            //CourseInfoDialog dialog = new CourseInfoDialog();
+            //dialog.DataContext = course;
+            //dialog.PrimaryButtonText = "Create";
+            //await dialog.ShowAsync();
+            //if(dialog.Result == "OK")
+            //Courses.Add(course);
+            CourseViewModel newCourseViewModel = new CourseViewModel();
+            CourseInfoDialogViewModel courseInfoDialogViewModel = new CourseInfoDialogViewModel(newCourseViewModel.Course);
+            ContentDialogResult result = await courseInfoDialogViewModel.DialogResult();
+            if (result == ContentDialogResult.Primary)
+                CourseViewModels.Add(newCourseViewModel);
+        }
+
+        public async void ShowCourseInfoDialog(Course course)
+        {
+            CourseInfoDialog dialog = new CourseInfoDialog();
+            dialog.DataContext = course;
+            await dialog.ShowAsync();
         }
         #endregion
+
+
+
+
+
+
+
+
+        private void PopulateCourses()
+        {
+            CourseViewModel course1 = new CourseViewModel();
+            course1.Course.Name = "CS 101";
+            CourseViewModel course2 = new CourseViewModel();
+            course2.Course.Name = "MA 101";
+            CourseViewModel course3 = new CourseViewModel();
+            course3.Course.Name = "PE 101";
+
+            CourseViewModels.Add(course1);
+            CourseViewModels.Add(course2);
+            CourseViewModels.Add(course3);
+        }
     }
 }

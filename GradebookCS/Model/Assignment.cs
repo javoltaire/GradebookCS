@@ -6,59 +6,39 @@ using System.Threading.Tasks;
 
 namespace GradebookCS.Model
 {
+    /// <summary>
+    /// Represent an assigment. Something like an exam, or a quizz or Homework
+    /// </summary>
+    /// <example>
+    /// Something like an Exam assignment with a grade of 98 out of 100 would be represented as:
+    /// <code>Assignment exam1 = new Assignment("Exam 1", 98, 100)</code>
+    /// </example>
     public class Assignment
     {
-        #region Attributes
-        /// <summary>
-        /// The name of the Assingment
-        /// </summary>
-        private string name = String.Empty;
-        #endregion
-
         #region Properties
         /// <summary>
         /// Gets or Sets the name of the assignment
         /// </summary>
-        /// <remarks>
-        /// The value is first checked to make sure it is not an empty string or white spaces before setting the name.
-        /// </remarks>
-        /// <exception cref="ArgumentNullException">
-        /// Thrown when the new value for the name is empty, null, or white spaces.
-        /// </exception>
-        public string Name
-        {
-            get { return name; }
-            set
-            {
-                if (String.IsNullOrEmpty(value) || String.IsNullOrWhiteSpace(value))
-                    throw new ArgumentNullException("Name cannot be empty");
-                else if (!name.Equals(value))
-                {
-                    name = value;
-                }
-            }
-        }
+        public string Name { get; set; }
 
         /// <summary>
-        /// Grade property
+        /// Gets the grade of the assingment
         /// </summary>
-        /// <remarks>
-        /// Gets or sets the grade; only sets from outside the class</remarks>
         public AdjustableGrade Grade { get; private set; }
         #endregion
 
         #region Constructors
         /// <summary>
-        /// Constructor to intantiate this class and initialize its attributes and properties with the default values
+        /// Initializes an instance of the Assignment class with default values
         /// </summary>
         public Assignment()
         {
-            this.name = "Assignment";
+            this.Name = "Assignment";
             this.Grade = new AdjustableGrade();
         }
 
         /// <summary>
-        /// Constructor to intantiate this class and initialize its attributes and properties with the given values
+        /// Initializes an instance of the Assignment class with the given values
         /// </summary>
         /// <param name="name">The name of the assignment</param>
         public Assignment(string name)
@@ -68,14 +48,14 @@ namespace GradebookCS.Model
         }
 
         /// <summary>
-        /// Constructor to intantiate this class and initialize its attributes and properties with the given values
+        /// Initializes an instance of the Assingment class with the given values
         /// </summary>
         /// <param name="name">The name of the assignment</param>
         /// <param name="score">The score of the assignment</param>
         /// <param name="maximumScore">The maximum score of the assignment</param>
         public Assignment(string name, double score, double maximumScore)
         {
-            this.name = name;
+            this.Name = name;
             this.Grade = new AdjustableGrade(score, maximumScore);
         }
         #endregion

@@ -48,24 +48,6 @@ namespace GradebookCSTest.ModelTest
         }
 
         [TestMethod]
-        public void UpdateRangeValues_NegativeValueForLowEnd_ThrowsArgumentOutOfRangeException()
-        {
-            //arrange
-            LetterGradeRange range = new LetterGradeRange();
-            //act => assert
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => range.updateRangeValues(-9, 40));
-        }
-
-        [TestMethod]
-        public void UpdateRangeValues_LowEndGreaterThanHighEnd_ThrowsArgumentException()
-        {
-            //arrange
-            LetterGradeRange range = new LetterGradeRange();
-            //act => assert
-            Assert.ThrowsException<ArgumentException>(() => range.updateRangeValues(50, 40));
-        }
-
-        [TestMethod]
         public void IsInRange_CheckIfNumberIsInRange_ReturnsTrue()
         {
             //arrange
@@ -74,20 +56,6 @@ namespace GradebookCSTest.ModelTest
             bool result = range.IsInRange(95);
             //assert
             Assert.IsTrue(result);
-        }
-
-        [TestMethod]
-        public void UpdateRangeValues_ValuesUpdated_()
-        {
-            //arrange
-            LetterGradeRange range = new LetterGradeRange("A", 90, 100);
-            double lowEnd = 85;
-            double highEnd = 95;
-            //act 
-            range.updateRangeValues(lowEnd, highEnd);
-            //assert
-            Assert.AreEqual(lowEnd, range.LowEnd);
-            Assert.AreEqual(highEnd, range.HighEnd);
         }
 
         [TestMethod]

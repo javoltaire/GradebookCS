@@ -24,17 +24,6 @@ namespace GradebookCSTest.ModelTest
         }
 
         [TestMethod]
-        public void LetterProperty_ScoreOutOfRange_ThrowsArgumentOutOfRangeException()
-        {
-            //arrange
-            ComputedGrade grade = new ComputedGrade(45, 50);
-            grade.UpdateRangeValue(0, 1, 3, 4, 5, 6, 7, 8);
-            string letter;
-            //act => assert
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => letter = grade.Letter);
-        }
-
-        [TestMethod]
         public void LetterProperty_GetTheLetterForTheScore_ReturnsTheLetterAssociatedWithTheScore()
         {
             //arrange

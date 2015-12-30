@@ -10,36 +10,14 @@ namespace GradebookCS.Model
 {
     public class Course
     {
-        #region Attributes
-        /// <summary>
-        /// The name of the <see cref="Course"/>
-        /// </summary>
-        private string name = String.Empty;
-        #endregion
-
         #region Properties
         /// <summary>
         /// Gets or Sets the name of the <see cref="Course"/>
         /// </summary>
-        /// <remarks>The new value is checked to make sure that it isn't an empty string or white spaces.</remarks>
-        /// <value>The name of the <see cref="Course"/></value>
-        /// <exception cref="ArgumentNullException">Thrown when the value to set the name to is empty, null or whitespaces</exception>
-        public string Name
-        {
-            get { return name; }
-            set
-            {
-                if (String.IsNullOrEmpty(value) || String.IsNullOrWhiteSpace(value))
-                    throw new ArgumentNullException("Name cannot be empty, null or white spaces");
-                else if (!name.Equals(value))
-                {
-                    name = value;
-                }
-            }
-        }
+        public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets the grade for this <see cref="Course"/>, can only be set from within this class
+        /// Gets or Sets the grade for this <see cref="Course"/>
         /// </summary>
         /// <value>The Grade of the <see cref="Course"/></value>
         public ComputedGrade Grade { get; private set; }
@@ -53,24 +31,24 @@ namespace GradebookCS.Model
 
         #region Constructors
         /// <summary>
-        /// Constructor to instantiate this class and initialize attributes and properties with default values
+        /// Initializes an instance of the Assignment class with default values
         /// </summary>
         public Course()
         {
-            name = "Course";
+            Name = "Course";
             Grade = new ComputedGrade();
             Components = new ObservableCollection<Component>();
             this.Components.CollectionChanged += Components_CollectionChanged;
         }
 
         /// <summary>
-        /// Constructor to instantiate this class and initialize attributes and properties with the given values
+        /// Initializes an instance of the Assignment class with given values
         /// </summary>
         /// <param name="name">The name for the course</param>
         public Course(string name)
         {
-            Name = name;
-            this.Grade = new ComputedGrade();
+            this.Name = name;
+            Grade = new ComputedGrade();
             Components = new ObservableCollection<Component>();
             this.Components.CollectionChanged += Components_CollectionChanged;
         }

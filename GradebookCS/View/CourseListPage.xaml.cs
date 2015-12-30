@@ -1,4 +1,6 @@
 ﻿using GradebookCS.Model;
+using GradebookCS.ViewModel;
+using GradebookCS.ViewModel.UserControlsViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,8 +32,31 @@ namespace GradebookCS.View
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Course item = (Course)e.ClickedItem;
-            ContextName.Text = item.Grade.Percent.ToString();
+            CourseViewModel item = (CourseViewModel)e.ClickedItem;
+            ContextName.Text = item.Course.Name;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+            ContextName.Text = b.DataContext.ToString();
+        }
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //CourseInfoDialog dialog = new CourseInfoDialog();
+            //var result = await dialog.ShowAsync();
+            //ContextName.Text = result.ToString();
+            CourseInfoDialogViewModel vm = new CourseInfoDialogViewModel(new Course());
+            ContentDialogResult result = await vm.DialogResult();
+            if(result == ContentDialogResult.Primary)
+            {
+                ContextName.Text = "It is the primary";
+            }
+            else if(result == ContentDialogResult.Secondary)
+            {
+                ContextName.Text = "It is the secondary";
+            }
         }
     }
 }

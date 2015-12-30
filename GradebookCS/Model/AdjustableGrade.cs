@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace GradebookCS.Model
 {
+    /// <summary>
+    /// An Ajustable grade is a grade where the score and max can be changed by the user.
+    /// </summary>
     public class AdjustableGrade : GradeBase
     {
         #region Properties
@@ -30,12 +33,12 @@ namespace GradebookCS.Model
 
         #region Constructors
         /// <summary>
-        /// Constructor to instantiate this class and initialize its attributes and properties with default values
+        /// Initializes an istance of the AdjustableGrade class with default values
         /// </summary>
         public AdjustableGrade() : base(0, 100) { }
 
         /// <summary>
-        /// Constructor to instantiate this class and initialize its attributes and properties with given values
+        /// Initializes an instance of the AdjustableGrade class with given values
         /// </summary>
         /// <param name="score">The given initial score</param>
         /// <param name="maximumScore">The given initial maximum score</param>
@@ -44,7 +47,7 @@ namespace GradebookCS.Model
 
         #region Methods
         /// <summary>
-        /// Scales the <see cref="score"/> of the grade based on the given value
+        /// Scales the <see cref="Score"/> of the grade based on the given value
         /// </summary>
         /// <param name="scaleValue">The maximum score to scale the <see cref="score"/> to</param>
         /// <returns>A new <see cref="AdjustableGrade"/> with the scaled values</returns>

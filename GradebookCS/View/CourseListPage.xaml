@@ -9,22 +9,21 @@
     DataContext="{Binding CourseListPageViewModel}">
 
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <GridView ItemClick="GridView_ItemClick" Padding="10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" ItemsSource="{Binding Courses}" IsItemClickEnabled="True" SelectionMode="None">
+        <GridView ItemClick="GridView_ItemClick" Padding="10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" ItemsSource="{Binding CourseViewModels}" IsItemClickEnabled="True" SelectionMode="None">
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <RelativePanel Width="130" Height="130">
                         <RelativePanel x:Name="EditDeleteButtonCOntainer" Height="20" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
-                            <Button Background="Transparent" Visibility="Collapsed" Padding="0" MinHeight="0" MinWidth="0" Width="20" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True">
+                            <Button Background="Transparent" Padding="0" MinHeight="0" MinWidth="0" Width="20" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Command="{Binding ViewCourseInfoCommand}">
                                 <SymbolIcon Symbol="Edit"/>
                             </Button>
-                            <Button Background="Transparent" Visibility="Collapsed" Padding="0" MinHeight="0" MinWidth="0" Width="20" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+                            <Button Background="Transparent" Padding="0" MinHeight="0" MinWidth="0" Width="20" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True">
                                 <SymbolIcon Symbol="Cancel"/>
                             </Button>
                         </RelativePanel>
-                        <TextBlock x:Name="NameTextBlock" Text="{Binding Name}" Padding="5,0" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="EditDeleteButtonCOntainer"/>
-                        <TextBlock x:Name="ScoreTextBlock" Text="{Binding Grade.Score}" Padding="5,0" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
-                        <TextBlock Text="{Binding Grade.Letter}" Padding="5,0,5,5" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="NameTextBlock" RelativePanel.Above="ScoreTextBlock"/>
-                        
+                        <TextBlock x:Name="NameTextBlock" Text="{Binding Course.Name}" Padding="5,0" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="EditDeleteButtonCOntainer"/>
+                        <TextBlock x:Name="ScoreTextBlock" Text="{Binding Course.Grade.Score}" Padding="5,0" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+                        <TextBlock Text="{Binding Course.Grade.Letter}" Padding="5,0,5,5" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="NameTextBlock" RelativePanel.Above="ScoreTextBlock"/>
                     </RelativePanel>
                 </DataTemplate>
             </GridView.ItemTemplate>

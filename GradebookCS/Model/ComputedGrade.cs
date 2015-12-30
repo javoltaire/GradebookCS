@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace GradebookCS.Model
 {
+    /// <summary>
+    /// Represents a Grade where the score and maxScore is calculated
+    /// </summary>
     public class ComputedGrade : GradeBase
     {
         #region Properties
         /// <summary>
-        /// Gets or Sets the Score, outside the class, only gets the score
+        /// Gets the score of the grade
         /// </summary>
         public double Score
         {
@@ -19,7 +22,7 @@ namespace GradebookCS.Model
         }
 
         /// <summary>
-        /// Gets or Sets the Maximum Score, outside the class, only gets the maximum score
+        /// Gets the maximum score of the grade
         /// </summary>
         public double MaximumScore
         {
@@ -30,15 +33,15 @@ namespace GradebookCS.Model
 
         #region Constructors
         /// <summary>
-        /// Constructor to instantiate this class and initialize its attributes ans properties with default values
+        /// Initializes an instance of the ComputedGrade class with default values
         /// </summary>
         public ComputedGrade() : base(0,0) { }
 
         /// <summary>
-        /// Constructor to instantiate this class and initialize its attributes ans properties with given values
+        /// Initializes an instance of the ComputedGrade class with given values
         /// </summary>
-        /// <param name="score">The given initial score</param>
-        /// <param name="maximumScore">The given initail maximum score</param>
+        /// <param name="score">The initial score</param>
+        /// <param name="maximumScore">The initail maximum score</param>
         public ComputedGrade(double score, double maximumScore): base(score, maximumScore) { }
         #endregion
 
@@ -46,13 +49,20 @@ namespace GradebookCS.Model
         /// <summary>
         /// Scales the <see cref="score"/> of the grade based on the given value
         /// </summary>
-        /// <param name="scaleValue">The maximum score to scale the <see cref="score"/> to</param>
+        /// <param name="scaleValue">The maximum score to scale the <see cref="Score"/> to</param>
         /// <returns>A new <see cref="ComputedGrade"/> with the scaled values</returns>
         public ComputedGrade Scale(double scaleValue)
         {
-            double scaledScore = scaleValue * score / maximumScore;
-            return new ComputedGrade(scaledScore, scaleValue);
+            if (scaleValue > 0 && maximumScore > 0)
+            {
+                double scaledScore = scaleValue * score / maximumScore;
+                return new ComputedGrade(scaledScore, scaleValue);
+            }
+            return new ComputedGrade();
         }
         #endregion
+
+
+        
     }
 }

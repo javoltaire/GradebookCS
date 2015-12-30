@@ -98,6 +98,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Enums\DialogResult.cs" />
     <Compile Include="Model\AdjustableGrade.cs" />
     <Compile Include="Model\Assignment.cs" />
     <Compile Include="Model\Component.cs" />
@@ -107,10 +108,18 @@
     <Compile Include="Model\GradeBase.cs" />
     <Compile Include="Model\LetterGradeRange.cs" />
     <Compile Include="ViewModel\Commands\AddNewCourseCommand.cs" />
+    <Compile Include="ViewModel\Commands\ViewCourseInfoCommand.cs" />
+    <Compile Include="ViewModel\Commands\ViewSettingsCommand.cs" />
+    <Compile Include="ViewModel\CourseInfoDialogViewModel.cs" />
     <Compile Include="ViewModel\CourseListPageViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
+    <Compile Include="ViewModel\UserControlsViewModels\CourseViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\CourseDetailsPage.xaml.cs">
       <DependentUpon>CourseDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CourseInfoDialog.xaml.cs">
+      <DependentUpon>CourseInfoDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CourseListPage.xaml.cs">
       <DependentUpon>CourseListPage.xaml</DependentUpon>
@@ -119,6 +128,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -145,6 +157,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\CourseInfoDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CourseListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -152,6 +168,10 @@
     <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

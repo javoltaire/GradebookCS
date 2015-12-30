@@ -204,3 +204,13 @@ C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\Co
 C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseListPage.xaml
 C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseDetailsPage.xbf
 C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseListPage.xbf
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\View\CourseInfoDialog.xbf
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseInfoDialog.g.i.cs
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseInfoDialog.g.cs
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseInfoDialog.xaml
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseInfoDialog.xbf
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\SettingsPage.g.i.cs
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\SettingsPage.g.cs
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\SettingsPage.xaml
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\SettingsPage.xbf
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\View\SettingsPage.xbf

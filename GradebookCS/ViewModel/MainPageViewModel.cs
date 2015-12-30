@@ -8,46 +8,59 @@ using Windows.UI.Xaml.Controls;
 using GradebookCS.View;
 using System.Collections.ObjectModel;
 using GradebookCS.Model;
+using GradebookCS.ViewModel.Commands;
 
 namespace GradebookCS.ViewModel
 {
-    public class MainPageViewModel
+    public class MainPageViewModel : ViewModelBase
     {
-        #region Attributes
-        /// <summary>
-        /// The current page being shown
-        /// </summary>
-        private Type currentPageType;
-
-        #endregion
-
         #region Properties
         /// <summary>
         /// Gets the page type being shown
         /// </summary>
-        public Type CurrentPageType
-        {
-            get { return currentPageType; }
-        }
+        public Type CurrentPageType { get; set; }
 
+        /// <summary>
+        /// Gets the boolean indicating wheter the current page is already the settings page
+        /// </summary>
+        public bool CanShowSettingsPage { get { return CurrentPageType != typeof(SettingsPage); } }
+
+        #region CommandProperties
+        /// <summary>
+        /// The command to View settings
+        /// </summary>
+        public ViewSettingsCommand ViewSettingsCommand { get; private set; }
+        #endregion
+
+        #region ViewModelsProperties
         /// <summary>
         /// Gets the COurseListPageViewModel
         /// </summary>
         public CourseListPageViewModel CourseListPageViewModel { get; private set; }
         #endregion
 
+        #endregion
+
         #region Constructors
+        /// <summary>
+        /// Initializes an instance of the MainPageViewModel class
+        /// </summary>
         public MainPageViewModel()
         {
-            currentPageType = typeof(CourseListPage);
-            CourseListPageViewModel = new CourseListPageViewModel(this);
+            CurrentPageType = typeof(CourseListPage);
+            ViewSettingsCommand = new ViewSettingsCommand(this);
+            CourseListPageViewModel = new CourseListPageViewModel();
         }
         #endregion
 
         #region Methods
-        public void ViewCourseDetail()
+        /// <summary>
+        /// Shows the Settings page
+        /// </summary>
+        public void ViewSettingsPage()
         {
-            currentPageType = typeof(CourseDetailsPage);
+            CurrentPageType = typeof(SettingsPage);
+            onPropertyChanged("CurrentPageType");
         }
         #endregion
 
@@ -59,6 +72,11 @@ namespace GradebookCS.ViewModel
 
 
 
+        public void ViewCourseDetail()
+        {
+            CurrentPageType = typeof(CourseDetailsPage);
+            onPropertyChanged("CurrentPageType");
+        }
 
         private void PopulateCoursesList()
         {

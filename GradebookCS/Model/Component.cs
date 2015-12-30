@@ -12,11 +12,6 @@ namespace GradebookCS.Model
     {
         #region Attributes
         /// <summary>
-        /// The name of the <see cref="Component"/>
-        /// </summary>
-        private string name = String.Empty;
-
-        /// <summary>
         /// The weight for this component
         /// </summary>
         /// <remarks>weight is how much is this component worth for a <see cref="Course"/></remarks>
@@ -27,22 +22,8 @@ namespace GradebookCS.Model
         /// <summary>
         /// Gets or sets the name of this <see cref="Component"/>
         /// </summary>
-        /// <remarks>Before setting the name, the new value is checked to make sure the value isn't null, empty or white spaces</remarks>
         /// <value>The name of Component</value>
-        /// <exception cref="ArgumentNullException">Thrown when the new value is null, empty or whitespaces</exception>
-        public string Name
-        {
-            get { return name; }
-            set
-            {
-                if (String.IsNullOrEmpty(value) || String.IsNullOrWhiteSpace(value))
-                    throw new ArgumentNullException("Name cannot be empty");
-                else if (!name.Equals(value))
-                {
-                    name = value;
-                }
-            }
-        }
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the weight of this component
@@ -62,34 +43,28 @@ namespace GradebookCS.Model
         }
 
         /// <summary>
-        /// Total grade Property
+        /// Gets the Total grade
         /// </summary>
-        /// <remarks>
-        /// Gets or Sets the Total grade; only gets from outside the class
-        /// </remarks>
         public ComputedGrade TotalGrade { get; private set; }
 
         /// <summary>
-        /// Weighted grade Property
+        /// Gets the calculated Weighted grade
         /// </summary>
-        /// <remarks>
-        ///  Gets the calculated Weighted grade
-        /// </remarks>
         public ComputedGrade WeightedGrade { get { return TotalGrade.Scale(Weight); } }
 
         /// <summary>
-        /// Gets or sets the list that hold all the assignments; only gets from outside this class
+        /// Gets the list that hold all the assignments
         /// </summary>
         public ObservableCollection<Assignment> Assignments { get; private set; }
         #endregion
 
         #region Constructors
         /// <summary>
-        /// Constructor to intantiate this class and initialize its attributes and properties with the default values
+        /// Initializes an instance of the Component class with the default values
         /// </summary>
         public Component()
         {
-            this.name = "Component";
+            Name = "Component";
             weight = 100;
             TotalGrade = new ComputedGrade();
             Assignments = new ObservableCollection<Assignment>();
@@ -97,7 +72,7 @@ namespace GradebookCS.Model
         }
 
         /// <summary>
-        /// Constructor to intantiate this class and initialize its attributes and properties with the given values
+        /// Initializes an instance of the Component class with the given values
         /// </summary>
         /// <param name="name">The name of the component</param>
         /// <param name="weight">The weight of the component</param>
