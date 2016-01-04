@@ -12,27 +12,38 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
     public class AssignmentViewerViewModel : BaseINPC
     {
         #region Attributes
-        public bool isInEditMode;
+        private bool isInEditMode;
         #endregion
 
         #region Properties
+        public Assignment Assignment { get; private set; }
+        public string AssignmentStringPercent { get { return Assignment.Grade.Percent + "%"; } }
+
         public bool IsInEditMode
         {
             get { return isInEditMode; }
             set
             {
-                isInEditMode = value;
-                onPropertyChanged();
+                if(value != isInEditMode)
+                {
+                    isInEditMode = value;
+                    onPropertyChanged();
+                }
             }
         }
-        public EditAssignmentCommand EditAssignmentCommand { get; private set; }
+
+        
+        public ShowAssignmentEditingConstolsCommand ShowAssignmentEditingConstolsCommand { get; private set; }
+        public HideAssignmentEditingConstolsCommand HideAssignmentEditingConstolsCommand { get; private set; }
         #endregion
 
         #region Constructors
         public AssignmentViewerViewModel()
         {
-            isInEditMode = true;
-            EditAssignmentCommand = new EditAssignmentCommand(this);
+            Assignment = new Assignment();
+            isInEditMode = false;
+            ShowAssignmentEditingConstolsCommand = new ShowAssignmentEditingConstolsCommand(this);
+            HideAssignmentEditingConstolsCommand = new HideAssignmentEditingConstolsCommand(this);
         }
         #endregion
     }

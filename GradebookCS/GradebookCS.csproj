@@ -110,7 +110,8 @@
     <Compile Include="Model\LetterGradeRange.cs" />
     <Compile Include="ViewModel\Commands\AddNewCourseCommand.cs" />
     <Compile Include="ViewModel\Commands\DeleteCourseCommand.cs" />
-    <Compile Include="ViewModel\Commands\EditAssignmentCommand.cs" />
+    <Compile Include="ViewModel\Commands\HideAssignmentEditingConstolsCommand.cs" />
+    <Compile Include="ViewModel\Commands\ShowAssignmentEditingConstolsCommand.cs" />
     <Compile Include="ViewModel\Commands\EditCourseInfoCommand.cs" />
     <Compile Include="ViewModel\Commands\ViewCourseDetailsCommand.cs" />
     <Compile Include="ViewModel\Commands\ViewSettingsCommand.cs" />

@@ -52,7 +52,7 @@ namespace GradebookCS.Model
         /// </summary>
         public Assignment()
         {
-            this.Name = "Assignment";
+            this.name = "Assignment";
             this.Grade = new AdjustableGrade();
         }
 

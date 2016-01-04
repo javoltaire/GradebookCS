@@ -25,6 +25,7 @@ namespace GradebookCS.Model
                     score = value;
                     onPropertyChanged();
                     onPropertyChanged("Percent");
+                    onPropertyChanged("PercentWithSign");
                     onPropertyChanged("Letter");
                 }
             }
@@ -43,6 +44,7 @@ namespace GradebookCS.Model
                     maximumScore = value;
                     onPropertyChanged();
                     onPropertyChanged("Percent");
+                    onPropertyChanged("PercentWithSign");
                     onPropertyChanged("Letter");
                 }
             }

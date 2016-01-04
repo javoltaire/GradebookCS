@@ -59,6 +59,8 @@ namespace GradebookCS.Model
             }
         }
 
+        public string PercentWithSign { get { return Percent + "%"; } }
+
         /// <summary>
         /// Gets the letter based on the percentage and the ranges for this grade
         /// </summary>

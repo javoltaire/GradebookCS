@@ -28,7 +28,12 @@
     <RootPropertyPathName Name="EditCourseInfoCommand" />
     <RootPropertyPathName Name="CurrentPageType" />
     <RootPropertyPathName Name="ViewSettingsCommand" />
+    <RootPropertyPathName Name="HideAssignmentEditingConstolsCommand" />
     <RootPropertyPathName Name="IsInEditMode" />
+    <RootPropertyPathName Name="ShowAssignmentEditingConstolsCommand" />
+    <RootPropertyPathName Name="Assignment" />
+    <RootPropertyPathName Name="PercentWithSign" />
+    <RootPropertyPathName Name="MaximumScore" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -44,6 +49,7 @@
       <RootProperty Name="Mode" />
       <RootProperty Name="Path" />
       <RootProperty Name="Converter" />
+      <RootProperty Name="UpdateSourceTrigger" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
       <RootProperty Name="Background" />

@@ -8,11 +8,11 @@ using System.Windows.Input;
 
 namespace GradebookCS.ViewModel.Commands
 {
-    public class EditAssignmentCommand : ICommand
+    public class ShowAssignmentEditingConstolsCommand : ICommand
     {
         public AssignmentViewerViewModel assignmentViewerViewModel;
 
-        public EditAssignmentCommand(AssignmentViewerViewModel assignmentViewerViewModel)
+        public ShowAssignmentEditingConstolsCommand(AssignmentViewerViewModel assignmentViewerViewModel)
         {
             this.assignmentViewerViewModel = assignmentViewerViewModel;
         }

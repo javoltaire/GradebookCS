@@ -22,15 +22,17 @@
             <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="30"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Name" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
-        <TextBox PlaceholderText="Assignment Name" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
-        <TextBlock Grid.Column="1" Text="90" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
-        <TextBox Grid.Column="1" PlaceholderText="Score" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
-        <TextBlock Grid.Column="2" Text="100" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
-        <TextBox Grid.Column="2" PlaceholderText="Max" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
-        <TextBlock Grid.Column="3" Text="90%" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        
-        <Button Grid.Column="4" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}">
+        <TextBlock Text="{Binding Assignment.Name, Mode=OneWay}" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
+        <TextBox Text="{Binding Assignment.Name, Mode=TwoWay}" PlaceholderText="Assignment Name" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
+        <TextBlock Grid.Column="1" Text="{Binding Assignment.Grade.Score, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
+        <TextBox Grid.Column="1" Text="{Binding Assignment.Grade.Score, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Score" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
+        <TextBlock Grid.Column="2" Text="{Binding Assignment.Grade.MaximumScore, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
+        <TextBox Grid.Column="2" Text="{Binding Assignment.Grade.MaximumScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Max" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
+        <TextBlock Grid.Column="3" Text="{Binding Assignment.Grade.PercentWithSign, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Grid.Column="4" Command="{Binding ShowAssignmentEditingConstolsCommand}" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}">
+            <SymbolIcon Symbol="Edit"/>
+        </Button>
+        <Button Grid.Column="4" Command="{Binding HideAssignmentEditingConstolsCommand}" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}">
             <SymbolIcon Symbol="Save"/>
         </Button>
         <Button Grid.Column="5">
