@@ -97,7 +97,7 @@ namespace GradebookCS.Model
             TotalGrade = new ComputedGrade();
             foreach(Assignment assignment in Assignments)
             {
-                TotalGrade.Add(assignment.Grade);
+                //TotalGrade.Add(assignment.Grade);
             }
         }
         #endregion

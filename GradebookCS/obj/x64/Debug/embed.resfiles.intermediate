@@ -4,3 +4,5 @@ View\CourseInfoDialog.xbf
 View\CourseListPage.xbf
 View\MainPage.xbf
 View\SettingsPage.xbf
+View\UserControls\AssignmentViewer.xbf
+View\UserControls\ComponentViewer.xbf

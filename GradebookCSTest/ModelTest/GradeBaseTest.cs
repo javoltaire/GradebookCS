@@ -45,7 +45,7 @@ namespace GradebookCSTest.ModelTest
             double scoreTotal = grade.Score + gradeToAdd.Score;
             double maximumScoreTotal = grade.MaximumScore + gradeToAdd.MaximumScore;
             //act
-            grade.Add(gradeToAdd);
+            //grade.Add(gradeToAdd);
             //assert
             Assert.AreEqual(grade.Score, scoreTotal);
             Assert.AreEqual(grade.MaximumScore, maximumScoreTotal);

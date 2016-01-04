@@ -214,3 +214,13 @@ C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\Se
 C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\SettingsPage.xaml
 C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\SettingsPage.xbf
 C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\View\SettingsPage.xbf
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\View\UserControls\ComponentViewer.xbf
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ComponentViewer.g.i.cs
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ComponentViewer.g.cs
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ComponentViewer.xaml
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ComponentViewer.xbf
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\View\UserControls\AssignmentViewer.xbf
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\AssignmentViewer.g.i.cs
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\AssignmentViewer.g.cs
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\AssignmentViewer.xaml
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\AssignmentViewer.xbf

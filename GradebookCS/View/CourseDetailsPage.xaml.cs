@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GradebookCS.View.UserControls;
+using GradebookCS.ViewModel.UserControlsViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +27,14 @@ namespace GradebookCS.View
         public CourseDetailsPage()
         {
             this.InitializeComponent();
+            AssignmentViewerViewModel a = new AssignmentViewerViewModel();
+            assignmetntest.DataContext = a;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ComponentViewer item = new ComponentViewer();
+            listview.Items.Add(item);
         }
     }
 }

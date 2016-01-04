@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
+using GradebookCS.Common;
 
 namespace GradebookCS.Model
 {
-    public class Course
+    public class Course: BaseINPC
     {
         #region Properties
         /// <summary>
         /// Gets or Sets the name of the <see cref="Course"/>
         /// </summary>
         public string Name { get; set; }
-
         /// <summary>
         /// Gets or Sets the grade for this <see cref="Course"/>
         /// </summary>
@@ -65,7 +59,7 @@ namespace GradebookCS.Model
             Grade = new ComputedGrade();
             foreach(Component c in Components)
             {
-                Grade.Add(c.WeightedGrade);
+                //Grade.Add(c.WeightedGrade);
             }
         }
         #endregion

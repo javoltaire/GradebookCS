@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GradebookCS.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,26 +16,75 @@ namespace GradebookCS.Model
     /// LetterGradeRange aRange = new LetterGradeRange("A", 90, 100);
     /// </code>
     /// </example>
-    public class LetterGradeRange
+    public class LetterGradeRange : BaseINPC
     {
+        #region Attributes
+        /// <summary>
+        /// The letter for the range
+        /// </summary>
+        private string letter;
+
+        /// <summary>
+        /// the low end of the range
+        /// </summary>
+        private double lowEnd;
+
+        /// <summary>
+        /// The high end of the range
+        /// </summary>
+        private double highEnd;
+        #endregion
+
         #region Properties
         /// <summary>
         /// Gets or Sets the letter for this <see cref="LetterGradeRange"/>
         /// </summary>
         /// <value> The Letter associated with this <see cref="LetterGradeRange"/>.</value>
-        public string Letter { get; set; }
+        public string Letter
+        {
+            get { return letter; }
+            set {
+                if (value != letter)
+                {
+                    letter = value;
+                    onPropertyChanged();
+                }
+            }
+        }
 
         /// <summary>
         /// Gets or sets the low end of this <see cref="LetterGradeRange"/>
         /// </summary>
         /// <value> The low end of the <see cref="LetterGradeRange"/>.</value>
-        public double LowEnd { get; set; }
+        public double LowEnd
+        {
+            get { return lowEnd; }
+            set
+            {
+                if(value != lowEnd)
+                {
+                    lowEnd = value;
+                    onPropertyChanged();
+                }
+            }
+        }
 
         /// <summary>
         /// Gets or sets the high end of this <see cref="LetterGradeRange"/>
         /// </summary>
         /// <value> The high of the <see cref="LetterGradeRange"/>.</value>
-        public double HighEnd { get; set; }
+        public double HighEnd
+        {
+            get { return highEnd; }
+            set
+            {
+                if(value != highEnd)
+                {
+                    highEnd = value;
+                    onPropertyChanged();
+                }
+            }
+        }
         #endregion
 
         #region Constructors
@@ -43,9 +93,9 @@ namespace GradebookCS.Model
         /// </summary>
         public LetterGradeRange()
         {
-            this.Letter = String.Empty;
-            this.LowEnd = 0.0;
-            this.HighEnd = 0.0;
+            this.letter = String.Empty;
+            this.lowEnd = 0.0;
+            this.highEnd = 0.0;
         }
 
         /// <summary>
@@ -64,13 +114,13 @@ namespace GradebookCS.Model
 
         #region Methods
         /// <summary>
-        /// Determines whether a given value is between the <see cref="LowEnd"/> and <see cref="HighEnd"/>
+        /// Determines whether a given value is between the <see cref="lowEnd"/> and <see cref="highEnd"/>
         /// </summary>
         /// <param name="value">The value to check</param>
         /// <returns>True if the value is between <see cref="LowEnd"/> and <see cref="HighEnd"/>, and false otherwise.</returns>
         public bool IsInRange(double value)
         {
-            return value >= LowEnd && value <= HighEnd;
+            return value >= lowEnd && value <= highEnd;
         }
         #endregion
         

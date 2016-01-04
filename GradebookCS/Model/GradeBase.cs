@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GradebookCS.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace GradebookCS.Model
     /// <summary>
     /// An abstract class to Represent a Grade, Something like 90 out of 100.
     /// </summary>
-    public abstract class GradeBase
+    public abstract class GradeBase : BaseINPC
     {
         #region Attributes
         /// <summary>
@@ -85,7 +86,14 @@ namespace GradebookCS.Model
         public double ARangeLowEnd
         {
             get { return aRange.LowEnd; }
-            set { aRange.LowEnd = value; }
+            set
+            {
+                if (value != aRange.LowEnd)
+                {
+                    aRange.LowEnd = value;
+                    onPropertyChanged("Letter");
+                }
+            }
         }
 
         /// <summary>
@@ -94,7 +102,14 @@ namespace GradebookCS.Model
         public double ARangeHighEnd
         {
             get { return aRange.HighEnd; }
-            set { aRange.HighEnd = value; }
+            set
+            {
+                if (value != aRange.HighEnd)
+                {
+                    aRange.HighEnd = value;
+                    onPropertyChanged("Letter");
+                }
+            }
         }
 
         /// <summary>
@@ -103,7 +118,14 @@ namespace GradebookCS.Model
         public double BRangeLowEnd
         {
             get { return bRange.LowEnd; }
-            set { bRange.LowEnd = value; }
+            set
+            {
+                if (value != bRange.LowEnd)
+                {
+                    bRange.LowEnd = value;
+                    onPropertyChanged("Letter");
+                }
+            }
         }
 
         /// <summary>
@@ -112,7 +134,14 @@ namespace GradebookCS.Model
         public double BRangeHighEnd
         {
             get { return bRange.HighEnd; }
-            set { bRange.HighEnd = value; }
+            set
+            {
+                if (value != bRange.HighEnd)
+                {
+                    bRange.HighEnd = value;
+                    onPropertyChanged("Letter");
+                }
+            }
         }
 
         /// <summary>
@@ -121,7 +150,14 @@ namespace GradebookCS.Model
         public double CRangeLowEnd
         {
             get { return cRange.LowEnd; }
-            set { cRange.LowEnd = value; }
+            set
+            {
+                if (value != cRange.LowEnd)
+                {
+                    cRange.LowEnd = value;
+                    onPropertyChanged("Letter");
+                }
+            }
         }
 
         /// <summary>
@@ -130,7 +166,14 @@ namespace GradebookCS.Model
         public double CRangeHighEnd
         {
             get { return cRange.HighEnd; }
-            set { cRange.HighEnd = value; }
+            set
+            {
+                if (value != cRange.HighEnd)
+                {
+                    cRange.HighEnd = value;
+                    onPropertyChanged("Letter");
+                }
+            }
         }
 
         /// <summary>
@@ -139,7 +182,14 @@ namespace GradebookCS.Model
         public double NRRangeLowEnd
         {
             get { return nrRange.LowEnd; }
-            set { nrRange.LowEnd = value; }
+            set
+            {
+                if (value != nrRange.LowEnd)
+                {
+                    nrRange.LowEnd = value;
+                    onPropertyChanged("Letter");
+                }
+            }
         }
 
         /// <summary>
@@ -148,7 +198,14 @@ namespace GradebookCS.Model
         public double NRRangeHighEnd
         {
             get { return nrRange.HighEnd; }
-            set { nrRange.HighEnd = value; }
+            set
+            {
+                if (value != nrRange.HighEnd)
+                {
+                    nrRange.HighEnd = value;
+                    onPropertyChanged("Letter");
+                }
+            }
         }
 
         #endregion
@@ -180,19 +237,6 @@ namespace GradebookCS.Model
             bRange = new LetterGradeRange("B", 80, 89);
             cRange = new LetterGradeRange("C", 70, 79);
             nrRange = new LetterGradeRange("NR", 0, 69);
-        }
-        #endregion
-
-        #region Methods
-        /// <summary>
-        /// Adds another grade to this grade
-        /// </summary>
-        /// <remarks>Adds up the scores together and maxscores together</remarks>
-        /// <param name="grade">The grade to add to this</param>
-        public void Add(GradeBase grade)
-        {
-            this.score += grade.score;
-            this.maximumScore += grade.maximumScore;
         }
         #endregion
     }

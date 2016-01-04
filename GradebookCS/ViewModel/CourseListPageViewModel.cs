@@ -8,27 +8,30 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GradebookCS.Enums;
+using GradebookCS.Common.Enums;
 using Windows.UI.Xaml.Controls;
 
 namespace GradebookCS.ViewModel
 {
     public class CourseListPageViewModel
     {
+        #region Attributes
+        /// <summary>
+        /// The currently selected CourseViewModel
+        /// </summary>
         private CourseViewModel selectedCourseViewModel;
+
+        /// <summary>
+        /// an instance of the MainPageViewModel to have access to methods
+        /// </summary>
         private MainPageViewModel mainPageViewModel;
+        #endregion
+
         #region Properties
         /// <summary>
         /// Gets the list of courses
         /// </summary>
         public static ObservableCollection<CourseViewModel> CourseViewModels { get; private set; }
-
-        #region CommandProperties
-        /// <summary>
-        /// Command to add a new Course
-        /// </summary>
-        public AddNewCourseCommand AddNewCourseCommand { get; private set; }
-
         public CourseViewModel SelectedCourseViewModel
         {
             get { return selectedCourseViewModel; }
@@ -37,15 +40,14 @@ namespace GradebookCS.ViewModel
                 selectedCourseViewModel = value;
                 mainPageViewModel.CurrentPageType = typeof(CourseDetailsPage);
                 selectedCourseViewModel = null;
-
             }
         }
-        #endregion
+        /// <summary>
+        /// Command to add a new Course
+        /// </summary>
+        public AddNewCourseCommand AddNewCourseCommand { get; private set; }
 
-
-
-
-
+        public ViewCourseDetailsCommand ViewCourseDetailsCommand { get; private set; }
         #endregion
 
         #region Constructor
@@ -57,39 +59,27 @@ namespace GradebookCS.ViewModel
             this.mainPageViewModel = mainPageViewModel;
             CourseViewModels = new ObservableCollection<CourseViewModel>();
             AddNewCourseCommand = new AddNewCourseCommand(this);
+            ViewCourseDetailsCommand = new ViewCourseDetailsCommand(this);
         }
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Adds a new course (courseviewModel) to the list of course
+        /// </summary>
         public async void AddNewCourse()
         {
             CourseViewModel newCourseViewModel = new CourseViewModel();
-            CourseInfoDialogViewModel courseInfoDialogViewModel = new CourseInfoDialogViewModel(newCourseViewModel.Course);
-            ContentDialogResult result = await courseInfoDialogViewModel.DialogResult();
+            ContentDialogResult result = await newCourseViewModel.EditCourseInfo();
             if (result == ContentDialogResult.Primary)
                 CourseViewModels.Add(newCourseViewModel);
         }
-        #endregion
 
-
-
-
-
-
-
-
-        private void PopulateCourses()
+        public void ViewCourseDetails()
         {
-            CourseViewModel course1 = new CourseViewModel();
-            course1.Course.Name = "CS 101";
-            CourseViewModel course2 = new CourseViewModel();
-            course2.Course.Name = "MA 101";
-            CourseViewModel course3 = new CourseViewModel();
-            course3.Course.Name = "PE 101";
-
-            CourseViewModels.Add(course1);
-            CourseViewModels.Add(course2);
-            CourseViewModels.Add(course3);
+            mainPageViewModel.CurrentPageType = typeof(CourseDetailsPage);
+            //mainPageViewModel.SelectedCourse = 
         }
+        #endregion
     }
 }

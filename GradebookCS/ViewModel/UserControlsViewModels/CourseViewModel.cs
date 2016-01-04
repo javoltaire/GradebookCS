@@ -2,6 +2,7 @@
 using GradebookCS.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,47 +13,72 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
 {
     public class CourseViewModel
     {
-        
-        public Course Course { get; private set; }
+        #region Attributes
+        private Course course;
+        #endregion
+
+        #region Properties
+        public String Name
+        {
+            get { return course.Name; }
+            set { course.Name = value; }
+        }
+
+        public String Letter { get { return course.Grade.Letter; } }
+        public String Score { get { return course.Grade.Score + " / " + course.Grade.MaximumScore; } }
         public EditCourseInfoCommand EditCourseInfoCommand { get; private set; }
         public DeleteCourseCommand DeleteCourseCommand { get; private set; }
+        #endregion
 
-
+        #region Constructor
+        /// <summary>
+        /// Initializes an instance of this class
+        /// </summary>
         public CourseViewModel()
         {
-            Course = new Course();
-
+            course = new Course();
             EditCourseInfoCommand = new EditCourseInfoCommand(this);
             DeleteCourseCommand = new DeleteCourseCommand(this);
         }
+        #endregion
 
-        public async void EditCourseInfo()
+        #region Methods
+        /// <summary>
+        /// Shows a dialog box to enable the user to edit some info about the <see cref="Course"/>
+        /// </summary>
+        public async Task<ContentDialogResult> EditCourseInfo()
         {
-            double aLow = Course.Grade.ARangeLowEnd;
-            double aHigh = Course.Grade.ARangeHighEnd;
-            double bLow = Course.Grade.BRangeLowEnd;
-            double bHigh = Course.Grade.BRangeHighEnd;
-            double cLow = Course.Grade.CRangeLowEnd;
-            double cHigh = Course.Grade.CRangeHighEnd;
-            double nrLow = Course.Grade.NRRangeLowEnd;
-            double nrHigh = Course.Grade.NRRangeHighEnd;
+            //Backs up the data before its changed in case of need to revert back
+            string name = course.Name;
+            double aLow = course.Grade.ARangeLowEnd;
+            double aHigh = course.Grade.ARangeHighEnd;
+            double bLow = course.Grade.BRangeLowEnd;
+            double bHigh = course.Grade.BRangeHighEnd;
+            double cLow = course.Grade.CRangeLowEnd;
+            double cHigh = course.Grade.CRangeHighEnd;
+            double nrLow = course.Grade.NRRangeLowEnd;
+            double nrHigh = course.Grade.NRRangeHighEnd;
 
-            CourseInfoDialogViewModel dialogViewModel = new CourseInfoDialogViewModel(Course);
-            var result = await dialogViewModel.DialogResult();
-            if(result == ContentDialogResult.Secondary)
+            CourseInfoDialogViewModel dialogViewModel = new CourseInfoDialogViewModel(course);
+            var result = await dialogViewModel.GetDialogResult();
+            if (result == ContentDialogResult.Secondary)
             {
-                Course.Grade.ARangeLowEnd = aLow;
-                Course.Grade.ARangeHighEnd = aHigh;
-                Course.Grade.BRangeLowEnd = bLow;
-                Course.Grade.BRangeHighEnd = bHigh;
-                Course.Grade.CRangeLowEnd = cLow;
-                Course.Grade.CRangeHighEnd = cHigh;
-                Course.Grade.NRRangeLowEnd = nrLow;
-                Course.Grade.NRRangeHighEnd = nrHigh;
+                course.Name = name;
+                course.Grade.ARangeLowEnd = aLow;
+                course.Grade.ARangeHighEnd = aHigh;
+                course.Grade.BRangeLowEnd = bLow;
+                course.Grade.BRangeHighEnd = bHigh;
+                course.Grade.CRangeLowEnd = cLow;
+                course.Grade.CRangeHighEnd = cHigh;
+                course.Grade.NRRangeLowEnd = nrLow;
+                course.Grade.NRRangeHighEnd = nrHigh;
             }
-
+            return result;
         }
 
+        /// <summary>
+        /// Deletes this courseviewmodel from its parent list
+        /// </summary>
         public async void Delete()
         {
             ContentDialog deleteDialog = new ContentDialog();
@@ -63,5 +89,6 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
             if (result == ContentDialogResult.Primary)
                 CourseListPageViewModel.CourseViewModels.Remove(this);
         }
+        #endregion
     }
 }

@@ -9,15 +9,34 @@ using GradebookCS.View;
 using System.Collections.ObjectModel;
 using GradebookCS.Model;
 using GradebookCS.ViewModel.Commands;
+using GradebookCS.Common;
 
 namespace GradebookCS.ViewModel
 {
-    public class MainPageViewModel : ViewModelBase
+    public class MainPageViewModel : BaseINPC
     {
+        #region Attributes
+        /// <summary>
+        /// The current Page type to be shown
+        /// </summary>
         private Type currentPageType;
+
+        private Course selectedCourse;
+
+        public Course SelectedCourse
+        {
+            get { return selectedCourse; }
+            set
+            {
+                selectedCourse = value;
+                onPropertyChanged();
+            }
+        }
+        #endregion
+
         #region Properties
         /// <summary>
-        /// Gets the page type being shown
+        /// Gets or sets the page type being shown
         /// </summary>
         public Type CurrentPageType
         {
@@ -34,20 +53,15 @@ namespace GradebookCS.ViewModel
         /// </summary>
         public bool CanShowSettingsPage { get { return CurrentPageType != typeof(SettingsPage); } }
 
-        #region CommandProperties
         /// <summary>
         /// The command to View settings
         /// </summary>
         public ViewSettingsCommand ViewSettingsCommand { get; private set; }
-        #endregion
 
-        #region ViewModelsProperties
         /// <summary>
         /// Gets the COurseListPageViewModel
         /// </summary>
         public CourseListPageViewModel CourseListPageViewModel { get; private set; }
-        #endregion
-
         #endregion
 
         #region Constructors
@@ -80,11 +94,6 @@ namespace GradebookCS.ViewModel
 
 
 
-        public void ViewCourseDetail()
-        {
-            CurrentPageType = typeof(CourseDetailsPage);
-            onPropertyChanged("CurrentPageType");
-        }
 
         private void PopulateCoursesList()
         {

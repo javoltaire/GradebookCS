@@ -18,7 +18,16 @@ namespace GradebookCS.Model
         public double Score
         {
             get { return score; }
-            private set { score = value;}
+            private set
+            {
+                if(value != score)
+                {
+                    score = value;
+                    onPropertyChanged();
+                    onPropertyChanged("Percent");
+                    onPropertyChanged("Letter")
+                }
+            }
         }
 
         /// <summary>
@@ -27,7 +36,16 @@ namespace GradebookCS.Model
         public double MaximumScore
         {
             get { return maximumScore; }
-            private set { maximumScore = value; }
+            private set
+            {
+                if(value != maximumScore)
+                {
+                    maximumScore = value;
+                    onPropertyChanged();
+                    onPropertyChanged("Percent");
+                    onPropertyChanged("Letter");
+                }
+            }
         }
         #endregion
 
@@ -60,9 +78,20 @@ namespace GradebookCS.Model
             }
             return new ComputedGrade();
         }
+
+        /// <summary>
+        /// Adds another grade to this grade
+        /// </summary>
+        /// <remarks>Adds up the scores together and maxscores together</remarks>
+        /// <param name="grade">The grade to add to this</param>
+        //public void Add(GradeBase grade)
+        //{
+        //    this.score += grade.score;
+        //    this.maximumScore += grade.maximumScore;
+        //}
         #endregion
 
 
-        
+
     }
 }
