@@ -25,7 +25,7 @@ namespace GradebookCS.Model
                     score = value;
                     onPropertyChanged();
                     onPropertyChanged("Percent");
-                    onPropertyChanged("Letter")
+                    onPropertyChanged("Letter");
                 }
             }
         }

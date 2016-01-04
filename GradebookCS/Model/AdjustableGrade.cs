@@ -18,7 +18,16 @@ namespace GradebookCS.Model
         public double Score
         {
             get { return score; }
-            set { score = value; }
+            set
+            {
+                if (value != score)
+                {
+                    score = value;
+                    onPropertyChanged();
+                    onPropertyChanged("Percent");
+                    onPropertyChanged("Letter");
+                }
+            }
         }
 
         /// <summary>
@@ -27,7 +36,16 @@ namespace GradebookCS.Model
         public double MaximumScore
         {
             get { return maximumScore; }
-            set { maximumScore = value; }
+            set
+            {
+                if (value != maximumScore)
+                {
+                    maximumScore = value;
+                    onPropertyChanged();
+                    onPropertyChanged("Percent");
+                    onPropertyChanged("Letter");
+                }
+            }
         }
         #endregion
 

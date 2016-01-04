@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GradebookCS.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,13 +14,31 @@ namespace GradebookCS.Model
     /// Something like an Exam assignment with a grade of 98 out of 100 would be represented as:
     /// <code>Assignment exam1 = new Assignment("Exam 1", 98, 100)</code>
     /// </example>
-    public class Assignment
+    public class Assignment: BaseINPC
     {
+        #region Attributes
+        /// <summary>
+        /// Name of the Assignment
+        /// </summary>
+        private string name;
+        #endregion
+
         #region Properties
         /// <summary>
         /// Gets or Sets the name of the assignment
         /// </summary>
-        public string Name { get; set; }
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (value != name)
+                {
+                    name = value;
+                    onPropertyChanged();
+                }
+            }
+        }
 
         /// <summary>
         /// Gets the grade of the assingment
