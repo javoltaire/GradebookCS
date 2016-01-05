@@ -17,7 +17,6 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
 
         #region Properties
         public Assignment Assignment { get; private set; }
-        public string AssignmentStringPercent { get { return Assignment.Grade.Percent + "%"; } }
 
         public bool IsInEditMode
         {

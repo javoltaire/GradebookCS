@@ -140,6 +140,9 @@
     <Compile Include="View\UserControls\ComponentViewer.xaml.cs">
       <DependentUpon>ComponentViewer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\ViewOnlyAssignmentViewer.xaml.cs">
+      <DependentUpon>ViewOnlyAssignmentViewer.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -187,6 +190,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UserControls\ComponentViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\ViewOnlyAssignmentViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

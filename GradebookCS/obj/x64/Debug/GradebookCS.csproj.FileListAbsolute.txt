@@ -224,3 +224,8 @@ C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\Us
 C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\AssignmentViewer.g.cs
 C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\AssignmentViewer.xaml
 C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\AssignmentViewer.xbf
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentViewer.g.i.cs
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentViewer.g.cs
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentViewer.xaml
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentViewer.xbf
+C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\View\UserControls\ViewOnlyAssignmentViewer.xbf

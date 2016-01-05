@@ -3,6 +3,7 @@ using GradebookCS.Model;
 using GradebookCS.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,8 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
                 }
             }
         }
+
+        public ObservableCollection<AssignmentViewerViewModel> AssignmentViewerViewModels { get; private set; }
         #endregion
 
         #endregion
@@ -44,6 +47,7 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
         public ComponentViewerViewModel()
         {
             Component = new Component();
+            AssignmentViewerViewModels = new ObservableCollection<AssignmentViewerViewModel>();
             isInEditMode = false;
             ShowComponentEditingControlsCommand = new RelayCommand(() => IsInEditMode = true, () => true);
             HideComponentEditingControlsCommand = new RelayCommand(() => IsInEditMode = false, () => true);

@@ -32,9 +32,14 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
         public RelayCommand DeleteCourseCommand { get; private set; }
 
         /// <summary>
-        /// 
+        /// Commmand to add a new Component
         /// </summary>
         public RelayCommand AddNewComponentCommand { get; private set; }
+
+        /// <summary>
+        /// Command to add a new Assignment
+        /// </summary>
+        public RelayCommand AddNewAssignmentCommand { get; private set; }
         #endregion
 
         #region Other Properties
@@ -49,7 +54,16 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
                 {
                     selectedComponentViewerViewModel = value;
                     onPropertyChanged();
+                    onPropertyChanged("CourseAndComponentName");
                 }
+            }
+        }
+
+        public string CourseAndComponentName
+        {
+            get
+            {
+                return selectedComponentViewerViewModel == null ? "N/A" : Course.Name + " - " + selectedComponentViewerViewModel.Component.Name;
             }
         }
 
@@ -67,6 +81,7 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
             EditCourseInfoCommand = new RelayCommand(async() => await EditCourseInfo(), () => true);
             DeleteCourseCommand = new RelayCommand(() => Delete(), () => true);
             AddNewComponentCommand = new RelayCommand(()=> AddNewComponent(), ()=> true);
+            AddNewAssignmentCommand = new RelayCommand(() => AddNewAssignment(), () => true);
             ComponentViewerViewModels = new ObservableCollection<ComponentViewerViewModel>();
             PopulateModels();
         }
@@ -126,6 +141,13 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
             ComponentViewerViewModels.Add(newComponentModel);
             newComponentModel.IsInEditMode = true;
         }
+
+        public void AddNewAssignment()
+        {
+            AssignmentViewerViewModel newAssignmentViewModel = new AssignmentViewerViewModel();
+            selectedComponentViewerViewModel.AssignmentViewerViewModels.Add(newAssignmentViewModel);
+            newAssignmentViewModel.IsInEditMode = true;
+        }
         #endregion
 
         #region to be deleted
@@ -135,6 +157,7 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
             EditCourseInfoCommand = new RelayCommand(async () => await EditCourseInfo(), () => true);
             DeleteCourseCommand = new RelayCommand(() => Delete(), () => true);
             AddNewComponentCommand = new RelayCommand(() => AddNewComponent(), () => true);
+            AddNewAssignmentCommand = new RelayCommand(() => AddNewAssignment(), () => true);
             ComponentViewerViewModels = new ObservableCollection<ComponentViewerViewModel>();
             PopulateModels();
         }
