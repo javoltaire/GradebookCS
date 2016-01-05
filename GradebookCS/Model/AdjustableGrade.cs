@@ -24,6 +24,7 @@ namespace GradebookCS.Model
                 {
                     score = value;
                     onPropertyChanged();
+                    onPropertyChanged("StringScoreMaxScore");
                     onPropertyChanged("Percent");
                     onPropertyChanged("PercentWithSign");
                     onPropertyChanged("Letter");
@@ -43,12 +44,14 @@ namespace GradebookCS.Model
                 {
                     maximumScore = value;
                     onPropertyChanged();
+                    onPropertyChanged("StringScoreMaxScore");
                     onPropertyChanged("Percent");
                     onPropertyChanged("PercentWithSign");
                     onPropertyChanged("Letter");
                 }
             }
         }
+
         #endregion
 
         #region Constructors

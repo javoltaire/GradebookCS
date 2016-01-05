@@ -4,8 +4,10 @@
     <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
   </Roots.Interfaces>
   <Roots.PropertyPathNames>
-    <RootPropertyPathName Name="SelectedCourse" />
+    <RootPropertyPathName Name="SelectedCourseViewerViewModel" />
+    <RootPropertyPathName Name="ComponentViewerViewModels" />
     <RootPropertyPathName Name="ActualWidth" />
+    <RootPropertyPathName Name="AddNewComponentCommand" />
     <RootPropertyPathName Name="Grade" />
     <RootPropertyPathName Name="NRRangeHighEnd" />
     <RootPropertyPathName Name="NRRangeLowEnd" />
@@ -19,21 +21,27 @@
     <RootPropertyPathName Name="CourseListPageViewModel" />
     <RootPropertyPathName Name="AddNewCourseCommand" />
     <RootPropertyPathName Name="CourseViewModels" />
-    <RootPropertyPathName Name="SelectedCourseViewModel" />
     <RootPropertyPathName Name="DataContext" />
     <RootPropertyPathName Name="ViewCourseDetailsCommand" />
+    <RootPropertyPathName Name="Course" />
     <RootPropertyPathName Name="Letter" />
-    <RootPropertyPathName Name="Score" />
+    <RootPropertyPathName Name="StringScoreMaxScore" />
     <RootPropertyPathName Name="DeleteCourseCommand" />
     <RootPropertyPathName Name="EditCourseInfoCommand" />
     <RootPropertyPathName Name="CurrentPageType" />
-    <RootPropertyPathName Name="ViewSettingsCommand" />
+    <RootPropertyPathName Name="ShowSettingsCommand" />
     <RootPropertyPathName Name="HideAssignmentEditingConstolsCommand" />
     <RootPropertyPathName Name="IsInEditMode" />
     <RootPropertyPathName Name="ShowAssignmentEditingConstolsCommand" />
     <RootPropertyPathName Name="Assignment" />
     <RootPropertyPathName Name="PercentWithSign" />
     <RootPropertyPathName Name="MaximumScore" />
+    <RootPropertyPathName Name="Score" />
+    <RootPropertyPathName Name="HideComponentEditingControlsCommand" />
+    <RootPropertyPathName Name="ShowComponentEditingControlsCommand" />
+    <RootPropertyPathName Name="Component" />
+    <RootPropertyPathName Name="NameWeight" />
+    <RootPropertyPathName Name="Weight" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -78,34 +86,45 @@
       <RootMethod Name="SetAlignVerticalCenterWith" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
-    <RootType FullName="GradebookCS.View.UserControls.AssignmentViewer">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Height" />
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="Visibility" />
+    </RootType>
+    <RootType FullName="GradebookCS.View.UserControls.AssignmentViewer">
       <RootProperty Name="Width" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ItemsControl">
+      <RootProperty Name="ItemTemplate" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Foreground" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Command" />
       <RootProperty Name="Content" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Height" />
-      <RootProperty Name="Command" />
       <RootProperty Name="Padding" />
+      <RootProperty Name="CommandParameter" />
       <RootProperty Name="Background" />
       <RootProperty Name="MinHeight" />
       <RootProperty Name="MinWidth" />
       <RootProperty Name="Visibility" />
-      <RootEvent Name="Click" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
-      <RootProperty Name="Width" />
-      <RootProperty Name="ItemTemplate" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
     </RootType>
-    <RootType FullName="GradebookCS.View.UserControls.ComponentViewer" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="SelectionMode" />
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="ItemTemplate" />
+    </RootType>
+    <RootType FullName="GradebookCS.View.UserControls.ComponentViewer">
+      <RootProperty Name="Width" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.SymbolIcon">
       <RootProperty Name="Symbol" />
     </RootType>
@@ -121,6 +140,7 @@
       <RootProperty Name="ColumnDefinitions" />
       <RootProperty Name="Children" />
       <RootProperty Name="Background" />
+      <RootProperty Name="Width" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
       <RootMethod Name="GetColumnSpan" />
@@ -136,13 +156,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Text" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Padding" />
-      <RootProperty Name="Visibility" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="PlaceholderText" />
@@ -153,7 +166,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.GridView">
       <RootProperty Name="Padding" />
       <RootProperty Name="ItemsSource" />
-      <RootProperty Name="SelectedItem" />
       <RootProperty Name="ItemTemplate" />
     </RootType>
     <RootType FullName="GradebookCS.View.CourseListPage" />

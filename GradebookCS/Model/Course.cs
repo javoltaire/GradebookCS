@@ -5,11 +5,29 @@ namespace GradebookCS.Model
 {
     public class Course: BaseINPC
     {
+        #region Attributes
+        /// <summary>
+        /// Name of the course
+        /// </summary>
+        private string name;
+        #endregion
+
         #region Properties
         /// <summary>
         /// Gets or Sets the name of the <see cref="Course"/>
         /// </summary>
-        public string Name { get; set; }
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (value != name)
+                {
+                    name = value;
+                    onPropertyChanged();
+                }
+            }
+        }
         /// <summary>
         /// Gets or Sets the grade for this <see cref="Course"/>
         /// </summary>
@@ -29,7 +47,7 @@ namespace GradebookCS.Model
         /// </summary>
         public Course()
         {
-            Name = "Course";
+            name = "Course";
             Grade = new ComputedGrade();
             Components = new ObservableCollection<Component>();
             this.Components.CollectionChanged += Components_CollectionChanged;

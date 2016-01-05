@@ -7,25 +7,35 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{Binding SelectedCourse}">
-
+    DataContext="{Binding SelectedCourseViewerViewModel}">
+    
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <RelativePanel x:Name="ComponentsListRoot" Background="{ThemeResource SystemControlBackgroundAccentBrush}" Width="350" MaxWidth="350" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True">
-            <Button x:Name="AddComponentButton" Foreground="White" Width="{Binding ActualWidth,ElementName=ComponentsListRoot}" Click="Button_Click">
+            <Button x:Name="AddComponentButton" Foreground="White" Width="{Binding ActualWidth,ElementName=ComponentsListRoot}" Command="{Binding AddNewComponentCommand}">
                 <SymbolIcon Symbol="Add"/>
             </Button>
-            <ListView x:Name="listview" Width="{Binding ActualWidth, ElementName=ComponentsListRoot}" RelativePanel.Below="AddComponentButton" RelativePanel.AlignBottomWithPanel="True">
+            <ListView x:Name="ComponentsListView" SelectedItem="{Binding SelectedComponentViewerViewModel}" SelectionMode="Single" ItemsSource="{Binding ComponentViewerViewModels}" Width="{Binding ActualWidth, ElementName=ComponentsListRoot}" RelativePanel.Below="AddComponentButton" RelativePanel.AlignBottomWithPanel="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <usercontrols:ComponentViewer/>
+                        <usercontrols:ComponentViewer Width="{Binding ActualWidth, ElementName=ComponentsListView}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
+
         </RelativePanel>
         <RelativePanel RelativePanel.RightOf="ComponentsListRoot" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True">
-            <usercontrols:AssignmentViewer x:Name="assignmetntest" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="500"/>
-
+            <TextBlock/>
+            <usercontrols:AssignmentViewer/>
+            <usercontrols:AssignmentViewer/>
+            <usercontrols:AssignmentViewer/>
+            <ItemsControl>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <usercontrols:AssignmentViewer Width="550"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <Button/>
         </RelativePanel>
 
 

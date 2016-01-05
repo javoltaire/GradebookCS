@@ -14,7 +14,7 @@
     </Page.Resources>
 
     <RelativePanel x:Name="rootPane" DataContext="{StaticResource MainPageViewModel}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="settingsButton" RelativePanel.AlignRightWithPanel="True" Height="40" Width="40" Command="{Binding ViewSettingsCommand}">
+        <Button x:Name="settingsButton" RelativePanel.AlignRightWithPanel="True" Height="40" Width="40" Command="{Binding ShowSettingsCommand}">
             <SymbolIcon Symbol="Setting"/>
         </Button>
         <TextBlock x:Name="welcomeTextBlock" Text="Welcome" RelativePanel.AlignVerticalCenterWith="settingsButton"/>

@@ -331,7 +331,7 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
                 break;
 
             case 16:   //  GradebookCS.ViewModel.UserControlsViewModels.CourseViewerViewModel
-                userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GradebookCS.Common.BaseINPC"));
+                userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;

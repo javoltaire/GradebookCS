@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GradebookCS.Common;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -8,9 +9,14 @@ using System.Threading.Tasks;
 
 namespace GradebookCS.Model
 {
-    public class Component
+    public class Component : BaseINPC
     {
         #region Attributes
+        /// <summary>
+        /// Name of the component
+        /// </summary>
+        private string name;
+
         /// <summary>
         /// The weight for this component
         /// </summary>
@@ -23,24 +29,39 @@ namespace GradebookCS.Model
         /// Gets or sets the name of this <see cref="Component"/>
         /// </summary>
         /// <value>The name of Component</value>
-        public string Name { get; set; }
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if(value != name)
+                {
+                    name = value;
+                    onPropertyChanged();
+                    onPropertyChanged("NameWeight");
+                }
+            }
+        }
 
         /// <summary>
         /// Gets or sets the weight of this component
         /// </summary>
         /// <value>The weight of the component</value>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when the new value is 0 or negative</exception>
         public double Weight
         {
             get { return weight; }
             set
             {
-                if (value < 1)
-                    throw new ArgumentOutOfRangeException("Weight cannot be 0 negative");
-                else
+                if (value != weight)
+                {
                     weight = value;
+                    onPropertyChanged();
+                    onPropertyChanged("NameWeight");
+                }
             }
         }
+
+        public string NameWeight { get { return name + " - " + weight; } }
 
         /// <summary>
         /// Gets the Total grade

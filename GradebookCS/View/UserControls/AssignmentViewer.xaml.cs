@@ -19,6 +19,7 @@ namespace GradebookCS.View.UserControls
 {
     public sealed partial class AssignmentViewer : UserControl
     {
+
         public AssignmentViewer()
         {
             this.InitializeComponent();

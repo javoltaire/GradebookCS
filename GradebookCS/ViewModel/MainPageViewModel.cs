@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using GradebookCS.Model;
 using GradebookCS.ViewModel.Commands;
 using GradebookCS.Common;
+using GradebookCS.ViewModel.UserControlsViewModels;
 
 namespace GradebookCS.ViewModel
 {
@@ -21,20 +22,29 @@ namespace GradebookCS.ViewModel
         /// </summary>
         private Type currentPageType;
 
-        private Course selectedCourse;
-
-        public Course SelectedCourse
-        {
-            get { return selectedCourse; }
-            set
-            {
-                selectedCourse = value;
-                onPropertyChanged();
-            }
-        }
+        /// <summary>
+        /// The selected Course to view details of
+        /// </summary>
+        private CourseViewerViewModel selectedCourseViewerViewModel;
         #endregion
 
         #region Properties
+
+        #region ViewModels Properties
+        /// <summary>
+        /// Gets the COurseListPageViewModel
+        /// </summary>
+        public CourseListPageViewModel CourseListPageViewModel { get; private set; }
+        #endregion
+
+        #region Command Properties
+        /// <summary>
+        /// The command to show settings page
+        /// </summary>
+        public RelayCommand ShowSettingsCommand { get; private set; }
+        #endregion
+
+        #region Other Properties
         /// <summary>
         /// Gets or sets the page type being shown
         /// </summary>
@@ -43,8 +53,12 @@ namespace GradebookCS.ViewModel
             get { return currentPageType; }
             set
             {
-                currentPageType = value;
-                onPropertyChanged("CurrentPageType");
+                if (value != currentPageType)
+                {
+                    currentPageType = value;
+                    onPropertyChanged();
+                    ShowSettingsCommand.OnCanExecuteChanged();
+                }
             }
         }
 
@@ -54,14 +68,22 @@ namespace GradebookCS.ViewModel
         public bool CanShowSettingsPage { get { return CurrentPageType != typeof(SettingsPage); } }
 
         /// <summary>
-        /// The command to View settings
+        /// Gets or Sets the selected Course
         /// </summary>
-        public ViewSettingsCommand ViewSettingsCommand { get; private set; }
+        public CourseViewerViewModel SelectedCourseViewerViewModel
+        {
+            get { return selectedCourseViewerViewModel; }
+            set
+            {
+                if(value != selectedCourseViewerViewModel)
+                {
+                    selectedCourseViewerViewModel = value;
+                    onPropertyChanged();
+                }
+            }
+        }
+        #endregion
 
-        /// <summary>
-        /// Gets the COurseListPageViewModel
-        /// </summary>
-        public CourseListPageViewModel CourseListPageViewModel { get; private set; }
         #endregion
 
         #region Constructors
@@ -70,9 +92,9 @@ namespace GradebookCS.ViewModel
         /// </summary>
         public MainPageViewModel()
         {
-            CurrentPageType = typeof(CourseListPage);
-            ViewSettingsCommand = new ViewSettingsCommand(this);
+            ShowSettingsCommand = new RelayCommand(() => ViewSettingsPage(), ()=> CanShowSettingsPage);
             CourseListPageViewModel = new CourseListPageViewModel(this);
+            CurrentPageType = typeof(CourseListPage);
         }
         #endregion
 
@@ -87,14 +109,8 @@ namespace GradebookCS.ViewModel
         #endregion
 
 
-
-
-
-
-
-
-
-
+        #region To be Deleted
+        
         private void PopulateCoursesList()
         {
             Course MA101 = new Course("MA 101");
@@ -143,9 +159,7 @@ namespace GradebookCS.ViewModel
             //Courses.Add(MA101);
             //Courses.Add(CS101);
         }
-
-
-
+        #endregion
 
     }
 }

@@ -33,8 +33,8 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
         }
 
         
-        public ShowAssignmentEditingConstolsCommand ShowAssignmentEditingConstolsCommand { get; private set; }
-        public HideAssignmentEditingConstolsCommand HideAssignmentEditingConstolsCommand { get; private set; }
+        public RelayCommand ShowAssignmentEditingConstolsCommand { get; private set; }
+        public RelayCommand HideAssignmentEditingConstolsCommand { get; private set; }
         #endregion
 
         #region Constructors
@@ -42,8 +42,8 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
         {
             Assignment = new Assignment();
             isInEditMode = false;
-            ShowAssignmentEditingConstolsCommand = new ShowAssignmentEditingConstolsCommand(this);
-            HideAssignmentEditingConstolsCommand = new HideAssignmentEditingConstolsCommand(this);
+            ShowAssignmentEditingConstolsCommand = new RelayCommand(() => IsInEditMode = true, () => true);
+            HideAssignmentEditingConstolsCommand = new RelayCommand(() => IsInEditMode = false, () => true);
         }
         #endregion
     }

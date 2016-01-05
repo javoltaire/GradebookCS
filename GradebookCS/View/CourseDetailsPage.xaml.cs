@@ -27,14 +27,25 @@ namespace GradebookCS.View
         public CourseDetailsPage()
         {
             this.InitializeComponent();
-            AssignmentViewerViewModel a = new AssignmentViewerViewModel();
-            assignmetntest.DataContext = a;
         }
 
+
+
+        #region to delete
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ComponentViewer item = new ComponentViewer();
-            listview.Items.Add(item);
+            
+        }
+
+        private void MakeAssignments()
+        {
+
+        }
+        #endregion
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

@@ -29,17 +29,5 @@ namespace GradebookCS.View
         {
             this.InitializeComponent();
         }
-
-        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CourseViewModel item = (CourseViewModel)e.ClickedItem;
-            //ContextName.Text = item.Course.Name;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Button b = (Button)sender;
-            ContextName.Text = b.DataContext.ToString();
-        }
     }
 }

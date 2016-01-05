@@ -83,6 +83,14 @@ namespace GradebookCS.Model
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public String StringScoreMaxScore
+        {
+            get { return score + " / " + maximumScore; }
+        }
+
+        /// <summary>
         /// Gets or Sets the low end of the A range
         /// </summary>
         public double ARangeLowEnd

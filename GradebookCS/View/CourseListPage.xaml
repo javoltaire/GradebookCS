@@ -10,10 +10,10 @@
     DataContext="{Binding CourseListPageViewModel}">
 
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <GridView Padding="10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" ItemsSource="{Binding CourseViewModels}" SelectedItem="{Binding SelectedCourseViewModel, Mode=TwoWay}">
+        <GridView Padding="10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" ItemsSource="{Binding CourseViewModels}">
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Button Padding="0" Command="{Binding Path=DataContext.ViewCourseDetailsCommand, ElementName=Root}">
+                    <Button Padding="0" Command="{Binding Path=DataContext.ViewCourseDetailsCommand, ElementName=Root}" CommandParameter="{Binding}">
                         <Button.Content>
                             <RelativePanel Width="130" Height="130">
                                 <RelativePanel x:Name="EditDeleteButtonContainer" Height="23" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
@@ -24,9 +24,9 @@
                                         <SymbolIcon Symbol="Cancel"/>
                                     </Button>
                                 </RelativePanel>
-                                <TextBlock x:Name="NameTextBlock" Text="{Binding Name}" Padding="5,0" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="EditDeleteButtonContainer"/>
-                                <TextBlock x:Name="ScoreTextBlock" Text="{Binding Score}" Padding="5,0" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
-                                <TextBlock Text="{Binding Letter}" Padding="5,0,5,5" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="NameTextBlock" RelativePanel.Above="ScoreTextBlock"/>
+                                <TextBlock x:Name="NameTextBlock" Text="{Binding Course.Name}" Padding="5,0" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="EditDeleteButtonContainer"/>
+                                <TextBlock x:Name="ScoreTextBlock" Text="{Binding Course.Grade.StringScoreMaxScore}" Padding="5,0" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+                                <TextBlock Text="{Binding Course.Grade.Letter}" Padding="5,0,5,5" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="NameTextBlock" RelativePanel.Above="ScoreTextBlock"/>
                             </RelativePanel>
                         </Button.Content>
                     </Button>
@@ -36,6 +36,5 @@
         <Button Margin="10" Width="40" Height="40" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Command="{Binding AddNewCourseCommand}">
             <SymbolIcon Symbol="Add"/>
         </Button>
-        <TextBlock x:Name="ContextName" Text="Context Name" RelativePanel.AlignBottomWithPanel="True"/>
     </RelativePanel>
 </Page>
