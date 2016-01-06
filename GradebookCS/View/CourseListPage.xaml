@@ -26,7 +26,7 @@
                                 </RelativePanel>
                                 <TextBlock x:Name="NameTextBlock" Text="{Binding Course.Name}" Padding="5,0" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="EditDeleteButtonContainer"/>
                                 <TextBlock x:Name="ScoreTextBlock" Text="{Binding Course.Grade.StringScoreMaxScore}" Padding="5,0" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
-                                <TextBlock Text="{Binding Course.Grade.Letter}" Padding="5,0,5,5" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="NameTextBlock" RelativePanel.Above="ScoreTextBlock"/>
+                                <TextBlock Text="{Binding Course.Letter}" Padding="5,0,5,5" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="NameTextBlock" RelativePanel.Above="ScoreTextBlock"/>
                             </RelativePanel>
                         </Button.Content>
                     </Button>

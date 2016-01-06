@@ -9,12 +9,17 @@ namespace GradebookCS.Model
     /// <summary>
     /// An Ajustable grade is a grade where the score and max can be changed by the user.
     /// </summary>
+    /// <example>
+    /// A grade of 90 out of 100 would be represented as:
+    /// <code>AdjustableGrade grade = new AdjustableGrade(90, 100);</code>
+    /// </example>
     public class AdjustableGrade : GradeBase
     {
         #region Properties
         /// <summary>
         /// Gets or Sets the Score
         /// </summary>
+        /// <value>The score of the grade</value>
         public double Score
         {
             get { return score; }
@@ -27,7 +32,6 @@ namespace GradebookCS.Model
                     onPropertyChanged("StringScoreMaxScore");
                     onPropertyChanged("Percent");
                     onPropertyChanged("PercentWithSign");
-                    onPropertyChanged("Letter");
                 }
             }
         }
@@ -35,6 +39,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Gets or sets the Maximum score
         /// </summary>
+        /// <value>The maximum score of the grade</value>
         public double MaximumScore
         {
             get { return maximumScore; }
@@ -47,7 +52,6 @@ namespace GradebookCS.Model
                     onPropertyChanged("StringScoreMaxScore");
                     onPropertyChanged("Percent");
                     onPropertyChanged("PercentWithSign");
-                    onPropertyChanged("Letter");
                 }
             }
         }

@@ -23,18 +23,18 @@ namespace GradebookCSTest.ModelTest
             Assert.AreEqual(percent, gradePercent);
         }
 
-        [TestMethod]
-        public void LetterProperty_GetTheLetterForTheScore_ReturnsTheLetterAssociatedWithTheScore()
-        {
-            //arrange
-            ComputedGrade grade = new ComputedGrade(45, 50);
-            LetterGradeRange letterRange = new LetterGradeRange("A", grade.ARangeLowEnd, grade.ARangeHighEnd);
-            string expected = letterRange.Letter;
-            //act
-            string actual = grade.Letter;
-            //assert
-            Assert.AreEqual(expected, actual);
-        }
+        //[TestMethod]
+        //public void LetterProperty_GetTheLetterForTheScore_ReturnsTheLetterAssociatedWithTheScore()
+        //{
+        //    //arrange
+        //    ComputedGrade grade = new ComputedGrade(45, 50);
+        //    LetterGradeRange letterRange = new LetterGradeRange("A", grade.ARangeLowEnd, grade.ARangeHighEnd);
+        //    string expected = letterRange.Letter;
+        //    //act
+        //    string actual = grade.Letter;
+        //    //assert
+        //    Assert.AreEqual(expected, actual);
+        //}
 
         [TestMethod]
         public void Add_AddingTwoGrades_ValuesAreUpdated()

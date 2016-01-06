@@ -29,23 +29,23 @@
         <TextBox Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" PlaceholderText="Course Name" Text="{Binding Name, Mode=TwoWay}"/>
         <!--A Block-->
         <TextBlock Grid.Row="1" Text="A:" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding Grade.ARangeLowEnd, Mode=TwoWay}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding ARangeLowEnd, Mode=TwoWay}"/>
         <TextBlock Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Text="-" HorizontalAlignment="Center"/>
-        <TextBox Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding Grade.ARangeHighEnd, Mode=TwoWay}"/>
+        <TextBox Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding ARangeHighEnd, Mode=TwoWay}"/>
         <!--B Block-->
         <TextBlock Grid.Row="2" Text="B:" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding Grade.BRangeLowEnd, Mode=TwoWay}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding BRangeLowEnd, Mode=TwoWay}"/>
         <TextBlock Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Text="-" HorizontalAlignment="Center"/>
-        <TextBox Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding Grade.BRangeHighEnd, Mode=TwoWay}"/>
+        <TextBox Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding BRangeHighEnd, Mode=TwoWay}"/>
         <!--C Block-->
         <TextBlock Grid.Row="3" Text="C:" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding Grade.CRangeLowEnd, Mode=TwoWay}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding CRangeLowEnd, Mode=TwoWay}"/>
         <TextBlock Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Text="-" HorizontalAlignment="Center"/>
-        <TextBox Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding Grade.CRangeHighEnd, Mode=TwoWay}"/>
+        <TextBox Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding CRangeHighEnd, Mode=TwoWay}"/>
         <!--NR Block-->
         <TextBlock Grid.Row="4" Text="NR:" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding Grade.NRRangeLowEnd, Mode=TwoWay}"/>
+        <TextBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding NRRangeLowEnd, Mode=TwoWay}"/>
         <TextBlock Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" Text="-" HorizontalAlignment="Center"/>
-        <TextBox Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding Grade.NRRangeHighEnd, Mode=TwoWay}"/>
+        <TextBox Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding NRRangeHighEnd, Mode=TwoWay}"/>
     </Grid>
 </ContentDialog>

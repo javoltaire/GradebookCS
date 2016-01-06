@@ -94,29 +94,29 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
         public async Task<ContentDialogResult> EditCourseInfo()
         {
             //Backs up the data before its changed in case of need to revert back
-            string name = Course.Name;
-            double aLow = Course.Grade.ARangeLowEnd;
-            double aHigh = Course.Grade.ARangeHighEnd;
-            double bLow = Course.Grade.BRangeLowEnd;
-            double bHigh = Course.Grade.BRangeHighEnd;
-            double cLow = Course.Grade.CRangeLowEnd;
-            double cHigh = Course.Grade.CRangeHighEnd;
-            double nrLow = Course.Grade.NRRangeLowEnd;
-            double nrHigh = Course.Grade.NRRangeHighEnd;
+            //string name = Course.Name;
+            //double aLow = Course.Grade.ARangeLowEnd;
+            //double aHigh = Course.Grade.ARangeHighEnd;
+            //double bLow = Course.Grade.BRangeLowEnd;
+            //double bHigh = Course.Grade.BRangeHighEnd;
+            //double cLow = Course.Grade.CRangeLowEnd;
+            //double cHigh = Course.Grade.CRangeHighEnd;
+            //double nrLow = Course.Grade.NRRangeLowEnd;
+            //double nrHigh = Course.Grade.NRRangeHighEnd;
 
             CourseInfoDialogViewModel dialogViewModel = new CourseInfoDialogViewModel(Course);
             var result = await dialogViewModel.GetDialogResult();
             if (result == ContentDialogResult.Secondary)
             {
-                Course.Name = name;
-                Course.Grade.ARangeLowEnd = aLow;
-                Course.Grade.ARangeHighEnd = aHigh;
-                Course.Grade.BRangeLowEnd = bLow;
-                Course.Grade.BRangeHighEnd = bHigh;
-                Course.Grade.CRangeLowEnd = cLow;
-                Course.Grade.CRangeHighEnd = cHigh;
-                Course.Grade.NRRangeLowEnd = nrLow;
-                Course.Grade.NRRangeHighEnd = nrHigh;
+                //Course.Name = name;
+                //Course.Grade.ARangeLowEnd = aLow;
+                //Course.Grade.ARangeHighEnd = aHigh;
+                //Course.Grade.BRangeLowEnd = bLow;
+                //Course.Grade.BRangeHighEnd = bHigh;
+                //Course.Grade.CRangeLowEnd = cLow;
+                //Course.Grade.CRangeHighEnd = cHigh;
+                //Course.Grade.NRRangeLowEnd = nrLow;
+                //Course.Grade.NRRangeHighEnd = nrHigh;
             }
             return result;
         }
@@ -146,6 +146,9 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
         {
             AssignmentViewerViewModel newAssignmentViewModel = new AssignmentViewerViewModel();
             selectedComponentViewerViewModel.AssignmentViewerViewModels.Add(newAssignmentViewModel);
+            //for testing
+            
+            selectedComponentViewerViewModel.Component.Assignments.Add(newAssignmentViewModel.Assignment);
             newAssignmentViewModel.IsInEditMode = true;
         }
         #endregion

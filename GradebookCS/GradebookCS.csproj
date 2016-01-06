@@ -118,6 +118,7 @@
     <Compile Include="ViewModel\UserControlsViewModels\CourseViewerViewModel.cs" />
     <Compile Include="View\Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="View\Converters\InverseBooleanToVisibilityConverter.cs" />
+    <Compile Include="View\Converters\TwoDecimalPlacesConverter.cs" />
     <Compile Include="View\CourseDetailsPage.xaml.cs">
       <DependentUpon>CourseDetailsPage.xaml</DependentUpon>
     </Compile>

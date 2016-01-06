@@ -18,15 +18,16 @@ namespace GradebookCS.Model
     {
         #region Attributes
         /// <summary>
-        /// Name of the Assignment
+        /// Store for the <see cref="Name"/> Property
         /// </summary>
-        private string name;
+        private string name = "Assignment";
         #endregion
 
         #region Properties
         /// <summary>
         /// Gets or Sets the name of the assignment
         /// </summary>
+        /// <value>The name of the assignment</value>
         public string Name
         {
             get { return name; }
@@ -43,18 +44,15 @@ namespace GradebookCS.Model
         /// <summary>
         /// Gets the grade of the assingment
         /// </summary>
-        public AdjustableGrade Grade { get; private set; }
+        /// <value>The grade of the assignment</value>
+        public AdjustableGrade Grade { get; private set; } = new AdjustableGrade();
         #endregion
 
         #region Constructors
         /// <summary>
         /// Initializes an instance of the Assignment class with default values
         /// </summary>
-        public Assignment()
-        {
-            this.name = "Assignment";
-            this.Grade = new AdjustableGrade();
-        }
+        public Assignment() { }
 
         /// <summary>
         /// Initializes an instance of the Assignment class with the given values
@@ -63,7 +61,6 @@ namespace GradebookCS.Model
         public Assignment(string name)
         {
             this.Name = name;
-            this.Grade = new AdjustableGrade();
         }
 
         /// <summary>

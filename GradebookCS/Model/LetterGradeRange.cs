@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GradebookCS.Model
 {
     /// <summary>
-    /// Represent a Range for a letter grade.
+    /// Represents a Range for a letter grade.
     /// </summary>
     /// <example>
     /// For Instance, From 90 to 100 is an A. And that would be represented as
@@ -20,26 +20,26 @@ namespace GradebookCS.Model
     {
         #region Attributes
         /// <summary>
-        /// The letter for the range
+        /// Store for <see cref="Letter"/> Property
         /// </summary>
-        private string letter;
+        private string letter = String.Empty;
 
         /// <summary>
-        /// the low end of the range
+        /// Store for <see cref="LowEnd"/> Property
         /// </summary>
-        private double lowEnd;
+        private double lowEnd = 0.0;
 
         /// <summary>
-        /// The high end of the range
+        /// Store for <see cref="HighEnd"/> Property
         /// </summary>
-        private double highEnd;
+        private double highEnd = 0.0;
         #endregion
 
         #region Properties
         /// <summary>
-        /// Gets or Sets the letter for this <see cref="LetterGradeRange"/>
+        /// Gets or Sets the letter associated with this Letter Grade Range
         /// </summary>
-        /// <value> The Letter associated with this <see cref="LetterGradeRange"/>.</value>
+        /// <value> The Letter associated with this Letter Grade Range </value>
         public string Letter
         {
             get { return letter; }
@@ -53,9 +53,9 @@ namespace GradebookCS.Model
         }
 
         /// <summary>
-        /// Gets or sets the low end of this <see cref="LetterGradeRange"/>
+        /// Gets or sets the low end of this Letter Grade Range
         /// </summary>
-        /// <value> The low end of the <see cref="LetterGradeRange"/>.</value>
+        /// <value> The low end of the Letter Grade Range</value>
         public double LowEnd
         {
             get { return lowEnd; }
@@ -70,9 +70,9 @@ namespace GradebookCS.Model
         }
 
         /// <summary>
-        /// Gets or sets the high end of this <see cref="LetterGradeRange"/>
+        /// Gets or sets the high end of this Letter Grade Range
         /// </summary>
-        /// <value> The high of the <see cref="LetterGradeRange"/>.</value>
+        /// <value> The high end of the Letter Grade Range</value>
         public double HighEnd
         {
             get { return highEnd; }
@@ -89,21 +89,16 @@ namespace GradebookCS.Model
 
         #region Constructors
         /// <summary>
-        /// Initializes an instance of the LetterGradeRange class with default values
+        /// Initializes an instance of the LetterGradeRange class
         /// </summary>
-        public LetterGradeRange()
-        {
-            this.letter = String.Empty;
-            this.lowEnd = 0.0;
-            this.highEnd = 0.0;
-        }
+        public LetterGradeRange() { }
 
         /// <summary>
-        /// Initializes an instance of the LetterGradeRange class with given values
+        /// Initializes an instance of the LetterGradeRange class with the given values
         /// </summary>
-        /// <param name="letter">The given letter for the <see cref="LetterGradeRange"/></param>
-        /// <param name="lowEnd">The given lowEnd for the <see cref="LetterGradeRange"/></param>
-        /// <param name="highEnd">The given highEnd for the <see cref="LetterGradeRange"/></param>
+        /// <param name="letter">The letter to associate with the Letter Grade Range</param>
+        /// <param name="lowEnd">The lowEnd for the Letter Grade Range</param>
+        /// <param name="highEnd">The highEnd for the Letter Grade Range</param>
         public LetterGradeRange(string letter, double lowEnd, double highEnd)
         {
             this.Letter = letter;
@@ -114,10 +109,10 @@ namespace GradebookCS.Model
 
         #region Methods
         /// <summary>
-        /// Determines whether a given value is between the <see cref="lowEnd"/> and <see cref="highEnd"/>
+        /// Determines whether a given value is between the <see cref="lowEnd"/> and <see cref="highEnd"/> inclusive
         /// </summary>
         /// <param name="value">The value to check</param>
-        /// <returns>True if the value is between <see cref="LowEnd"/> and <see cref="HighEnd"/>, and false otherwise.</returns>
+        /// <returns>True if the value is between <see cref="LowEnd"/> and <see cref="HighEnd"/> inclusive, and false otherwise.</returns>
         public bool IsInRange(double value)
         {
             return value >= lowEnd && value <= highEnd;
