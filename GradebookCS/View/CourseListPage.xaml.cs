@@ -28,6 +28,7 @@ namespace GradebookCS.View
         public CourseListPage()
         {
             this.InitializeComponent();
+            
         }
     }
 }

@@ -3,7 +3,7 @@ View\CourseDetailsPage.xbf
 View\CourseInfoDialog.xbf
 View\CourseListPage.xbf
 View\MainPage.xbf
+View\Resources\DataTemplates.xbf
+View\Resources\Styles.xbf
 View\SettingsPage.xbf
-View\UserControls\AssignmentViewer.xbf
-View\UserControls\ComponentViewer.xbf
 View\UserControls\ViewOnlyAssignmentViewer.xbf

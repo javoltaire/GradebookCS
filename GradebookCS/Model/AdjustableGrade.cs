@@ -62,7 +62,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Initializes an istance of the AdjustableGrade class with default values
         /// </summary>
-        public AdjustableGrade() : base(0, 100) { }
+        public AdjustableGrade() : base(0.0, 100.0) { }
 
         /// <summary>
         /// Initializes an instance of the AdjustableGrade class with given values
@@ -78,11 +78,11 @@ namespace GradebookCS.Model
         /// </summary>
         /// <param name="scaleValue">The maximum score to scale the <see cref="score"/> to</param>
         /// <returns>A new <see cref="AdjustableGrade"/> with the scaled values</returns>
-        public AdjustableGrade Scale(double scaleValue)
-        {
-            double scaledScore = scaleValue * score / maximumScore;
-            return new AdjustableGrade(scaledScore, scaleValue);
-        }
+        //public AdjustableGrade Scale(double scaleValue)
+        //{
+        //    double scaledScore = scaleValue * score / maximumScore;
+        //    return new AdjustableGrade(scaledScore, scaleValue);
+        //}
         #endregion
     }
 }

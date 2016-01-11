@@ -10,10 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using GradebookCS.Common.Enums;
 using Windows.UI.Xaml.Controls;
+using GradebookCS.Common;
+using System.Collections.Specialized;
 
 namespace GradebookCS.ViewModel
 {
-    public class CourseListPageViewModel
+    public class CourseListPageViewModel : BaseINPC
     {
         #region Attributes
         /// <summary>
@@ -33,14 +35,24 @@ namespace GradebookCS.ViewModel
         /// <summary>
         /// Command to show course details
         /// </summary>
-        public RelayParameterCommand<CourseViewerViewModel> ViewCourseDetailsCommand { get; private set; }
+        public RelayParameterCommand<CourseViewModel> ViewCourseDetailsCommand { get; private set; }
+
+        /// <summary>
+        /// Command to delele this course
+        /// </summary>
+        public RelayParameterCommand<CourseViewModel> DeleteCourseCommand { get; private set; }
         #endregion
 
         #region Other Properties
         /// <summary>
         /// Gets the list of courses
         /// </summary>
-        public static ObservableCollection<CourseViewerViewModel> CourseViewModels { get; private set; }
+        public ObservableCollection<CourseViewModel> CourseViewModels { get; private set; } = new ObservableCollection<CourseViewModel>();
+
+        /// <summary>
+        /// Boolean indicating whether the list containing all the courses (courseViewmodels) is empty
+        /// </summary>
+        public bool CanShowCourseListGridview { get { return CourseViewModels.Count > 0; } }
         #endregion
 
         #endregion
@@ -52,11 +64,18 @@ namespace GradebookCS.ViewModel
         public CourseListPageViewModel(MainPageViewModel mainPageViewModel)
         {
             this.mainPageViewModel = mainPageViewModel;
-            CourseViewModels = new ObservableCollection<CourseViewerViewModel>();
             AddNewCourseCommand = new RelayCommand(() => AddNewCourse(), () => true);
-            ViewCourseDetailsCommand = new RelayParameterCommand<CourseViewerViewModel>(ViewCourseDetails, () => true);
+            ViewCourseDetailsCommand = new RelayParameterCommand<CourseViewModel>(ViewCourseDetails, () => true);
+            DeleteCourseCommand = new RelayParameterCommand<CourseViewModel>(Delete, () => true);
+            CourseViewModels.CollectionChanged += CourseViewModels_CollectionChanged;
+        }
 
-            PopulateCoursesList();
+        private void CourseViewModels_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.Action == NotifyCollectionChangedAction.Add || e.Action == NotifyCollectionChangedAction.Remove)
+            {
+                onPropertyChanged("CanShowCourseListGridview");
+            }
         }
         #endregion
 
@@ -66,14 +85,31 @@ namespace GradebookCS.ViewModel
         /// </summary>
         public async void AddNewCourse()
         {
-            CourseViewerViewModel newCourseViewModel = new CourseViewerViewModel();
+            CourseViewModel newCourseViewModel = new CourseViewModel();
             ContentDialogResult result = await newCourseViewModel.EditCourseInfo();
             if (result == ContentDialogResult.Primary)
                 CourseViewModels.Add(newCourseViewModel);
         }
 
-        
-        public void ViewCourseDetails(CourseViewerViewModel courseViewerViewModel)
+        /// <summary>
+        /// Deletes this courseviewmodel from its parent list
+        /// </summary>
+        public async void Delete(CourseViewModel courseViewerViewModel)
+        {
+            ContentDialog deleteDialog = new ContentDialog();
+            deleteDialog.Title = "Are you Sure you want to delete this course?";
+            deleteDialog.PrimaryButtonText = "Yes";
+            deleteDialog.SecondaryButtonText = "No";
+            var result = await deleteDialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+                CourseViewModels.Remove(courseViewerViewModel);
+        }
+
+        /// <summary>
+        /// Navigates to the details page to show the course components and assignments and such
+        /// </summary>
+        /// <param name="courseViewerViewModel">The course to view details of</param>
+        public void ViewCourseDetails(CourseViewModel courseViewerViewModel)
         {
             mainPageViewModel.SelectedCourseViewerViewModel = courseViewerViewModel;
             mainPageViewModel.CurrentPageType = typeof(CourseDetailsPage);
@@ -125,7 +161,7 @@ namespace GradebookCS.ViewModel
             CS101.Components.Add(quizzes);
             CS101.Components.Add(homework);
 
-            CourseViewerViewModel cvm1 = new CourseViewerViewModel(CS101);
+            CourseViewModel cvm1 = new CourseViewModel(CS101);
             CourseViewModels.Add(cvm1);
         }
         #endregion

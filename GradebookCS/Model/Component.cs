@@ -56,7 +56,7 @@ namespace GradebookCS.Model
                 if (value != weight)
                 {
                     weight = value;
-                    WeightedGrade = TotalGrade.Scale(Weight);
+                    WeightedGrade = new ComputedGrade(TotalGrade.GetScaledScore(weight), weight);
                     onPropertyChanged();
                     onPropertyChanged("NameWeight");
                     onPropertyChanged("WeightedGrade");
@@ -79,7 +79,7 @@ namespace GradebookCS.Model
         /// Gets the calculated Weighted grade
         /// </summary>
         /// <value>The weighted grade</value>
-        public ComputedGrade WeightedGrade { get; private set; } = new ComputedGrade();
+        public ComputedGrade WeightedGrade { get; private set; }
 
         /// <summary>
         /// Gets the list that hold all the assignments
@@ -94,6 +94,7 @@ namespace GradebookCS.Model
         /// </summary>
         public Component()
         {
+            WeightedGrade = new ComputedGrade(0.0, weight);
             Assignments.CollectionChanged += Assignments_CollectionChanged;
             TotalGrade.PropertyChanged += TotalGrade_PropertyChanged;
         }
@@ -107,6 +108,7 @@ namespace GradebookCS.Model
         {
             this.Name = name;
             this.Weight = weight;
+            WeightedGrade = new ComputedGrade(0.0, weight);
             Assignments.CollectionChanged += Assignments_CollectionChanged;
             TotalGrade.PropertyChanged += TotalGrade_PropertyChanged;
         }
@@ -161,7 +163,7 @@ namespace GradebookCS.Model
         /// <param name="e">The Event</param>
         private void TotalGrade_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            WeightedGrade = TotalGrade.Scale(Weight);
+            WeightedGrade = new ComputedGrade(TotalGrade.GetScaledScore(weight), weight);
             onPropertyChanged("WeightedGrade");
         }
 

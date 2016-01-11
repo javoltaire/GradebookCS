@@ -25,7 +25,7 @@ namespace GradebookCS.ViewModel
         /// <summary>
         /// The selected Course to view details of
         /// </summary>
-        private CourseViewerViewModel selectedCourseViewerViewModel;
+        private CourseViewModel selectedCourseViewerViewModel;
         #endregion
 
         #region Properties
@@ -35,6 +35,22 @@ namespace GradebookCS.ViewModel
         /// Gets the COurseListPageViewModel
         /// </summary>
         public CourseListPageViewModel CourseListPageViewModel { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets the selected Course view model object
+        /// </summary>
+        public CourseViewModel SelectedCourseViewerViewModel
+        {
+            get { return selectedCourseViewerViewModel; }
+            set
+            {
+                if (value != selectedCourseViewerViewModel)
+                {
+                    selectedCourseViewerViewModel = value;
+                    onPropertyChanged();
+                }
+            }
+        }
         #endregion
 
         #region Command Properties
@@ -66,22 +82,6 @@ namespace GradebookCS.ViewModel
         /// Gets the boolean indicating wheter the current page is already the settings page
         /// </summary>
         public bool CanShowSettingsPage { get { return CurrentPageType != typeof(SettingsPage); } }
-
-        /// <summary>
-        /// Gets or Sets the selected Course
-        /// </summary>
-        public CourseViewerViewModel SelectedCourseViewerViewModel
-        {
-            get { return selectedCourseViewerViewModel; }
-            set
-            {
-                if(value != selectedCourseViewerViewModel)
-                {
-                    selectedCourseViewerViewModel = value;
-                    onPropertyChanged();
-                }
-            }
-        }
         #endregion
 
         #endregion
@@ -95,6 +95,7 @@ namespace GradebookCS.ViewModel
             ShowSettingsCommand = new RelayCommand(() => ViewSettingsPage(), ()=> CanShowSettingsPage);
             CourseListPageViewModel = new CourseListPageViewModel(this);
             CurrentPageType = typeof(CourseListPage);
+            //PopulateCoursesList();
         }
         #endregion
 
@@ -113,7 +114,6 @@ namespace GradebookCS.ViewModel
         
         private void PopulateCoursesList()
         {
-            Course MA101 = new Course("MA 101");
             Course CS101 = new Course("CS 101");
 
             Component tests = new Component("Tests", 60);
@@ -158,6 +158,7 @@ namespace GradebookCS.ViewModel
 
             //Courses.Add(MA101);
             //Courses.Add(CS101);
+            CourseListPageViewModel.CourseViewModels.Add(new CourseViewModel(CS101));
         }
         #endregion
 

@@ -11,18 +11,18 @@ namespace GradebookCSTest.ModelTest
     [TestClass]
     public class AdjustableGradeTest
     {
-        [TestMethod]
-        public void Scale_ScaleGrade_ValuesAreScaledInTheReturnedGrade()
-        {
-            //arrange
-            AdjustableGrade grade = new AdjustableGrade(45, 50);
-            double scaleValue = 100;
-            double scaledScore = scaleValue * grade.Score / grade.MaximumScore;
-            //act
-            AdjustableGrade scaledGrade = grade.Scale(100);
-            //assert
-            Assert.AreEqual(scaledGrade.Score, scaledScore);
-            Assert.AreEqual(scaledGrade.MaximumScore, scaleValue);
-        }
+        //[TestMethod]
+        //public void Scale_ScaleGrade_ValuesAreScaledInTheReturnedGrade()
+        //{
+        //    //arrange
+        //    AdjustableGrade grade = new AdjustableGrade(45, 50);
+        //    double scaleValue = 100;
+        //    double scaledScore = scaleValue * grade.Score / grade.MaximumScore;
+        //    //act
+        //    AdjustableGrade scaledGrade = grade.Scale(100);
+        //    //assert
+        //    Assert.AreEqual(scaledGrade.Score, scaledScore);
+        //    Assert.AreEqual(scaledGrade.MaximumScore, scaleValue);
+        //}
     }
 }

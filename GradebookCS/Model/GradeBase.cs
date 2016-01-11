@@ -35,7 +35,7 @@ namespace GradebookCS.Model
         {
             get
             {
-                if (maximumScore < 1 || score < 0)
+                if (maximumScore < 1.0 || score < 0.0)
                     return 0;
                 return 100 * score / maximumScore;
             }
@@ -47,7 +47,7 @@ namespace GradebookCS.Model
         public string PercentWithSign { get { return Percent + "%"; } }
 
         /// <summary>
-        /// 
+        /// A string to show the score and the max score together
         /// </summary>
         public String StringScoreMaxScore
         {
@@ -70,6 +70,15 @@ namespace GradebookCS.Model
         {
             this.score = score;
             this.maximumScore = maximumScore;
+        }
+        #endregion
+
+        #region Methods
+        public double GetScaledScore(double scaleValue)
+        {
+            if (scaleValue > 0.0 && maximumScore > 0.0)
+                return scaleValue * score / maximumScore;
+            else return 0.0;
         }
         #endregion
     }

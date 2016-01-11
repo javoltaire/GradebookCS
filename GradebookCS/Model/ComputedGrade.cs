@@ -61,7 +61,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Initializes an instance of the ComputedGrade class with default values
         /// </summary>
-        public ComputedGrade() : base(0,0) { }
+        public ComputedGrade() : base(0.0,0.0) { }
 
         /// <summary>
         /// Initializes an instance of the ComputedGrade class with given values
@@ -77,15 +77,15 @@ namespace GradebookCS.Model
         /// </summary>
         /// <param name="scaleValue">The maximum score to scale the <see cref="Score"/> to</param>
         /// <returns>A new Computed Grade with the scaled values</returns>
-        public ComputedGrade Scale(double scaleValue)
-        {
-            if (scaleValue > 0 && maximumScore > 0)
-            {
-                double scaledScore = scaleValue * score / maximumScore;
-                return new ComputedGrade(scaledScore, scaleValue);
-            }
-            return new ComputedGrade();
-        }
+        //public ComputedGrade Scale(double scaleValue)
+        //{
+        //    if (scaleValue > 0.0 && maximumScore > 0.0)
+        //    {
+        //        double scaledScore = scaleValue * score / maximumScore;
+        //        return new ComputedGrade(scaledScore, scaleValue);
+        //    }
+        //    return new ComputedGrade();
+        //}
 
         /// <summary>
         /// Adds/Sums up another <see cref="AdjustableGrade"/> to this grade
@@ -115,7 +115,7 @@ namespace GradebookCS.Model
         /// <param name="grade">The grade to Substract from this grade</param>
         public void Subtract(AdjustableGrade grade)
         {
-            if(score != 0 && maximumScore != 0)
+            if(maximumScore >= 0.0)
             {
                 this.Score -= grade.Score;
                 this.MaximumScore -= grade.MaximumScore;
@@ -128,7 +128,7 @@ namespace GradebookCS.Model
         /// <param name="grade">The grade to Substract from this grade</param>
         public void Subtract(ComputedGrade grade)
         {
-            if (score != 0 && maximumScore != 0)
+            if (maximumScore >= 0.0)
             {
                 this.Score -= grade.Score;
                 this.MaximumScore -= grade.MaximumScore;
@@ -140,8 +140,18 @@ namespace GradebookCS.Model
         /// </summary>
         public void Reset()
         {
-            this.score = 0;
-            this.maximumScore = 0;
+            this.score = 0.0;
+            this.maximumScore = 0.0;
+        }
+
+        /// <summary>
+        /// Resets this grade with a new <see cref="MaximumScore"/>
+        /// </summary>
+        /// <param name="newMaxScore"></param>
+        public void Reset(double newMaxScore)
+        {
+            this.score = 0.0;
+            this.maximumScore = newMaxScore;
         }
         #endregion
     }

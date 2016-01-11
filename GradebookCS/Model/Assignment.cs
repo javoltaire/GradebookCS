@@ -50,7 +50,7 @@ namespace GradebookCS.Model
 
         #region Constructors
         /// <summary>
-        /// Initializes an instance of the Assignment class with default values
+        /// Initializes an instance of the Assignment class 
         /// </summary>
         public Assignment() { }
 
