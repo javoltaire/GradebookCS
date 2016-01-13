@@ -4,11 +4,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:GradebookCS.View"
     xmlns:usercontrols="using:GradebookCS.View.UserControls"
-    xmlns:converters="using:GradebookCS.View.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     DataContext="{Binding SelectedCourseViewerViewModel}">
+    
     <RelativePanel x:Name="Root" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <RelativePanel x:Name="ComponentsListRoot" Background="{ThemeResource SystemControlBackgroundAccentBrush}" Width="350" MaxWidth="350" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True">
             <Button x:Name="AddComponentButton" Style="{StaticResource BigButtonStyle}" Content="&#59152;" Width="{Binding ActualWidth,ElementName=ComponentsListRoot}" Command="{Binding AddNewComponentCommand}"/>

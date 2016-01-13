@@ -256,11 +256,13 @@ namespace GradebookCS.ViewModel
         {
             SelectedComponentViewModel = componentViewModel;
             componentViewModel.IsInEditMode = true;
+            AddNewComponentCommand.OnCanExecuteChanged();
         }
 
         public void HideComponentEditingControls(ComponentViewModel componentViewModel)
         {
             componentViewModel.IsInEditMode = false;
+            AddNewComponentCommand.OnCanExecuteChanged();
         }
 
         public void ShowAssignmentEditingConstols(AssignmentViewModel assignmentViewModel)
