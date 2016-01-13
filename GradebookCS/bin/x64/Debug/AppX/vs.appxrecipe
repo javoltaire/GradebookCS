@@ -22,7 +22,7 @@
     <AppXManifest Include="C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-01-12T04:17:34.894</Modified>
+      <Modified>2016-01-13T13:33:31.953</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -506,11 +506,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-01-12T04:17:34.579</Modified>
+      <Modified>2016-01-13T13:33:31.639</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\C#\GradebookCS\GradebookCS\bin\x64\Debug\Core\GradebookCS.exe">
       <PackagePath>GradebookCS.exe</PackagePath>
-      <Modified>2016-01-12T04:17:34.889</Modified>
+      <Modified>2016-01-13T13:33:31.943</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
