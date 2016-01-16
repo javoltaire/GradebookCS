@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:GradebookCS.View"
+    xmlns:customcontrols="using:GradebookCS.View.CustomControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -26,26 +27,26 @@
         </Grid.ColumnDefinitions>
         <!--Name Block-->
         <TextBlock VerticalAlignment="Center" Text="Name:"/>
-        <TextBox Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" PlaceholderText="Course Name" Text="{Binding Name, Mode=TwoWay}"/>
+        <customcontrols:AutoSelectOnFocusTextBox Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" PlaceholderText="Course Name" Text="{Binding Name, Mode=TwoWay}"/>
         <!--A Block-->
         <TextBlock Grid.Row="1" Text="A:" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding ARangeLowEnd, Mode=TwoWay}"/>
+        <customcontrols:AutoSelectOnFocusTextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding ARangeLowEnd, Mode=TwoWay}"/>
         <TextBlock Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Text="-" HorizontalAlignment="Center"/>
-        <TextBox Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding ARangeHighEnd, Mode=TwoWay}"/>
+        <customcontrols:AutoSelectOnFocusTextBox Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding ARangeHighEnd, Mode=TwoWay}"/>
         <!--B Block-->
         <TextBlock Grid.Row="2" Text="B:" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding BRangeLowEnd, Mode=TwoWay}"/>
+        <customcontrols:AutoSelectOnFocusTextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding BRangeLowEnd, Mode=TwoWay}"/>
         <TextBlock Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Text="-" HorizontalAlignment="Center"/>
-        <TextBox Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding BRangeHighEnd, Mode=TwoWay}"/>
+        <customcontrols:AutoSelectOnFocusTextBox Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding BRangeHighEnd, Mode=TwoWay}"/>
         <!--C Block-->
         <TextBlock Grid.Row="3" Text="C:" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding CRangeLowEnd, Mode=TwoWay}"/>
+        <customcontrols:AutoSelectOnFocusTextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding CRangeLowEnd, Mode=TwoWay}"/>
         <TextBlock Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Text="-" HorizontalAlignment="Center"/>
-        <TextBox Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding CRangeHighEnd, Mode=TwoWay}"/>
+        <customcontrols:AutoSelectOnFocusTextBox Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding CRangeHighEnd, Mode=TwoWay}"/>
         <!--NR Block-->
         <TextBlock Grid.Row="4" Text="NR:" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding NRRangeLowEnd, Mode=TwoWay}"/>
+        <customcontrols:AutoSelectOnFocusTextBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding NRRangeLowEnd, Mode=TwoWay}"/>
         <TextBlock Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" Text="-" HorizontalAlignment="Center"/>
-        <TextBox Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding NRRangeHighEnd, Mode=TwoWay}"/>
+        <customcontrols:AutoSelectOnFocusTextBox Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding NRRangeHighEnd, Mode=TwoWay}"/>
     </Grid>
 </ContentDialog>

@@ -128,6 +128,7 @@
     <Compile Include="View\CourseListPage.xaml.cs">
       <DependentUpon>CourseListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CustomControls\AutoSelectOnFocusTextBox.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

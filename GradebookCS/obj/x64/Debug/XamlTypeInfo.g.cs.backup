@@ -139,10 +139,10 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
             _typeNameTable[3] = "GradebookCS.View.UserControls.ViewOnlyAssignmentViewer";
             _typeNameTable[4] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[5] = "String";
-            _typeNameTable[6] = "GradebookCS.View.CustomControls.AutoSelectOnFocusTextBox";
-            _typeNameTable[7] = "Windows.UI.Xaml.Controls.TextBox";
-            _typeNameTable[8] = "GradebookCS.View.CourseDetailsPage";
-            _typeNameTable[9] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[6] = "GradebookCS.View.CourseDetailsPage";
+            _typeNameTable[7] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[8] = "GradebookCS.View.CustomControls.AutoSelectOnFocusTextBox";
+            _typeNameTable[9] = "Windows.UI.Xaml.Controls.TextBox";
             _typeNameTable[10] = "GradebookCS.View.CourseInfoDialog";
             _typeNameTable[11] = "Windows.UI.Xaml.Controls.ContentDialog";
             _typeNameTable[12] = "Windows.UI.Xaml.Controls.ContentControl";
@@ -164,10 +164,10 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
             _typeTable[3] = typeof(global::GradebookCS.View.UserControls.ViewOnlyAssignmentViewer);
             _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[5] = typeof(global::System.String);
-            _typeTable[6] = typeof(global::GradebookCS.View.CustomControls.AutoSelectOnFocusTextBox);
-            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.TextBox);
-            _typeTable[8] = typeof(global::GradebookCS.View.CourseDetailsPage);
-            _typeTable[9] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[6] = typeof(global::GradebookCS.View.CourseDetailsPage);
+            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[8] = typeof(global::GradebookCS.View.CustomControls.AutoSelectOnFocusTextBox);
+            _typeTable[9] = typeof(global::Windows.UI.Xaml.Controls.TextBox);
             _typeTable[10] = typeof(global::GradebookCS.View.CourseInfoDialog);
             _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.ContentDialog);
             _typeTable[12] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
@@ -218,8 +218,8 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
         private object Activate_0_BooleanToVisibilityConverter() { return new global::GradebookCS.View.Converters.BooleanToVisibilityConverter(); }
         private object Activate_2_InverseBooleanToVisibilityConverter() { return new global::GradebookCS.View.Converters.InverseBooleanToVisibilityConverter(); }
         private object Activate_3_ViewOnlyAssignmentViewer() { return new global::GradebookCS.View.UserControls.ViewOnlyAssignmentViewer(); }
-        private object Activate_6_AutoSelectOnFocusTextBox() { return new global::GradebookCS.View.CustomControls.AutoSelectOnFocusTextBox(); }
-        private object Activate_8_CourseDetailsPage() { return new global::GradebookCS.View.CourseDetailsPage(); }
+        private object Activate_6_CourseDetailsPage() { return new global::GradebookCS.View.CourseDetailsPage(); }
+        private object Activate_8_AutoSelectOnFocusTextBox() { return new global::GradebookCS.View.CustomControls.AutoSelectOnFocusTextBox(); }
         private object Activate_10_CourseInfoDialog() { return new global::GradebookCS.View.CourseInfoDialog(); }
         private object Activate_13_CourseListPage() { return new global::GradebookCS.View.CourseListPage(); }
         private object Activate_14_MainPageViewModel() { return new global::GradebookCS.ViewModel.MainPageViewModel(); }
@@ -275,25 +275,25 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
                 xamlType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  GradebookCS.View.CustomControls.AutoSelectOnFocusTextBox
-                userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.TextBox"));
-                userType.Activator = Activate_6_AutoSelectOnFocusTextBox;
+            case 6:   //  GradebookCS.View.CourseDetailsPage
+                userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_6_CourseDetailsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  Windows.UI.Xaml.Controls.TextBox
+            case 7:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 8:   //  GradebookCS.View.CourseDetailsPage
-                userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_8_CourseDetailsPage;
+            case 8:   //  GradebookCS.View.CustomControls.AutoSelectOnFocusTextBox
+                userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.TextBox"));
+                userType.Activator = Activate_8_AutoSelectOnFocusTextBox;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 9:   //  Windows.UI.Xaml.Controls.Page
+            case 9:   //  Windows.UI.Xaml.Controls.TextBox
                 xamlType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
