@@ -44,7 +44,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Gets a string version of the <see cref="Percent"/> Property with a added percent sign
         /// </summary>
-        public string PercentWithSign { get { return Percent + "%"; } }
+        public string PercentWithSign { get { return Math.Round(Percent, 2) + "%"; } }
 
         /// <summary>
         /// A string to show the score and the max score together

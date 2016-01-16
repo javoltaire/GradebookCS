@@ -11,11 +11,5 @@
     <Page.Resources>
         <viewmodels:MainPageViewModel x:Key="MainPageViewModel"/>
     </Page.Resources>
-    <RelativePanel x:Name="rootPane" DataContext="{StaticResource MainPageViewModel}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="settingsButton" RelativePanel.AlignRightWithPanel="True" Height="40" Width="40" Command="{Binding ShowSettingsCommand, Mode=OneWay}">
-            <SymbolIcon Symbol="Setting"/>
-        </Button>
-        <TextBlock x:Name="welcomeTextBlock" Text="Welcome" RelativePanel.AlignVerticalCenterWith="settingsButton"/>
-        <Frame x:Name="ContentFrame" SourcePageType="{Binding CurrentPageType, Mode=TwoWay}" RelativePanel.Below="settingsButton" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
-    </RelativePanel>
+    <Frame x:Name="ContentFrame" DataContext="{StaticResource MainPageViewModel}" SourcePageType="{Binding CurrentPageType, Mode=TwoWay}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
 </Page>

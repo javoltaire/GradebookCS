@@ -53,13 +53,6 @@ namespace GradebookCS.ViewModel
         }
         #endregion
 
-        #region Command Properties
-        /// <summary>
-        /// The command to show settings page
-        /// </summary>
-        public RelayCommand ShowSettingsCommand { get; private set; }
-        #endregion
-
         #region Other Properties
         /// <summary>
         /// Gets or sets the page type being shown
@@ -73,15 +66,9 @@ namespace GradebookCS.ViewModel
                 {
                     currentPageType = value;
                     onPropertyChanged();
-                    ShowSettingsCommand.OnCanExecuteChanged();
                 }
             }
         }
-
-        /// <summary>
-        /// Gets the boolean indicating wheter the current page is already the settings page
-        /// </summary>
-        public bool CanShowSettingsPage { get { return CurrentPageType != typeof(SettingsPage); } }
         #endregion
 
         #endregion
@@ -92,20 +79,9 @@ namespace GradebookCS.ViewModel
         /// </summary>
         public MainPageViewModel()
         {
-            ShowSettingsCommand = new RelayCommand(() => ViewSettingsPage(), ()=> CanShowSettingsPage);
             CourseListPageViewModel = new CourseListPageViewModel(this);
             CurrentPageType = typeof(CourseListPage);
             //PopulateCoursesList();
-        }
-        #endregion
-
-        #region Methods
-        /// <summary>
-        /// Shows the Settings page
-        /// </summary>
-        public void ViewSettingsPage()
-        {
-            CurrentPageType = typeof(SettingsPage);
         }
         #endregion
 

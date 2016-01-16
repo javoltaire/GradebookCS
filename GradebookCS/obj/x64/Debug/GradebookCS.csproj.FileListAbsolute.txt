@@ -233,7 +233,6 @@ D:\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\View\CourseListPage.xbf
 D:\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\View\MainPage.xbf
 D:\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\View\Resources\DataTemplates.xbf
 D:\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\View\Resources\Styles.xbf
-D:\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\View\SettingsPage.xbf
 D:\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\View\UserControls\ViewOnlyAssignmentViewer.xbf
 D:\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.xr.xml
 D:\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.exe
@@ -360,8 +359,6 @@ D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseListPage.g.i.cs
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseListPage.g.cs
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\MainPage.g.i.cs
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\MainPage.g.cs
-D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\SettingsPage.g.i.cs
-D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\SettingsPage.g.cs
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentViewer.g.i.cs
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentViewer.g.cs
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\XamlTypeInfo.g.cs
@@ -372,7 +369,6 @@ D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseDetailsPage.xaml
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseInfoDialog.xaml
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseListPage.xaml
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\MainPage.xaml
-D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\SettingsPage.xaml
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentViewer.xaml
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\Resources\DataTemplates.xbf
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\Resources\Styles.xbf
@@ -381,7 +377,6 @@ D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseDetailsPage.xbf
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseInfoDialog.xbf
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseListPage.xbf
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\MainPage.xbf
-D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\SettingsPage.xbf
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentViewer.xbf
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\XamlSaveStateFile.xml
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\GradebookCS.exe

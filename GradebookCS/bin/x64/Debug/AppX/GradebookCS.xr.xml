@@ -51,7 +51,6 @@
     <RootPropertyPathName Name="DeleteCourseCommand" />
     <RootPropertyPathName Name="EditCourseInfoCommand" />
     <RootPropertyPathName Name="CurrentPageType" />
-    <RootPropertyPathName Name="ShowSettingsCommand" />
     <RootPropertyPathName Name="AssignmentLetter" />
     <RootPropertyPathName Name="AssignmentPercent" />
     <RootPropertyPathName Name="AssignmentMaximumScore" />
@@ -86,7 +85,6 @@
       <RootProperty Name="Width" />
       <RootProperty Name="MaxWidth" />
       <RootProperty Name="Height" />
-      <RootProperty Name="DataContext" />
       <RootMethod Name="GetAlignTopWithPanel" />
       <RootMethod Name="SetAlignTopWithPanel" />
       <RootMethod Name="GetAlignLeftWithPanel" />
@@ -105,8 +103,6 @@
       <RootMethod Name="SetBelow" />
       <RootMethod Name="GetAbove" />
       <RootMethod Name="SetAbove" />
-      <RootMethod Name="GetAlignVerticalCenterWith" />
-      <RootMethod Name="SetAlignVerticalCenterWith" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
@@ -206,10 +202,9 @@
     <RootType FullName="GradebookCS.View.CourseListPage" />
     <RootType FullName="GradebookCS.ViewModel.MainPageViewModel" />
     <RootType FullName="Windows.UI.Xaml.Controls.Frame">
+      <RootProperty Name="DataContext" />
       <RootProperty Name="SourcePageType" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.SymbolIcon">
-      <RootProperty Name="Symbol" />
+      <RootProperty Name="Background" />
     </RootType>
     <RootType FullName="GradebookCS.View.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.Control">
@@ -308,7 +303,6 @@
       <RootMethod Name="GetAccessibilityView" />
       <RootMethod Name="SetAccessibilityView" />
     </RootType>
-    <RootType FullName="GradebookCS.View.SettingsPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
       <RootProperty Name="Content" />
     </RootType>
