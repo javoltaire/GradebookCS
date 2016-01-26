@@ -100,12 +100,13 @@
     </Compile>
     <Compile Include="Common\BaseINPC.cs" />
     <Compile Include="Common\Enums\DialogResult.cs" />
+    <Compile Include="DataBase\Database.cs" />
+    <Compile Include="DataBase\TableBase.cs" />
     <Compile Include="Model\AdjustableGrade.cs" />
     <Compile Include="Model\Assignment.cs" />
     <Compile Include="Model\Component.cs" />
     <Compile Include="Model\ComputedGrade.cs" />
     <Compile Include="Model\Course.cs" />
-    <Compile Include="DataBase\CoursesManagerSingleton.cs" />
     <Compile Include="Model\GradeBase.cs" />
     <Compile Include="Model\LetterGradeRange.cs" />
     <Compile Include="ViewModel\Commands\RelayCommand.cs" />
@@ -194,6 +195,7 @@
       <Name>SQLite for Universal App Platform</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
