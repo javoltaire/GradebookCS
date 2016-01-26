@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GradebookCS.Model;
 
+
 namespace GradebookCS.DataBase
 {
     /// <summary>
@@ -54,7 +55,7 @@ namespace GradebookCS.DataBase
         private void PopulateCoursesList()
         {
             Course CS101 = new Course("CS 101");
-
+            SQLiteConnection
             //Component tests = new Component("Tests", 60);
             //Component quizzes = new Component("Quizzes", 15);
             //Component homework = new Component("Homework", 25);
