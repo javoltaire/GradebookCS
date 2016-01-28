@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GradebookCS.DataBase
 {
-    public class Database
+    class ComponentTable
     {
     }
 }

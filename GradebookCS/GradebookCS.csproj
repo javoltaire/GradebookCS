@@ -100,7 +100,10 @@
     </Compile>
     <Compile Include="Common\BaseINPC.cs" />
     <Compile Include="Common\Enums\DialogResult.cs" />
-    <Compile Include="DataBase\Database.cs" />
+    <Compile Include="DataBase\AssignementTable.cs" />
+    <Compile Include="DataBase\ComponentTable.cs" />
+    <Compile Include="DataBase\CourseTable.cs" />
+    <Compile Include="DataBase\DatabaseService.cs" />
     <Compile Include="DataBase\TableBase.cs" />
     <Compile Include="Model\AdjustableGrade.cs" />
     <Compile Include="Model\Assignment.cs" />
