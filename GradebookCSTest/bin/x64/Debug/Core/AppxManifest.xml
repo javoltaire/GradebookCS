@@ -21,6 +21,7 @@
   </Dependencies>
   <Resources>
     <Resource Language="EN-US" />
+    <Resource Language="EN" />
   </Resources>
   <Applications>
     <Application Id="vstest.executionengine.universal.App" Executable="GradebookCSTest.exe" EntryPoint="GradebookCSTest.App">
