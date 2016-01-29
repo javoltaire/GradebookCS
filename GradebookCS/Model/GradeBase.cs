@@ -74,6 +74,11 @@ namespace GradebookCS.Model
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Returns a value that is a scaled value of this score based on the given value
+        /// </summary>
+        /// <param name="scaleValue">Scale Value</param>
+        /// <returns>The scaled value</returns>
         public double GetScaledScore(double scaleValue)
         {
             if (scaleValue > 0.0 && maximumScore > 0.0)
