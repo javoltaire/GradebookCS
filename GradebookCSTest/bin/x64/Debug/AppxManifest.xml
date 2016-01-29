@@ -19,6 +19,7 @@
   </Dependencies>
   <Resources>
     <Resource Language="EN-US" />
+    <Resource Language="EN" />
   </Resources>
   <Applications>
     <Application Id="vstest.executionengine.universal.App" Executable="GradebookCSTest.exe" EntryPoint="GradebookCSTest.App">
@@ -53,6 +54,7 @@
     <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="14.0.24720.0" />
     <build:Item Name="MSTestFramework.Universal" Version="14.0" />
     <build:Item Name="TestPlatform.Universal" Version="14.0" />
+    <build:Item Name="SQLite.UAP.2015" Version="3.10.2" />
     <build:Item Name="MakePri.exe" Version="10.0.10586.15 (th2_release.151119-1817)" />
   </build:Metadata>
 </Package>

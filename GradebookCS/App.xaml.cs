@@ -1,4 +1,5 @@
-﻿using GradebookCS.View;
+﻿using GradebookCS.DataBase;
+using GradebookCS.View;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -51,6 +52,7 @@ namespace GradebookCS
                 this.DebugSettings.EnableFrameRateCounter = false;
             }
 #endif
+            DatabaseService.LoadDatabase();
 
             Frame rootFrame = Window.Current.Content as Frame;
 
