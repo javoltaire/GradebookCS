@@ -18,11 +18,11 @@ namespace GradebookCS.DataBase
     {
         #region Properties
         #region Abstract Statement Properties
-        protected abstract string SelectAllStatement { get; set; }
-        protected abstract string SelectItemStatement { get; set; }
-        protected abstract string DeleteItemStatement { get; set; }
-        protected abstract string InsertItemStatement { get; set; }
-        protected abstract string UpdateItemStatement { get; set; }
+        public abstract string SelectAllStatement { get; }
+        public abstract string SelectItemStatement { get; }
+        public abstract string DeleteItemStatement { get; }
+        public abstract string InsertItemStatement { get; }
+        public abstract string UpdateItemStatement { get; }
         #endregion
         #region Other Properties
         private ISQLiteConnection SQLiteConnection { get { return DatabaseService._Connection; } }

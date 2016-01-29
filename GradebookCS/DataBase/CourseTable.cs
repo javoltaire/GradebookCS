@@ -8,5 +8,7 @@ namespace GradebookCS.DataBase
 {
     class CourseTable
     {
+        
+
     }
 }

@@ -14,18 +14,18 @@ namespace GradebookCS.Model
     /// Something like an Exam assignment with a grade of 98 out of 100 would be represented as:
     /// <code>Assignment exam1 = new Assignment("Exam 1", 98, 100)</code>
     /// </example>
-    public class Assignment: BaseINPC
+    public class Assignment : BaseINPC
     {
         #region Attributes
         /// <summary>
         /// Store for the <see cref="Id"/> Property
         /// </summary>
-        private long id = -1;
+        private string id = default(string);
 
         /// <summary>
         /// Store for the <see cref="ComponentId"/> property
         /// </summary>
-        private long componentId = -1;
+        private string componentId = default(string);
 
         /// <summary>
         /// Store for the <see cref="Name"/> Property
@@ -38,12 +38,12 @@ namespace GradebookCS.Model
         /// Gets or Sets the ID of the assignment
         /// </summary>
         /// <value>The Id of the assignment</value>
-        public long Id
+        public string Id
         {
             get { return id; }
             set
             {
-                if(value != id)
+                if (value != id)
                 {
                     id = value;
                     onPropertyChanged();
@@ -55,12 +55,12 @@ namespace GradebookCS.Model
         /// Gets or Sets the ID of the parent component
         /// </summary>
         /// <value>The ID of the component that holds this assigment</value>
-        public long ComponentId
+        public string ComponentId
         {
             get { return componentId; }
             set
             {
-                if(value != componentId)
+                if (value != componentId)
                 {
                     componentId = value;
                     onPropertyChanged();
@@ -100,23 +100,27 @@ namespace GradebookCS.Model
         /// <summary>
         /// Initializes an instance of the Assignment class with the given values
         /// </summary>
+        /// <param name="id">The Id of the assignment</param>
+        /// <param name="componentId">The parent component id</param>
         /// <param name="name">The name of the assignment</param>
-        public Assignment(string name)
+        public Assignment(string id, string componentId, string name)
         {
+            this.Id = id;
+            this.ComponentId = componentId;
             this.Name = name;
         }
 
         /// <summary>
-        /// Initializes an instance of the Assingment class with the given values
+        /// Initializes an instance of the Assignment class with the given values
         /// </summary>
         /// <param name="id">The id for the assingment</param>
         /// <param name="name">The name of the assignment</param>
         /// <param name="score">The score of the assignment</param>
         /// <param name="maximumScore">The maximum score of the assignment</param>
-        public Assignment( string name, double score, double maximumScore)
+        public Assignment(string id, string componentId, string name, double score, double maximumScore)
         {
-            //this.Id = id;
-            //this.ComponentId = componentId;
+            this.Id = id;
+            this.ComponentId = componentId;
             this.Name = name;
             this.Grade = new AdjustableGrade(score, maximumScore);
         }
