@@ -1,4 +1,5 @@
-﻿using GradebookCS.ViewModel;
+﻿using GradebookCS.DataBase;
+using GradebookCS.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,6 +32,7 @@ namespace GradebookCS.View
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             //Adds an event to the back button
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += ContentFrame_BackRequested;
+            
         }
 
         /// <summary>

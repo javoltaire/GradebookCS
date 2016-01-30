@@ -100,7 +100,10 @@
     </Compile>
     <Compile Include="Common\BaseINPC.cs" />
     <Compile Include="Common\Enums\DialogResult.cs" />
-    <Compile Include="DataBase\Database.cs" />
+    <Compile Include="DataBase\AssignementTable.cs" />
+    <Compile Include="DataBase\ComponentTable.cs" />
+    <Compile Include="DataBase\CourseTable.cs" />
+    <Compile Include="DataBase\DatabaseService.cs" />
     <Compile Include="DataBase\TableBase.cs" />
     <Compile Include="Model\AdjustableGrade.cs" />
     <Compile Include="Model\Assignment.cs" />
@@ -191,6 +194,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <SDKReference Include="Microsoft.VCLibs, Version=14.0">
+      <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
+    </SDKReference>
     <SDKReference Include="SQLite.UAP.2015, Version=3.10.2">
       <Name>SQLite for Universal App Platform</Name>
     </SDKReference>

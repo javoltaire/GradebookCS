@@ -675,3 +675,9 @@ C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\qualifiers
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\SQLitePCL.Ext.pri.xml
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\ProjectArchitectures.txt
+D:\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\SQLitePCL.Ext.dll
+D:\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\SQLitePCL.Ext.pri
+D:\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\SQLitePCL.dll
+D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\SQLitePCL\en\SQLitePCL.Resources.resw
+D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\GradebookCS.csproj.GenerateResource.Cache
+D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\SQLitePCL.Ext.pri.xml
