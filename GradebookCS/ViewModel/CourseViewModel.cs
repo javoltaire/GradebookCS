@@ -1,4 +1,5 @@
 ﻿using GradebookCS.Common;
+using GradebookCS.DataBase;
 using GradebookCS.Model;
 using GradebookCS.ViewModel.Commands;
 using GradebookCS.ViewModel.UserControlsViewModels;
@@ -17,7 +18,54 @@ namespace GradebookCS.ViewModel
 {
     public class CourseViewModel :BaseINPC
     {
+        #region Attributes
+        private CourseTable courseRepository = CourseTable.Instance;
+        #endregion
 
+        #region Command Properties
+        /// <summary>
+        /// Command to edit the course info like name and letter score ranges
+        /// </summary>
+        public RelayCommand EditCourseInfoCommand { get; private set; }
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// Shows a dialog box to enable the user to edit some info about the <see cref="Course"/>
+        /// </summary>
+        public async void EditCourseInfo()
+        {
+            //Backs up the data before its changed in case of need to revert back
+            string name = Course.Name;
+            double aLow = Course.ARangeLowEnd;
+            double aHigh = Course.ARangeHighEnd;
+            double bLow = Course.BRangeLowEnd;
+            double bHigh = Course.BRangeHighEnd;
+            double cLow = Course.CRangeLowEnd;
+            double cHigh = Course.CRangeHighEnd;
+            double nrLow = Course.NRRangeLowEnd;
+            double nrHigh = Course.NRRangeHighEnd;
+
+            CourseInfoDialogViewModel dialogViewModel = new CourseInfoDialogViewModel(Course);
+            var result = await dialogViewModel.GetDialogResult();
+            if(result == ContentDialogResult.Primary)
+            {
+                courseRepository.UpdateItem(Course.Id, Course);
+            }
+            else if (result == ContentDialogResult.Secondary)
+            {
+                Course.Name = name;
+                Course.ARangeLowEnd = aLow;
+                Course.ARangeHighEnd = aHigh;
+                Course.BRangeLowEnd = bLow;
+                Course.BRangeHighEnd = bHigh;
+                Course.CRangeLowEnd = cLow;
+                Course.CRangeHighEnd = cHigh;
+                Course.NRRangeLowEnd = nrLow;
+                Course.NRRangeHighEnd = nrHigh;
+            }
+        }
+        #endregion
 
         #region TO be refactored
         #region Attributes
@@ -29,10 +77,7 @@ namespace GradebookCS.ViewModel
 
         #region Properties
         #region Command Properties
-        /// <summary>
-        /// Command to edit the course info like name and letter score ranges
-        /// </summary>
-        public RelayCommand EditCourseInfoCommand { get; private set; }
+        
 
         /// <summary>
         /// Commmand to add a new Component
@@ -138,9 +183,9 @@ namespace GradebookCS.ViewModel
         /// </summary>
         public CourseViewModel()
         {
-            EditCourseInfoCommand = new RelayCommand(async () => await EditCourseInfo(), () => true);
-            AddNewComponentCommand = new RelayCommand(() => AddNewComponent(), () => true);
-            AddNewAssignmentCommand = new RelayCommand(() => AddNewAssignment(), () => true);
+            EditCourseInfoCommand = new RelayCommand(EditCourseInfo, () => true);
+            AddNewComponentCommand = new RelayCommand(AddNewComponent, () => true);
+            AddNewAssignmentCommand = new RelayCommand(AddNewAssignment, () => true);
             RemoveAssignment = new RelayParameterCommand<AssignmentViewModel>(DeleteAssignment, () => true);
             RemoveComponent = new RelayParameterCommand<ComponentViewModel>(DeleteComponent, () => true);
             ShowComponentEditingControlsCommand = new RelayParameterCommand<ComponentViewModel>(ShowComponentEditingControls, () => true);
@@ -159,38 +204,7 @@ namespace GradebookCS.ViewModel
         #endregion
 
         #region Methods
-        /// <summary>
-        /// Shows a dialog box to enable the user to edit some info about the <see cref="Course"/>
-        /// </summary>
-        public async Task<ContentDialogResult> EditCourseInfo()
-        {
-            //Backs up the data before its changed in case of need to revert back
-            string name = Course.Name;
-            double aLow = Course.ARangeLowEnd;
-            double aHigh = Course.ARangeHighEnd;
-            double bLow = Course.BRangeLowEnd;
-            double bHigh = Course.BRangeHighEnd;
-            double cLow = Course.CRangeLowEnd;
-            double cHigh = Course.CRangeHighEnd;
-            double nrLow = Course.NRRangeLowEnd;
-            double nrHigh = Course.NRRangeHighEnd;
-
-            CourseInfoDialogViewModel dialogViewModel = new CourseInfoDialogViewModel(Course);
-            var result = await dialogViewModel.GetDialogResult();
-            if (result == ContentDialogResult.Secondary)
-            {
-                Course.Name = name;
-                Course.ARangeLowEnd = aLow;
-                Course.ARangeHighEnd = aHigh;
-                Course.BRangeLowEnd = bLow;
-                Course.BRangeHighEnd = bHigh;
-                Course.CRangeLowEnd = cLow;
-                Course.CRangeHighEnd = cHigh;
-                Course.NRRangeLowEnd = nrLow;
-                Course.NRRangeHighEnd = nrHigh;
-            }
-            return result;
-        }
+        
 
         /// <summary>
         /// Adds a new <see cref="ComponentViewModel"/> that holds a <see cref="Component"/>
@@ -300,9 +314,9 @@ namespace GradebookCS.ViewModel
         public CourseViewModel(Course course)
         {
             this.Course = course;
-            EditCourseInfoCommand = new RelayCommand(async () => await EditCourseInfo(), () => true);
-            AddNewComponentCommand = new RelayCommand(() => AddNewComponent(), () => true);
-            AddNewAssignmentCommand = new RelayCommand(() => AddNewAssignment(), () => true);
+            EditCourseInfoCommand = new RelayCommand(EditCourseInfo, () => true);
+            AddNewComponentCommand = new RelayCommand(AddNewComponent, () => true);
+            AddNewAssignmentCommand = new RelayCommand(AddNewAssignment, () => true);
             ShowComponentEditingControlsCommand = new RelayParameterCommand<ComponentViewModel>(ShowComponentEditingControls, () => true);
             HideComponentEditingControlsCommand = new RelayParameterCommand<ComponentViewModel>(HideComponentEditingControls, () => true);
             ShowAssignmentEditingConstolsCommand = new RelayParameterCommand<AssignmentViewModel>(ShowAssignmentEditingConstols, () => true);

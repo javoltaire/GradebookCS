@@ -43,7 +43,7 @@
     <RootPropertyPathName Name="BRangeLowEnd" />
     <RootPropertyPathName Name="ARangeHighEnd" />
     <RootPropertyPathName Name="ARangeLowEnd" />
-    <RootPropertyPathName Name="CourseListPageViewModel" />
+    <RootPropertyPathName Name="CourseListViewModel" />
     <RootPropertyPathName Name="AddNewCourseCommand" />
     <RootPropertyPathName Name="CanShowCourseListGridview" />
     <RootPropertyPathName Name="CourseViewModels" />

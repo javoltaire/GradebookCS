@@ -151,7 +151,7 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
             _typeNameTable[15] = "GradebookCS.Common.BaseINPC";
             _typeNameTable[16] = "System.Type";
             _typeNameTable[17] = "GradebookCS.ViewModel.CourseViewModel";
-            _typeNameTable[18] = "GradebookCS.ViewModel.CourseListPageViewModel";
+            _typeNameTable[18] = "GradebookCS.ViewModel.CourseListViewModel";
             _typeNameTable[19] = "GradebookCS.View.MainPage";
 
             _typeTable = new global::System.Type[20];
@@ -173,7 +173,7 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
             _typeTable[15] = typeof(global::GradebookCS.Common.BaseINPC);
             _typeTable[16] = typeof(global::System.Type);
             _typeTable[17] = typeof(global::GradebookCS.ViewModel.CourseViewModel);
-            _typeTable[18] = typeof(global::GradebookCS.ViewModel.CourseListPageViewModel);
+            _typeTable[18] = typeof(global::GradebookCS.ViewModel.CourseListViewModel);
             _typeTable[19] = typeof(global::GradebookCS.View.MainPage);
         }
 
@@ -316,8 +316,8 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
                 userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GradebookCS.Common.BaseINPC"));
                 userType.Activator = Activate_14_MainViewModel;
                 userType.AddMemberName("CurrentPageType");
-                userType.AddMemberName("SelectedCourseViewerViewModel");
-                userType.AddMemberName("CourseListPageViewModel");
+                userType.AddMemberName("SelectedCourseViewModel");
+                userType.AddMemberName("CourseListViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -341,7 +341,7 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 18:   //  GradebookCS.ViewModel.CourseListPageViewModel
+            case 18:   //  GradebookCS.ViewModel.CourseListViewModel
                 userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GradebookCS.Common.BaseINPC"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
@@ -419,20 +419,20 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
             var that = (global::GradebookCS.ViewModel.MainViewModel)instance;
             that.CurrentPageType = (global::System.Type)Value;
         }
-        private object get_6_MainViewModel_SelectedCourseViewerViewModel(object instance)
+        private object get_6_MainViewModel_SelectedCourseViewModel(object instance)
         {
             var that = (global::GradebookCS.ViewModel.MainViewModel)instance;
-            return that.SelectedCourseViewerViewModel;
+            return that.SelectedCourseViewModel;
         }
-        private void set_6_MainViewModel_SelectedCourseViewerViewModel(object instance, object Value)
+        private void set_6_MainViewModel_SelectedCourseViewModel(object instance, object Value)
         {
             var that = (global::GradebookCS.ViewModel.MainViewModel)instance;
-            that.SelectedCourseViewerViewModel = (global::GradebookCS.ViewModel.CourseViewModel)Value;
+            that.SelectedCourseViewModel = (global::GradebookCS.ViewModel.CourseViewModel)Value;
         }
-        private object get_7_MainViewModel_CourseListPageViewModel(object instance)
+        private object get_7_MainViewModel_CourseListViewModel(object instance)
         {
             var that = (global::GradebookCS.ViewModel.MainViewModel)instance;
-            return that.CourseListPageViewModel;
+            return that.CourseListViewModel;
         }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
@@ -483,16 +483,16 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
                 xamlMember.Getter = get_5_MainViewModel_CurrentPageType;
                 xamlMember.Setter = set_5_MainViewModel_CurrentPageType;
                 break;
-            case "GradebookCS.ViewModel.MainViewModel.SelectedCourseViewerViewModel":
+            case "GradebookCS.ViewModel.MainViewModel.SelectedCourseViewModel":
                 userType = (global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType)GetXamlTypeByName("GradebookCS.ViewModel.MainViewModel");
-                xamlMember = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlMember(this, "SelectedCourseViewerViewModel", "GradebookCS.ViewModel.CourseViewModel");
-                xamlMember.Getter = get_6_MainViewModel_SelectedCourseViewerViewModel;
-                xamlMember.Setter = set_6_MainViewModel_SelectedCourseViewerViewModel;
+                xamlMember = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlMember(this, "SelectedCourseViewModel", "GradebookCS.ViewModel.CourseViewModel");
+                xamlMember.Getter = get_6_MainViewModel_SelectedCourseViewModel;
+                xamlMember.Setter = set_6_MainViewModel_SelectedCourseViewModel;
                 break;
-            case "GradebookCS.ViewModel.MainViewModel.CourseListPageViewModel":
+            case "GradebookCS.ViewModel.MainViewModel.CourseListViewModel":
                 userType = (global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType)GetXamlTypeByName("GradebookCS.ViewModel.MainViewModel");
-                xamlMember = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlMember(this, "CourseListPageViewModel", "GradebookCS.ViewModel.CourseListPageViewModel");
-                xamlMember.Getter = get_7_MainViewModel_CourseListPageViewModel;
+                xamlMember = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlMember(this, "CourseListViewModel", "GradebookCS.ViewModel.CourseListViewModel");
+                xamlMember.Getter = get_7_MainViewModel_CourseListViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             }

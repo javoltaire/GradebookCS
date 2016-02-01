@@ -16,7 +16,7 @@ using GradebookCS.DataBase;
 
 namespace GradebookCS.ViewModel
 {
-    public class CourseListPageViewModel : BaseINPC
+    public class CourseListViewModel : BaseINPC
     {
         #region Attributes
         /// <summary>
@@ -63,7 +63,7 @@ namespace GradebookCS.ViewModel
         /// <summary>
         /// Constructor to initialize a new instance of this class.
         /// </summary>
-        public CourseListPageViewModel(MainViewModel mainPageViewModel)
+        public CourseListViewModel(MainViewModel mainPageViewModel)
         {
             this.mainPageViewModel = mainPageViewModel;
             AddNewCourseCommand = new RelayCommand(() => AddNewCourse(), () => true);
@@ -93,7 +93,7 @@ namespace GradebookCS.ViewModel
         /// <param name="courseViewerViewModel">The course to view details of</param>
         public void ViewCourseDetails(CourseViewModel courseViewerViewModel)
         {
-            mainPageViewModel.SelectedCourseViewerViewModel = courseViewerViewModel;
+            mainPageViewModel.SelectedCourseViewModel = courseViewerViewModel;
             mainPageViewModel.CurrentPageType = typeof(CourseDetailsPage);
         }
 
@@ -103,7 +103,8 @@ namespace GradebookCS.ViewModel
         public async void AddNewCourse()
         {
             CourseViewModel newCourseViewModel = new CourseViewModel();
-            ContentDialogResult result = await newCourseViewModel.EditCourseInfo();
+            CourseInfoDialogViewModel infoDialog = new CourseInfoDialogViewModel(newCourseViewModel.Course);
+            var result = await infoDialog.GetDialogResult();
             if (result == ContentDialogResult.Primary)
             {
                 CourseViewModels.Add(newCourseViewModel);

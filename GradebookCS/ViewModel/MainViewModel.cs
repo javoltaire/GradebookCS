@@ -25,7 +25,7 @@ namespace GradebookCS.ViewModel
         /// <summary>
         /// The selected Course to view details of
         /// </summary>
-        private CourseViewModel selectedCourseViewerViewModel;
+        private CourseViewModel selectedCourseViewModel;
         #endregion
 
         #region Properties
@@ -48,14 +48,14 @@ namespace GradebookCS.ViewModel
         /// <summary>
         /// Gets or Sets the selected Course view model object
         /// </summary>
-        public CourseViewModel SelectedCourseViewerViewModel
+        public CourseViewModel SelectedCourseViewModel
         {
-            get { return selectedCourseViewerViewModel; }
+            get { return selectedCourseViewModel; }
             set
             {
-                if (value != selectedCourseViewerViewModel)
+                if (value != selectedCourseViewModel)
                 {
-                    selectedCourseViewerViewModel = value;
+                    selectedCourseViewModel = value;
                     onPropertyChanged();
                 }
             }
@@ -64,7 +64,7 @@ namespace GradebookCS.ViewModel
         /// <summary>
         /// Gets the CourseListPageViewModel
         /// </summary>
-        public CourseListPageViewModel CourseListPageViewModel { get; private set; }
+        public CourseListViewModel CourseListViewModel { get; private set; }
         #endregion
 
         #region Constructors
@@ -73,7 +73,7 @@ namespace GradebookCS.ViewModel
         /// </summary>
         public MainViewModel()
         {
-            CourseListPageViewModel = new CourseListPageViewModel(this);
+            CourseListViewModel = new CourseListViewModel(this);
             CurrentPageType = typeof(CourseListPage);
         }
         #endregion
