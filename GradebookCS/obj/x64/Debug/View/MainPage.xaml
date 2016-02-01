@@ -9,7 +9,7 @@
     xmlns:views="using:GradebookCS.View"
     mc:Ignorable="d">
     <Page.Resources>
-        <viewmodels:MainPageViewModel x:Key="MainPageViewModel"/>
+        <viewmodels:MainViewModel x:Key="MainPageViewModel"/>
     </Page.Resources>
     <Frame x:ConnectionId='1' x:Name="ContentFrame" DataContext="{StaticResource MainPageViewModel}" SourcePageType="{Binding CurrentPageType, Mode=TwoWay}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
 </Page>

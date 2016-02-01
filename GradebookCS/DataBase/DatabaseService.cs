@@ -75,7 +75,13 @@ namespace GradebookCS.DataBase
                                             ComponentId VARCHAR( 36 ),
                                             FOREIGN KEY(ComponentId) REFERENCES Component(Id) ON DELETE CASCADE
                             )";
-            
+
+            //create a statement object using the sql string
+            using (var statement = _Connection.Prepare(sql))
+            {
+                statement.Step();   //then step/execute the statement
+            }
+
             // String to turn on foreign keys
             sql = @"PRAGMA foreign_keys = ON";
 

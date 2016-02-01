@@ -17,6 +17,9 @@ namespace GradebookCS.ViewModel
 {
     public class CourseViewModel :BaseINPC
     {
+
+
+        #region TO be refactored
         #region Attributes
         /// <summary>
         /// Store the selected ComponentViewerViewModel
@@ -86,7 +89,7 @@ namespace GradebookCS.ViewModel
             get { return selectedComponentViewModel; }
             set
             {
-                if(value != selectedComponentViewModel)
+                if (value != selectedComponentViewModel)
                 {
                     if (selectedComponentViewModel != null && selectedComponentViewModel.IsInEditMode)
                     {
@@ -103,7 +106,7 @@ namespace GradebookCS.ViewModel
 
         private void Component_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if(e.PropertyName == "Name")
+            if (e.PropertyName == "Name")
             {
                 onPropertyChanged("CourseAndComponentName");
             }
@@ -136,7 +139,7 @@ namespace GradebookCS.ViewModel
         public CourseViewModel()
         {
             EditCourseInfoCommand = new RelayCommand(async () => await EditCourseInfo(), () => true);
-            AddNewComponentCommand = new RelayCommand(()=> AddNewComponent(), ()=> true);
+            AddNewComponentCommand = new RelayCommand(() => AddNewComponent(), () => true);
             AddNewAssignmentCommand = new RelayCommand(() => AddNewAssignment(), () => true);
             RemoveAssignment = new RelayParameterCommand<AssignmentViewModel>(DeleteAssignment, () => true);
             RemoveComponent = new RelayParameterCommand<ComponentViewModel>(DeleteComponent, () => true);
@@ -228,7 +231,7 @@ namespace GradebookCS.ViewModel
                 selectedComponentViewModel.Component.Assignments.Remove(selectedComponentViewModel.AssignmentViewerViewModels.ElementAt(selectedComponentViewModel.AssignmentViewerViewModels.IndexOf(assignmentToBeDeleted)).Assignment);
                 selectedComponentViewModel.AssignmentViewerViewModels.Remove(assignmentToBeDeleted);
             }
-            
+
         }
 
         /// <summary>
@@ -248,11 +251,11 @@ namespace GradebookCS.ViewModel
                     SelectedComponentViewModel = selectedComponentViewModel == ComponentViewerViewModels.First() ? ComponentViewerViewModels.ElementAt(1) : ComponentViewerViewModels.First();
                 Course.Components.Remove(componentViewerViewModel.Component);
                 ComponentViewerViewModels.Remove(componentViewerViewModel);
-                
+
             }
         }
 
-        public void ShowComponentEditingControls (ComponentViewModel componentViewModel)
+        public void ShowComponentEditingControls(ComponentViewModel componentViewModel)
         {
             SelectedComponentViewModel = componentViewModel;
             componentViewModel.IsInEditMode = true;
@@ -287,13 +290,13 @@ namespace GradebookCS.ViewModel
             get { return currentEditingAssignment; }
             set
             {
-                if(value != currentEditingAssignment)
+                if (value != currentEditingAssignment)
                 {
                     currentEditingAssignment = value;
                 }
             }
         }
-        
+
         public CourseViewModel(Course course)
         {
             this.Course = course;
@@ -316,8 +319,7 @@ namespace GradebookCS.ViewModel
 
 
         #endregion
-
-        
+        #endregion
 
 
     }

@@ -18,6 +18,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="75"/>
@@ -48,6 +49,7 @@
         <customcontrols:AutoSelectOnFocusTextBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding NRRangeLowEnd, Mode=TwoWay}"/>
         <TextBlock Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" Text="-" HorizontalAlignment="Center"/>
         <customcontrols:AutoSelectOnFocusTextBox Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding NRRangeHighEnd, Mode=TwoWay}"/>
+        <CheckBox Grid.Row="5" Grid.ColumnSpan="4" IsChecked="{Binding UsePercent, Mode=TwoWay}" Content="Use Percentage to calculate Letter"/>
     </Grid>
 </ContentDialog>
 

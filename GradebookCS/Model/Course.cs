@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using GradebookCS.Common;
 using System.Collections.Specialized;
+using System;
 
 namespace GradebookCS.Model
 {
@@ -11,9 +12,19 @@ namespace GradebookCS.Model
     {
         #region Attributes
         /// <summary>
+        /// Store for Id property
+        /// </summary>
+        private string id = Guid.NewGuid().ToString();
+
+        /// <summary>
         /// Store for the <see cref="Name"/> Property
         /// </summary>
         private string name = "Course";
+
+        /// <summary>
+        /// Store the boolean value stating whether or not actual score or percentage should be used to determine the letter grade
+        /// </summary>
+        private bool usePercent = true;
 
         /// <summary>
         /// The range for an A
@@ -38,8 +49,26 @@ namespace GradebookCS.Model
 
         #region Properties
         /// <summary>
+        /// Gets or Sets the id of the course
+        /// </summary>
+        /// <value>The id for the course</value>
+        public string Id
+        {
+            get { return id; }
+            set
+            {
+                if(value != id)
+                {
+                    id = value;
+                    onPropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
         /// Gets or Sets the name of this course
         /// </summary>
+        /// <value>The name of the course</value>
         public string Name
         {
             get { return name; }
@@ -54,8 +83,27 @@ namespace GradebookCS.Model
         }
 
         /// <summary>
+        /// Gets or Sets the boolean stating whether or not the percentage should be used to calculate the Letter
+        /// </summary>
+        /// <value>The boolean stating whether or not the percentage should be used to calculate the Letter</value>
+        public bool UsePercent
+        {
+            get { return usePercent; }
+            set
+            {
+                if(value != usePercent)
+                {
+                    usePercent = value;
+                    onPropertyChanged();
+                    onPropertyChanged("Letter");
+                }
+            }
+        }
+
+        /// <summary>
         /// Gets or Sets the low end of the A range
         /// </summary>
+        /// <value>The Low end of the A range</value>
         public double ARangeLowEnd
         {
             get { return aRange.LowEnd; }
@@ -73,6 +121,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Gets or Sets the High end of the A range
         /// </summary>
+        /// <value>The High end of the A range</value>
         public double ARangeHighEnd
         {
             get { return aRange.HighEnd; }
@@ -90,6 +139,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Gets or Sets the low end of the B range
         /// </summary>
+        /// <value>The Low end of the B range</value>
         public double BRangeLowEnd
         {
             get { return bRange.LowEnd; }
@@ -107,6 +157,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Gets or Sets the High end of the B range
         /// </summary>
+        /// <value>The High end of the B range</value>
         public double BRangeHighEnd
         {
             get { return bRange.HighEnd; }
@@ -124,6 +175,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Gets or Sets the low end of the C range
         /// </summary>
+        /// <value>The Low end of the C range</value>
         public double CRangeLowEnd
         {
             get { return cRange.LowEnd; }
@@ -141,6 +193,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Gets or Sets the High end of the C range
         /// </summary>
+        /// <value>The High end of the C range</value>
         public double CRangeHighEnd
         {
             get { return cRange.HighEnd; }
@@ -158,6 +211,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Gets or Sets the low end of the NR range
         /// </summary>
+        /// <value>The Low end of the NR range</value>
         public double NRRangeLowEnd
         {
             get { return nrRange.LowEnd; }
@@ -175,6 +229,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Gets or Sets the High end of the NR range
         /// </summary>
+        /// <value>The High end of the NR range</value>
         public double NRRangeHighEnd
         {
             get { return nrRange.HighEnd; }
@@ -202,57 +257,52 @@ namespace GradebookCS.Model
         {
             get
             {
-                double tempScorePercent = Grade.Percent;
-                if (aRange.IsInRange(tempScorePercent))
-                    return aRange.Letter;
-                else if (bRange.IsInRange(tempScorePercent))
-                    return bRange.Letter;
-                else if (cRange.IsInRange(tempScorePercent))
-                    return cRange.Letter;
-                else if (nrRange.IsInRange(tempScorePercent))
-                    return nrRange.Letter;
-                else if (tempScorePercent > aRange.HighEnd)
-                    return aRange.Letter;
+                if (usePercent)
+                {
+                    double tempScorePercent = Grade.Percent;
+                    return ComputeLetterFor(tempScorePercent);
+                }
                 else
-                    return "N/A";
+                {
+                    return ComputeLetterFor(Grade.Score);
+                }
             }
         }
-
-        /// <summary>
-        /// Gets the list of <see cref="Component"/>s of this Course
-        /// </summary>
-        /// <value>The list of <see cref="Component"/>s for this Course</value>
-        public ObservableCollection<Component> Components { get; private set; } = new ObservableCollection<Component>();
         #endregion
 
         #region Constructors
         /// <summary>
-        /// Initializes an instance of the Assignment class
+        /// Initializes an instance of the Course class
         /// </summary>
-        public Course()
-        {
-            this.Components.CollectionChanged += Components_CollectionChanged;
-            Grade.PropertyChanged += Grade_PropertyChanged;
-        }
-
-        private void Grade_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            onPropertyChanged("Letter");
-        }
-
-        /// <summary>
-        /// Initializes an instance of the Assignment class with given values
-        /// </summary>
-        /// <param name="name">The name for the course</param>
-        public Course(string name)
-        {
-            this.Name = name;
-            this.Components.CollectionChanged += Components_CollectionChanged;
-            Grade.PropertyChanged += Grade_PropertyChanged;
-        }
+        public Course() { }
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Computes the letter for a given score value
+        /// </summary>
+        /// <param name="value">Score value to Compute letter for</param>
+        /// <returns>The computed letter based on the given value.</returns>
+        private string ComputeLetterFor(double value)
+        {
+            if (aRange.IsInRange(value))
+                return aRange.Letter;
+            else if (bRange.IsInRange(value))
+                return bRange.Letter;
+            else if (cRange.IsInRange(value))
+                return cRange.Letter;
+            else if (nrRange.IsInRange(value))
+                return nrRange.Letter;
+            else if (value > aRange.HighEnd)
+                return aRange.Letter;
+            else if (value < nrRange.LowEnd)
+                return nrRange.Letter;
+            else
+                return "N/A";
+        }
+        #endregion
+
+        #region To be refactored
         /// <summary>
         /// Listens for when a new <see cref="Component"/> is added or removed ect, and updates the <see cref="Grade"/>
         /// </summary>
@@ -260,17 +310,17 @@ namespace GradebookCS.Model
         /// <param name="e"></param>
         private void Components_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            if(e.Action == NotifyCollectionChangedAction.Add)
+            if (e.Action == NotifyCollectionChangedAction.Add)
             {
-                foreach(Component component in e.NewItems)
+                foreach (Component component in e.NewItems)
                 {
                     Grade.Add(component.WeightedGrade);
                     component.PropertyChanged += Component_PropertyChanged;
                 }
             }
-            else if(e.Action == NotifyCollectionChangedAction.Remove)
+            else if (e.Action == NotifyCollectionChangedAction.Remove)
             {
-                foreach(Component component in e.OldItems)
+                foreach (Component component in e.OldItems)
                 {
                     Grade.Subtract(component.WeightedGrade);
                     //component.PropertyChanged -= Component_PropertyChanged;
@@ -290,6 +340,26 @@ namespace GradebookCS.Model
                 Grade.Add(component.WeightedGrade);
             }
         }
+
+        private void Grade_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            onPropertyChanged("Letter");
+        }
+
+        /// <summary>
+        /// Gets the list of <see cref="Component"/>s of this Course
+        /// </summary>
+        /// <value>The list of <see cref="Component"/>s for this Course</value>
+        public ObservableCollection<Component> Components { get; private set; } = new ObservableCollection<Component>();
+
+        /// <summary>
+        /// Initializes an instance of the Course class
+        /// </summary>
+        //public Course()
+        //{
+            //this.Components.CollectionChanged += Components_CollectionChanged;
+            //Grade.PropertyChanged += Grade_PropertyChanged;
+        //}
         #endregion
     }
 }

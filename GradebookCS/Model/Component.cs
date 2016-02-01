@@ -14,6 +14,16 @@ namespace GradebookCS.Model
     {
         #region Attributes
         /// <summary>
+        /// Store for the id of the component
+        /// </summary>
+        private string id = Guid.NewGuid().ToString();
+
+        /// <summary>
+        /// Store for the parent Course id
+        /// </summary>
+        private string courseId = default(string);
+
+        /// <summary>
         /// Store for the <see cref="Name"/> Property
         /// </summary>
         private string name = "Component";
@@ -21,10 +31,44 @@ namespace GradebookCS.Model
         /// <summary>
         /// Store for the <see cref="Weight"/> Property
         /// </summary>
-        private double weight = 50.0;
+        private double weight = 25.0;
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Gets or Sets the id of the Component
+        /// </summary>
+        /// <value>The id for the Component</value>
+        public string Id
+        {
+            get { return id; }
+            set
+            {
+                if (value != id)
+                {
+                    id = value;
+                    onPropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or Sets the id of the Parent course
+        /// </summary>
+        /// <value>The id for the parent course</value>
+        public string CourseId
+        {
+            get { return courseId; }
+            set
+            {
+                if (value != courseId)
+                {
+                    courseId = value;
+                    onPropertyChanged();
+                }
+            }
+        }
+
         /// <summary>
         /// Gets or sets the name of this Component
         /// </summary>
@@ -81,11 +125,7 @@ namespace GradebookCS.Model
         /// <value>The weighted grade</value>
         public ComputedGrade WeightedGrade { get; private set; }
 
-        /// <summary>
-        /// Gets the list that hold all the assignments
-        /// </summary>
-        /// <value>The list containing all the assignments</value>
-        public ObservableCollection<Assignment> Assignments { get; private set; } = new ObservableCollection<Assignment>();
+
         #endregion
 
         #region Constructors
@@ -95,26 +135,34 @@ namespace GradebookCS.Model
         public Component()
         {
             WeightedGrade = new ComputedGrade(0.0, weight);
-            Assignments.CollectionChanged += Assignments_CollectionChanged;
-            TotalGrade.PropertyChanged += TotalGrade_PropertyChanged;
-        }
-
-        /// <summary>
-        /// Initializes an instance of the Component class with the given values
-        /// </summary>
-        /// <param name="name">The name of the component</param>
-        /// <param name="weight">The weight of the component</param>
-        public Component(string name, double weight)
-        {
-            this.Name = name;
-            this.Weight = weight;
-            WeightedGrade = new ComputedGrade(0.0, weight);
-            Assignments.CollectionChanged += Assignments_CollectionChanged;
             TotalGrade.PropertyChanged += TotalGrade_PropertyChanged;
         }
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Listens for changes in the properties of the <see cref="TotalGrade"/> so <see cref="WeightedGrade"/> can be updated
+        /// </summary>
+        /// <param name="sender">The sender of the event</param>
+        /// <param name="e">The Event</param>
+        private void TotalGrade_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName.Equals("Score") || e.PropertyName.Equals("MaximumScore"))
+            {
+                WeightedGrade = new ComputedGrade(TotalGrade.GetScaledScore(weight), weight);
+                onPropertyChanged("WeightedGrade");
+            }
+
+        }
+        #endregion
+
+        #region To be refactored
+        /// <summary>
+        /// Gets the list that hold all the assignments
+        /// </summary>
+        /// <value>The list containing all the assignments</value>
+        public ObservableCollection<Assignment> Assignments { get; private set; } = new ObservableCollection<Assignment>();
+
         /// <summary>
         /// updates the total grade whenever changes occurs in the list
         /// </summary>
@@ -122,7 +170,7 @@ namespace GradebookCS.Model
         /// <param name="e">The Event</param>
         private void Assignments_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            if(e.Action == NotifyCollectionChangedAction.Add)
+            if (e.Action == NotifyCollectionChangedAction.Add)
             {
                 foreach (Assignment assignment in e.NewItems)
                 {
@@ -130,15 +178,15 @@ namespace GradebookCS.Model
                     assignment.Grade.PropertyChanged += AssignmentGrade_PropertyChanged;
                 }
             }
-            else if(e.Action == NotifyCollectionChangedAction.Remove)
+            else if (e.Action == NotifyCollectionChangedAction.Remove)
             {
-                foreach(Assignment assignment in e.OldItems)
+                foreach (Assignment assignment in e.OldItems)
                 {
                     TotalGrade.Subtract(assignment.Grade);
                     assignment.Grade.PropertyChanged -= AssignmentGrade_PropertyChanged;
                 }
             }
-            
+
         }
 
         /// <summary>
@@ -156,17 +204,16 @@ namespace GradebookCS.Model
             }
         }
 
-        /// <summary>
-        /// Listens for changes in the properties of the <see cref="TotalGrade"/> so <see cref="WeightedGrade"/> can be updated
-        /// </summary>
-        /// <param name="sender">The sender of the event</param>
-        /// <param name="e">The Event</param>
-        private void TotalGrade_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            WeightedGrade = new ComputedGrade(TotalGrade.GetScaledScore(weight), weight);
-            onPropertyChanged("WeightedGrade");
-        }
 
+        /// <summary>
+        /// Initializes an instance of the Component class
+        /// </summary>
+        //public Component()
+        //{
+        //    WeightedGrade = new ComputedGrade(0.0, weight);
+        //    Assignments.CollectionChanged += Assignments_CollectionChanged;
+        //    TotalGrade.PropertyChanged += TotalGrade_PropertyChanged;
+        //}
         #endregion
     }
 }

@@ -69,41 +69,41 @@ namespace GradebookCSTest.ModelTest
 
         }
 
-        [TestMethod]
-        public void CollectionChanged_AddingAssignments_UpdatesTheTotalGrade()
-        {
-            //arrange
-            Component component = new Component();
-            Assignment assignment1 = new Assignment("Assignment 1", 40, 50);
-            Assignment assignment2 = new Assignment("Assignment 2", 93, 100);
-            double expectedTotalScore = assignment1.Grade.Score + assignment2.Grade.Score;
-            double expectedTotalMaxScore = assignment1.Grade.MaximumScore + assignment2.Grade.MaximumScore;
-            //act
-            component.Assignments.Add(assignment1);
-            component.Assignments.Add(assignment2);
-            //assert
-            Assert.AreEqual(expectedTotalScore, component.TotalGrade.Score);
-            Assert.AreEqual(expectedTotalMaxScore, component.TotalGrade.MaximumScore);
-        }
+        //[TestMethod]
+        //public void CollectionChanged_AddingAssignments_UpdatesTheTotalGrade()
+        //{
+        //    //arrange
+        //    Component component = new Component();
+        //    Assignment assignment1 = new Assignment("Assignment 1", 40, 50);
+        //    Assignment assignment2 = new Assignment("Assignment 2", 93, 100);
+        //    double expectedTotalScore = assignment1.Grade.Score + assignment2.Grade.Score;
+        //    double expectedTotalMaxScore = assignment1.Grade.MaximumScore + assignment2.Grade.MaximumScore;
+        //    //act
+        //    component.Assignments.Add(assignment1);
+        //    component.Assignments.Add(assignment2);
+        //    //assert
+        //    Assert.AreEqual(expectedTotalScore, component.TotalGrade.Score);
+        //    Assert.AreEqual(expectedTotalMaxScore, component.TotalGrade.MaximumScore);
+        //}
 
-        [TestMethod]
-        public void CollectionChanged_RemovingAssignments_UpdatesTheTotalGrade()
-        {
-            //arrange
-            Component component = new Component();
-            Assignment assignment1 = new Assignment("Assignment 1", 40, 50);
-            Assignment assignment2 = new Assignment("Assignment 2", 93, 100);
-            Assignment assignment3 = new Assignment("Assignment 3", 9, 10);
-            component.Assignments.Add(assignment1);
-            component.Assignments.Add(assignment2);
-            component.Assignments.Add(assignment3);
-            double expectedTotalScore = assignment1.Grade.Score + assignment3.Grade.Score;
-            double expectedTotalMaxScore = assignment1.Grade.MaximumScore + assignment3.Grade.MaximumScore;
-            //act
-            component.Assignments.Remove(assignment2);
-            //assert
-            Assert.AreEqual(expectedTotalScore, component.TotalGrade.Score);
-            Assert.AreEqual(expectedTotalMaxScore, component.TotalGrade.MaximumScore);
-        }
+        //[TestMethod]
+        //public void CollectionChanged_RemovingAssignments_UpdatesTheTotalGrade()
+        //{
+        //    //arrange
+        //    Component component = new Component();
+        //    Assignment assignment1 = new Assignment("Assignment 1", 40, 50);
+        //    Assignment assignment2 = new Assignment("Assignment 2", 93, 100);
+        //    Assignment assignment3 = new Assignment("Assignment 3", 9, 10);
+        //    component.Assignments.Add(assignment1);
+        //    component.Assignments.Add(assignment2);
+        //    component.Assignments.Add(assignment3);
+        //    double expectedTotalScore = assignment1.Grade.Score + assignment3.Grade.Score;
+        //    double expectedTotalMaxScore = assignment1.Grade.MaximumScore + assignment3.Grade.MaximumScore;
+        //    //act
+        //    component.Assignments.Remove(assignment2);
+        //    //assert
+        //    Assert.AreEqual(expectedTotalScore, component.TotalGrade.Score);
+        //    Assert.AreEqual(expectedTotalMaxScore, component.TotalGrade.MaximumScore);
+        //}
     }
 }

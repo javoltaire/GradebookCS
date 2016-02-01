@@ -11,6 +11,7 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
 {
     public class AssignmentViewModel : BaseINPC
     {
+        #region to be refactored
         #region Attributes
         private bool isInEditMode = false;
         #endregion
@@ -23,7 +24,7 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
             get { return isInEditMode; }
             set
             {
-                if(value != isInEditMode)
+                if (value != isInEditMode)
                 {
                     isInEditMode = value;
                     onPropertyChanged();
@@ -34,6 +35,7 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
 
         #region Constructors
         public AssignmentViewModel() { }
+        #endregion
         #endregion
     }
 }

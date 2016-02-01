@@ -18,14 +18,14 @@ namespace GradebookCS.DataBase
     {
         #region Properties
         #region Abstract Statement Properties
-        protected abstract string SelectAllStatement { get; set; }
-        protected abstract string SelectItemStatement { get; set; }
-        protected abstract string DeleteItemStatement { get; set; }
-        protected abstract string InsertItemStatement { get; set; }
-        protected abstract string UpdateItemStatement { get; set; }
+        protected abstract string SelectAllStatement { get; }
+        protected abstract string SelectItemStatement { get; }
+        protected abstract string DeleteItemStatement { get; }
+        protected abstract string InsertItemStatement { get; }
+        protected abstract string UpdateItemStatement { get; }
         #endregion
         #region Other Properties
-        private ISQLiteConnection SQLiteConnection { get { return DatabaseService._Connection; } }
+        protected ISQLiteConnection SQLiteConnection { get { return DatabaseService._Connection; } }
         #endregion
         #endregion
 
@@ -50,8 +50,6 @@ namespace GradebookCS.DataBase
             var items = new ObservableCollection<TItem>();
             using (var statement = SQLiteConnection.Prepare(SelectAllStatement))
             {
-                
-                FillSelectAllStatement(statement);              //Fill the statement object with the string constraints
                 while (statement.Step() == SQLiteResult.ROW)    //Loop through the table
                 {
                     
@@ -59,7 +57,7 @@ namespace GradebookCS.DataBase
                     items.Add(item);                                //Add the item to the list
                 }
             }
-            return items;                                       //return the item
+            return items;                                       //return the list of items
         }
 
         /// <summary>
