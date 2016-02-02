@@ -1,6 +1,5 @@
 ﻿using GradebookCS.Model;
 using GradebookCS.ViewModel;
-using GradebookCS.ViewModel.UserControlsViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -10,7 +10,6 @@ using System.Collections.ObjectModel;
 using GradebookCS.Model;
 using GradebookCS.ViewModel.Commands;
 using GradebookCS.Common;
-using GradebookCS.ViewModel.UserControlsViewModels;
 
 namespace GradebookCS.ViewModel
 {

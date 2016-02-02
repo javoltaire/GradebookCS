@@ -1,5 +1,4 @@
 ﻿using GradebookCS.View.UserControls;
-using GradebookCS.ViewModel.UserControlsViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,25 +26,6 @@ namespace GradebookCS.View
         public CourseDetailsPage()
         {
             this.InitializeComponent();
-        }
-
-
-
-        #region to delete
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void MakeAssignments()
-        {
-
-        }
-        #endregion
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

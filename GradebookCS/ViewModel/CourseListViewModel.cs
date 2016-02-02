@@ -1,7 +1,6 @@
 ﻿using GradebookCS.Model;
 using GradebookCS.View;
 using GradebookCS.ViewModel.Commands;
-using GradebookCS.ViewModel.UserControlsViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -68,7 +67,7 @@ namespace GradebookCS.ViewModel
             this.mainPageViewModel = mainPageViewModel;
             AddNewCourseCommand = new RelayCommand(() => AddNewCourse(), () => true);
             ViewCourseDetailsCommand = new RelayParameterCommand<CourseViewModel>(ViewCourseDetails, () => true);
-            DeleteCourseCommand = new RelayParameterCommand<CourseViewModel>(Delete, () => true);
+            DeleteCourseCommand = new RelayParameterCommand<CourseViewModel>(DeleteCourse, () => true);
             LoadCourses();
         }
         #endregion
@@ -93,8 +92,8 @@ namespace GradebookCS.ViewModel
         /// <param name="courseViewerViewModel">The course to view details of</param>
         public void ViewCourseDetails(CourseViewModel courseViewerViewModel)
         {
-            mainPageViewModel.SelectedCourseViewModel = courseViewerViewModel;
-            mainPageViewModel.CurrentPageType = typeof(CourseDetailsPage);
+            mainPageViewModel.SelectedCourseViewModel = courseViewerViewModel;  //Set the selected course to be viewed to the given one
+            mainPageViewModel.CurrentPageType = typeof(CourseDetailsPage);      //Navigate to the details page
         }
 
         /// <summary>
@@ -102,14 +101,14 @@ namespace GradebookCS.ViewModel
         /// </summary>
         public async void AddNewCourse()
         {
-            CourseViewModel newCourseViewModel = new CourseViewModel();
-            CourseInfoDialogViewModel infoDialog = new CourseInfoDialogViewModel(newCourseViewModel.Course);
-            var result = await infoDialog.GetDialogResult();
-            if (result == ContentDialogResult.Primary)
+            CourseViewModel newCourseViewModel = new CourseViewModel();                                         //Create a new CourseViewModel
+            CourseInfoDialogViewModel infoDialog = new CourseInfoDialogViewModel(newCourseViewModel.Course);    //Create a new Dialog so the user can edit its properties
+            var result = await infoDialog.GetDialogResult();                                                    //Get the result
+            if (result == ContentDialogResult.Primary)                                                          //If the user clicks save
             {
-                CourseViewModels.Add(newCourseViewModel);
-                courseRepository.InsertItem(newCourseViewModel.Course);
-                onPropertyChanged("CanShowCourseListGridview");
+                courseRepository.InsertItem(newCourseViewModel.Course);                                             //Insert the item in the database
+                CourseViewModels.Add(newCourseViewModel);                                                           //Add the item in the list of viewmodels
+                onPropertyChanged("CanShowCourseListGridview");                                                     //Notify the CanShowCourseListGridView Property of the changes
             }
 
         }
@@ -117,18 +116,18 @@ namespace GradebookCS.ViewModel
         /// <summary>
         /// Deletes this courseviewmodel from its parent list
         /// </summary>
-        public async void Delete(CourseViewModel courseViewModel)
+        public async void DeleteCourse(CourseViewModel courseViewModel)
         {
-            ContentDialog deleteDialog = new ContentDialog();
-            deleteDialog.Title = "Are you Sure you want to delete this course?";
-            deleteDialog.PrimaryButtonText = "Yes";
-            deleteDialog.SecondaryButtonText = "No";
-            var result = await deleteDialog.ShowAsync();
-            if (result == ContentDialogResult.Primary)
+            ContentDialog deleteDialog = new ContentDialog();                       //Create a new dialog
+            deleteDialog.Title = "Are you Sure you want to delete this course?";    //set the title of it
+            deleteDialog.PrimaryButtonText = "Yes";                                 //make the primary button Yes
+            deleteDialog.SecondaryButtonText = "No";                                //make the primary button No
+            var result = await deleteDialog.ShowAsync();                            //Get the result
+            if (result == ContentDialogResult.Primary)                              //if the user clicks yes
             {
-                CourseViewModels.Remove(courseViewModel);
-                courseRepository.DeleteItem(courseViewModel.Course.Id);
-                onPropertyChanged("CanShowCourseListGridview");
+                courseRepository.DeleteItem(courseViewModel.Course.Id);                 //Delete the item from the database
+                CourseViewModels.Remove(courseViewModel);                               //Remove it from the list
+                onPropertyChanged("CanShowCourseListGridview");                          //Notify the CanShowCourseListGridView property of the changes
             }
 
         }

@@ -8,7 +8,7 @@ using SQLitePCL;
 
 namespace GradebookCS.DataBase
 {
-    public class AssignementTable : ForeignKeyTableBase<Assignment, string, string>
+    public class AssignmentTable : ForeignKeyTableBase<Assignment, string, string>
     {
         #region Properties
         protected override string DeleteItemStatement { get { return "DELETE FROM Assignment WHERE Id = ? "; } }
@@ -23,7 +23,7 @@ namespace GradebookCS.DataBase
 
         protected override string SelectItemStatement { get { return "SELECT Id, Name, Score, MaxScore, ComponentId FROM Assignment WHERE Id = ?"; } }
 
-        public static AssignementTable Instance { get; } = new AssignementTable();
+        public static AssignmentTable Instance { get; } = new AssignmentTable();
         #endregion
 
         #region Methods
@@ -75,7 +75,7 @@ namespace GradebookCS.DataBase
         }
         #endregion
         #region Constructors
-        private AssignementTable() { }
+        private AssignmentTable() { }
         #endregion
 
 

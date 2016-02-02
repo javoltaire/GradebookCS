@@ -100,7 +100,7 @@
     </Compile>
     <Compile Include="Common\BaseINPC.cs" />
     <Compile Include="Common\Enums\DialogResult.cs" />
-    <Compile Include="DataBase\AssignementTable.cs" />
+    <Compile Include="DataBase\AssignmentTable.cs" />
     <Compile Include="DataBase\ComponentTable.cs" />
     <Compile Include="DataBase\CourseTable.cs" />
     <Compile Include="DataBase\DatabaseService.cs" />
@@ -118,8 +118,8 @@
     <Compile Include="ViewModel\CourseInfoDialogViewModel.cs" />
     <Compile Include="ViewModel\CourseListViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\UserControlsViewModels\AssignmentViewModel.cs" />
-    <Compile Include="ViewModel\UserControlsViewModels\ComponentViewModel.cs" />
+    <Compile Include="ViewModel\AssignmentViewModel.cs" />
+    <Compile Include="ViewModel\ComponentViewModel.cs" />
     <Compile Include="ViewModel\CourseViewModel.cs" />
     <Compile Include="View\Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="View\Converters\InverseBooleanToVisibilityConverter.cs" />
