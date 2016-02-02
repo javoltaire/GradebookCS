@@ -19,7 +19,20 @@ namespace GradebookCS.ViewModel
     public class CourseViewModel :BaseINPC
     {
         #region Attributes
+        /// <summary>
+        /// store the instance of the Course repository
+        /// </summary>
         private CourseTable courseRepository = CourseTable.Instance;
+
+        /// <summary>
+        /// Stores the instance of the components table repo
+        /// </summary>
+        private ComponentTable componentRepository = ComponentTable.Instance;
+
+        /// <summary>
+        /// Store the selected ComponentViewerViewModel
+        /// </summary>
+        private ComponentViewModel selectedComponentViewModel;
         #endregion
 
         #region Command Properties
@@ -27,9 +40,102 @@ namespace GradebookCS.ViewModel
         /// Command to edit the course info like name and letter score ranges
         /// </summary>
         public RelayCommand EditCourseInfoCommand { get; private set; }
+
+        /// <summary>
+        /// Commmand to add a new Component
+        /// </summary>
+        public RelayCommand AddNewComponentCommand { get; private set; }
+
+        /// <summary>
+        /// Command to Remove a component
+        /// </summary>
+        public RelayParameterCommand<ComponentViewModel> RemoveComponentCommand { get; private set; }
+
+        /// <summary>
+        /// Command to Show editing controls like textboxes for a component
+        /// </summary>
+        public RelayParameterCommand<ComponentViewModel> ShowComponentEditingControlsCommand { get; private set; }
+
+        /// <summary>
+        /// Command to hide editing controls like textboxes for a component
+        /// </summary>
+        public RelayParameterCommand<ComponentViewModel> HideComponentEditingControlsCommand { get; private set; }
+        #endregion
+
+        #region Propeties
+        /// <summary>
+        /// The course for the course view model
+        /// </summary>
+        public Course Course { get; set; } = new Course();
+
+        /// <summary>
+        /// A string property indicating the name of the course and the selected component name.
+        /// </summary>
+        public string CourseAndComponentName
+        {
+            get
+            {
+                return selectedComponentViewModel == null ? "N/A" : Course.Name + " - " + selectedComponentViewModel.Component.Name;
+            }
+        }
+
+        /// <summary>
+        /// List to hold all the componentviewmodels of the courseviewmodel/course
+        /// </summary>
+        public ObservableCollection<ComponentViewModel> ComponentViewModels { get; private set; } = new ObservableCollection<ComponentViewModel>();
+
+        /// <summary>
+        /// Boolean indicating whether the list containing all the components (componentViewmodels) is empty
+        /// </summary>
+        public bool CanShowComponentDetailPanel { get { return ComponentViewModels.Count > 0; } }
+
+        /// <summary>
+        /// The selected compomemtViewModel
+        /// </summary>
+        public ComponentViewModel SelectedComponentViewModel
+        {
+            get { return selectedComponentViewModel; }
+            set
+            {
+                if (value != selectedComponentViewModel)
+                {
+                    if (selectedComponentViewModel != null && selectedComponentViewModel.IsInEditMode)
+                    {
+                        HideComponentEditingControls(selectedComponentViewModel);
+                    }
+                    selectedComponentViewModel = value;
+                    onPropertyChanged();
+                    onPropertyChanged("CourseAndComponentName");
+                }
+            }
+        }
+        #endregion
+
+        #region Constructors
+        public CourseViewModel()
+        {
+            EditCourseInfoCommand = new RelayCommand(EditCourseInfo, () => true);
+            AddNewComponentCommand = new RelayCommand(AddNewComponent, () => true);
+            RemoveComponentCommand = new RelayParameterCommand<ComponentViewModel>(DeleteComponent, () => true);
+            LoadComponentsData();
+        }
+
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Gets the components item from database and adds then to this component lis
+        /// </summary>
+        public void LoadComponentsData()
+        {
+            var items = componentRepository.GetAllItemsForId(Course.Id);    //Get all the items for this course
+            foreach (Component c in items)                                   //loop through all of them
+            {
+                ComponentViewModel cvm = new ComponentViewModel(c);             //Create a new componentviewmodel for this component
+                ComponentViewModels.Add(cvm);                                   //Add the new componentviewmodel to the list.
+            }
+        }
+
         /// <summary>
         /// Shows a dialog box to enable the user to edit some info about the <see cref="Course"/>
         /// </summary>
@@ -65,24 +171,73 @@ namespace GradebookCS.ViewModel
                 Course.NRRangeHighEnd = nrHigh;
             }
         }
+
+        /// <summary>
+        /// Adds a new <see cref="ComponentViewModel"/> that holds a <see cref="Component"/>
+        /// </summary>
+        public void AddNewComponent()
+        {
+            ComponentViewModel newComponentModel = new ComponentViewModel(Course.Id);
+            newComponentModel.IsInEditMode = true;
+            ComponentViewModels.Add(newComponentModel);
+            componentRepository.InsertItem(newComponentModel.Component);
+            SelectedComponentViewModel = newComponentModel;
+            onPropertyChanged("CanShowComponentDetailPanel");
+        }
+
+        /// <summary>
+        /// Deletes an <see cref="ComponentViewModel"/> and the <see cref="Component"/> that it holds
+        /// </summary>
+        /// <param name="componentViewModel">The ComponentViewerViewModel to be deleted</param>
+        public async void DeleteComponent(ComponentViewModel componentViewModel)
+        {
+            ContentDialog deleteDialog = new ContentDialog();
+            deleteDialog.Title = "Are you Sure you want to delete this Component?";
+            deleteDialog.PrimaryButtonText = "Yes";
+            deleteDialog.SecondaryButtonText = "No";
+            var result = await deleteDialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                if (ComponentViewModels.Count > 1 && selectedComponentViewModel == componentViewModel)
+                    SelectedComponentViewModel = selectedComponentViewModel == ComponentViewModels.First() ? ComponentViewModels.ElementAt(1) : ComponentViewModels.First();
+                componentRepository.DeleteItem(componentViewModel.Component.Id);
+                ComponentViewModels.Remove(componentViewModel);
+                onPropertyChanged("CanShowComponentDetailPanel");
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="componentViewModel"></param>
+        public void ShowComponentEditingControls(ComponentViewModel componentViewModel)
+        {
+            if(selectedComponentViewModel != componentViewModel)
+                SelectedComponentViewModel = componentViewModel;
+            componentViewModel.IsInEditMode = true;
+            AddNewComponentCommand.OnCanExecuteChanged();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="componentViewModel"></param>
+        public void HideComponentEditingControls(ComponentViewModel componentViewModel)
+        {
+            componentRepository.UpdateItem(componentViewModel.Component.Id, componentViewModel.Component);
+            componentViewModel.IsInEditMode = false;
+            AddNewComponentCommand.OnCanExecuteChanged();
+        }
+
         #endregion
 
         #region TO be refactored
-        #region Attributes
-        /// <summary>
-        /// Store the selected ComponentViewerViewModel
-        /// </summary>
-        private ComponentViewModel selectedComponentViewModel;
-        #endregion
 
         #region Properties
         #region Command Properties
-        
 
-        /// <summary>
-        /// Commmand to add a new Component
-        /// </summary>
-        public RelayCommand AddNewComponentCommand { get; private set; }
+
+
 
         /// <summary>
         /// Command to add a new Assignment
@@ -94,20 +249,9 @@ namespace GradebookCS.ViewModel
         /// </summary>
         public RelayParameterCommand<AssignmentViewModel> RemoveAssignment { get; private set; }
 
-        /// <summary>
-        /// Command to Remove a component
-        /// </summary>
-        public RelayParameterCommand<ComponentViewModel> RemoveComponent { get; private set; }
+        
 
-        /// <summary>
-        /// Command to Show editing controls like textboxes for a component
-        /// </summary>
-        public RelayParameterCommand<ComponentViewModel> ShowComponentEditingControlsCommand { get; private set; }
-
-        /// <summary>
-        /// Command to hide editing controls like textboxes for a component
-        /// </summary>
-        public RelayParameterCommand<ComponentViewModel> HideComponentEditingControlsCommand { get; private set; }
+        
 
         /// <summary>
         /// Command to Show editing controls like textboxes for an assignment
@@ -121,33 +265,30 @@ namespace GradebookCS.ViewModel
         #endregion
 
         #region Other Properties
-        /// <summary>
-        /// The course
-        /// </summary>
-        public Course Course { get; set; } = new Course();
+        
 
-        /// <summary>
-        /// The selected compomemtViewModel
-        /// </summary>
-        public ComponentViewModel SelectedComponentViewModel
-        {
-            get { return selectedComponentViewModel; }
-            set
-            {
-                if (value != selectedComponentViewModel)
-                {
-                    if (selectedComponentViewModel != null && selectedComponentViewModel.IsInEditMode)
-                    {
-                        selectedComponentViewModel.IsInEditMode = false;
-                        selectedComponentViewModel.Component.PropertyChanged -= Component_PropertyChanged;
-                    }
-                    selectedComponentViewModel = value;
-                    //selectedComponentViewModel.Component.PropertyChanged += Component_PropertyChanged;
-                    onPropertyChanged();
-                    onPropertyChanged("CourseAndComponentName");
-                }
-            }
-        }
+        ///// <summary>
+        ///// The selected compomemtViewModel
+        ///// </summary>
+        //public ComponentViewModel SelectedComponentViewModel
+        //{
+        //    get { return selectedComponentViewModel; }
+        //    set
+        //    {
+        //        if (value != selectedComponentViewModel)
+        //        {
+        //            if (selectedComponentViewModel != null && selectedComponentViewModel.IsInEditMode)
+        //            {
+        //                selectedComponentViewModel.IsInEditMode = false;
+        //                selectedComponentViewModel.Component.PropertyChanged -= Component_PropertyChanged;
+        //            }
+        //            selectedComponentViewModel = value;
+        //            //selectedComponentViewModel.Component.PropertyChanged += Component_PropertyChanged;
+        //            onPropertyChanged();
+        //            onPropertyChanged("CourseAndComponentName");
+        //        }
+        //    }
+        //}
 
         private void Component_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -157,66 +298,46 @@ namespace GradebookCS.ViewModel
             }
         }
 
-        /// <summary>
-        /// A string property indicating the name of the course and the selected component name.
-        /// </summary>
-        public string CourseAndComponentName
-        {
-            get
-            {
-                return selectedComponentViewModel == null ? "N/A" : Course.Name + " - " + selectedComponentViewModel.Component.Name;
-            }
-        }
+        
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public ObservableCollection<ComponentViewModel> ComponentViewerViewModels { get; private set; } = new ObservableCollection<ComponentViewModel>();
-
-        public bool CanShowComponentDetailPanel { get { return ComponentViewerViewModels.Count > 0; } }
+        
         #endregion
         #endregion
 
         #region Constructor
-        /// <summary>
-        /// Initializes an instance of this class
-        /// </summary>
-        public CourseViewModel()
-        {
-            EditCourseInfoCommand = new RelayCommand(EditCourseInfo, () => true);
-            AddNewComponentCommand = new RelayCommand(AddNewComponent, () => true);
-            AddNewAssignmentCommand = new RelayCommand(AddNewAssignment, () => true);
-            RemoveAssignment = new RelayParameterCommand<AssignmentViewModel>(DeleteAssignment, () => true);
-            RemoveComponent = new RelayParameterCommand<ComponentViewModel>(DeleteComponent, () => true);
-            ShowComponentEditingControlsCommand = new RelayParameterCommand<ComponentViewModel>(ShowComponentEditingControls, () => true);
-            HideComponentEditingControlsCommand = new RelayParameterCommand<ComponentViewModel>(HideComponentEditingControls, () => true);
-            ShowAssignmentEditingConstolsCommand = new RelayParameterCommand<AssignmentViewModel>(ShowAssignmentEditingConstols, () => true);
-            HideAssignmentEditingConstolsCommand = new RelayParameterCommand<AssignmentViewModel>(HideAssignmentEditingConstols, () => true);
-            ComponentViewerViewModels.CollectionChanged += ComponentViewerViewModels_CollectionChanged;
-            //PopulateModels();
-        }
-
-        private void ComponentViewerViewModels_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.Action == NotifyCollectionChangedAction.Add || e.Action == NotifyCollectionChangedAction.Remove)
-                onPropertyChanged("CanShowComponentDetailPanel");
-        }
+        ///// <summary>
+        ///// Initializes an instance of this class
+        ///// </summary>
+        //public CourseViewModel()
+        //{
+        //    EditCourseInfoCommand = new RelayCommand(EditCourseInfo, () => true);
+        //    AddNewComponentCommand = new RelayCommand(AddNewComponent, () => true);
+        //    AddNewAssignmentCommand = new RelayCommand(AddNewAssignment, () => true);
+        //    RemoveAssignment = new RelayParameterCommand<AssignmentViewModel>(DeleteAssignment, () => true);
+        //    RemoveComponent = new RelayParameterCommand<ComponentViewModel>(DeleteComponent, () => true);
+        //    ShowComponentEditingControlsCommand = new RelayParameterCommand<ComponentViewModel>(ShowComponentEditingControls, () => true);
+        //    HideComponentEditingControlsCommand = new RelayParameterCommand<ComponentViewModel>(HideComponentEditingControls, () => true);
+        //    ShowAssignmentEditingConstolsCommand = new RelayParameterCommand<AssignmentViewModel>(ShowAssignmentEditingConstols, () => true);
+        //    HideAssignmentEditingConstolsCommand = new RelayParameterCommand<AssignmentViewModel>(HideAssignmentEditingConstols, () => true);
+        //    ComponentViewModels.CollectionChanged += ComponentViewerViewModels_CollectionChanged;
+        //    //PopulateModels();
+        //}
         #endregion
 
         #region Methods
         
 
-        /// <summary>
-        /// Adds a new <see cref="ComponentViewModel"/> that holds a <see cref="Component"/>
-        /// </summary>
-        public void AddNewComponent()
-        {
-            ComponentViewModel newComponentModel = new ComponentViewModel();
-            ComponentViewerViewModels.Add(newComponentModel);
-            Course.Components.Add(newComponentModel.Component);
-            SelectedComponentViewModel = newComponentModel;
-            newComponentModel.IsInEditMode = true;
-        }
+        ///// <summary>
+        ///// Adds a new <see cref="ComponentViewModel"/> that holds a <see cref="Component"/>
+        ///// </summary>
+        //public void AddNewComponent()
+        //{
+        //    ComponentViewModel newComponentModel = new ComponentViewModel();
+        //    ComponentViewModels.Add(newComponentModel);
+        //    Course.Components.Add(newComponentModel.Component);
+        //    SelectedComponentViewModel = newComponentModel;
+        //    newComponentModel.IsInEditMode = true;
+        //}
 
         /// <summary>
         /// Adds a new <see cref="AssignmentViewModel"/> that holds a <see cref="Assignment"/>
@@ -248,39 +369,28 @@ namespace GradebookCS.ViewModel
 
         }
 
-        /// <summary>
-        /// Deletes an <see cref="ComponentViewModel"/> and the <see cref="Component"/> that it holds
-        /// </summary>
-        /// <param name="componentViewerViewModel">The ComponentViewerViewModel to be deleted</param>
-        public async void DeleteComponent(ComponentViewModel componentViewerViewModel)
-        {
-            ContentDialog deleteDialog = new ContentDialog();
-            deleteDialog.Title = "Are you Sure you want to delete this Component?";
-            deleteDialog.PrimaryButtonText = "Yes";
-            deleteDialog.SecondaryButtonText = "No";
-            var result = await deleteDialog.ShowAsync();
-            if (result == ContentDialogResult.Primary)
-            {
-                if (ComponentViewerViewModels.Count > 1 && selectedComponentViewModel == componentViewerViewModel)
-                    SelectedComponentViewModel = selectedComponentViewModel == ComponentViewerViewModels.First() ? ComponentViewerViewModels.ElementAt(1) : ComponentViewerViewModels.First();
-                Course.Components.Remove(componentViewerViewModel.Component);
-                ComponentViewerViewModels.Remove(componentViewerViewModel);
+        ///// <summary>
+        ///// Deletes an <see cref="ComponentViewModel"/> and the <see cref="Component"/> that it holds
+        ///// </summary>
+        ///// <param name="componentViewerViewModel">The ComponentViewerViewModel to be deleted</param>
+        //public async void DeleteComponent(ComponentViewModel componentViewerViewModel)
+        //{
+        //    ContentDialog deleteDialog = new ContentDialog();
+        //    deleteDialog.Title = "Are you Sure you want to delete this Component?";
+        //    deleteDialog.PrimaryButtonText = "Yes";
+        //    deleteDialog.SecondaryButtonText = "No";
+        //    var result = await deleteDialog.ShowAsync();
+        //    if (result == ContentDialogResult.Primary)
+        //    {
+        //        if (ComponentViewModels.Count > 1 && selectedComponentViewModel == componentViewerViewModel)
+        //            SelectedComponentViewModel = selectedComponentViewModel == ComponentViewModels.First() ? ComponentViewModels.ElementAt(1) : ComponentViewModels.First();
+        //        Course.Components.Remove(componentViewerViewModel.Component);
+        //        ComponentViewModels.Remove(componentViewerViewModel);
 
-            }
-        }
+        //    }
+        //}
 
-        public void ShowComponentEditingControls(ComponentViewModel componentViewModel)
-        {
-            SelectedComponentViewModel = componentViewModel;
-            componentViewModel.IsInEditMode = true;
-            AddNewComponentCommand.OnCanExecuteChanged();
-        }
-
-        public void HideComponentEditingControls(ComponentViewModel componentViewModel)
-        {
-            componentViewModel.IsInEditMode = false;
-            AddNewComponentCommand.OnCanExecuteChanged();
-        }
+        
 
         public void ShowAssignmentEditingConstols(AssignmentViewModel assignmentViewModel)
         {
@@ -316,11 +426,13 @@ namespace GradebookCS.ViewModel
             this.Course = course;
             EditCourseInfoCommand = new RelayCommand(EditCourseInfo, () => true);
             AddNewComponentCommand = new RelayCommand(AddNewComponent, () => true);
+            RemoveComponentCommand = new RelayParameterCommand<ComponentViewModel>(DeleteComponent, () => true);
             AddNewAssignmentCommand = new RelayCommand(AddNewAssignment, () => true);
             ShowComponentEditingControlsCommand = new RelayParameterCommand<ComponentViewModel>(ShowComponentEditingControls, () => true);
             HideComponentEditingControlsCommand = new RelayParameterCommand<ComponentViewModel>(HideComponentEditingControls, () => true);
             ShowAssignmentEditingConstolsCommand = new RelayParameterCommand<AssignmentViewModel>(ShowAssignmentEditingConstols, () => true);
             HideAssignmentEditingConstolsCommand = new RelayParameterCommand<AssignmentViewModel>(HideAssignmentEditingConstols, () => true);
+            LoadComponentsData();
             //PopulateModels();
         }
 

@@ -40,7 +40,15 @@ namespace GradebookCS.ViewModel.UserControlsViewModels
         #endregion
 
         #region Constructors
-        public ComponentViewModel() { }
+        public ComponentViewModel(Component component)
+        {
+            this.Component = component;
+        }
+
+        public ComponentViewModel(string courseId)
+        {
+            this.Component.CourseId = courseId;
+        }
         #endregion
 
         #region to be deleted

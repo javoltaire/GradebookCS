@@ -8,12 +8,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{Binding SelectedCourseViewerViewModel}">
+    DataContext="{Binding SelectedCourseViewModel}">
     
     <RelativePanel x:Name="Root" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <RelativePanel x:Name="ComponentsListRoot" Background="{ThemeResource SystemControlBackgroundAccentBrush}" Width="350" MaxWidth="350" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True">
             <Button x:Name="AddComponentButton" Style="{StaticResource BigButtonStyle}" Content="&#59152;" Width="{Binding ActualWidth,ElementName=ComponentsListRoot}" Command="{Binding AddNewComponentCommand}"/>
-            <ListView x:Name="ComponentsListView" ItemContainerStyle="{StaticResource ComponentListViewItemStyle}" SelectionMode="Single" SelectedItem="{Binding SelectedComponentViewModel, Mode=TwoWay}" ItemsSource="{Binding ComponentViewerViewModels}" Width="{Binding ActualWidth, ElementName=ComponentsListRoot}" RelativePanel.Below="AddComponentButton" RelativePanel.AlignBottomWithPanel="True">
+            <ListView x:Name="ComponentsListView" ItemContainerStyle="{StaticResource ComponentListViewItemStyle}" SelectionMode="Single" SelectedItem="{Binding SelectedComponentViewModel, Mode=TwoWay}" ItemsSource="{Binding ComponentViewModels}" Width="{Binding ActualWidth, ElementName=ComponentsListRoot}" RelativePanel.Below="AddComponentButton" RelativePanel.AlignBottomWithPanel="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid Height="40" Width="350">
@@ -29,7 +29,7 @@
                             <customcontrols:AutoSelectOnFocusTextBox PlaceholderText="Name" Text="{Binding Component.Name, Mode=TwoWay}" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}" Grid.RowSpan="2" VerticalAlignment="Center"/>
                             <customcontrols:AutoSelectOnFocusTextBox PlaceholderText="Weight" Text="{Binding Component.Weight, Mode=TwoWay}" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Center"/>
                             <TextBlock Text="{Binding Component.NameWeight}" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="5" />
-                            <Button Style="{StaticResource InverseSmallButtonStyle}" Height="20" Width="25" Content="&#59153;" Grid.Column="2" Grid.Row="0" Command="{Binding DataContext.RemoveComponent, ElementName=Root}" CommandParameter="{Binding}"/>
+                            <Button Style="{StaticResource InverseSmallButtonStyle}" Height="20" Width="25" Content="&#59153;" Grid.Column="2" Grid.Row="0" Command="{Binding DataContext.RemoveComponentCommand, ElementName=Root}" CommandParameter="{Binding}"/>
                             <Button Style="{StaticResource InverseSmallButtonStyle}" Height="20" Width="25" Content="&#59151;" Grid.Column="2" Grid.Row="1" Command="{Binding DataContext.ShowComponentEditingControlsCommand, ElementName=Root}" CommandParameter="{Binding}" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}" />
                             <Button Style="{StaticResource InverseSmallButtonStyle}" Height="20" Width="25" Content="&#59214;" Grid.Column="2" Grid.Row="1" Command="{Binding DataContext.HideComponentEditingControlsCommand, ElementName=Root}" CommandParameter="{Binding}" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}" />
                         </Grid>

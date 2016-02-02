@@ -4,7 +4,7 @@
     <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
   </Roots.Interfaces>
   <Roots.PropertyPathNames>
-    <RootPropertyPathName Name="SelectedCourseViewerViewModel" />
+    <RootPropertyPathName Name="SelectedCourseViewModel" />
     <RootPropertyPathName Name="CanShowComponentDetailPanel" />
     <RootPropertyPathName Name="AddNewAssignmentCommand" />
     <RootPropertyPathName Name="SelectedComponentViewModel" />
@@ -26,11 +26,11 @@
     <RootPropertyPathName Name="Course" />
     <RootPropertyPathName Name="Letter" />
     <RootPropertyPathName Name="CourseAndComponentName" />
-    <RootPropertyPathName Name="ComponentViewerViewModels" />
+    <RootPropertyPathName Name="ComponentViewModels" />
     <RootPropertyPathName Name="ActualWidth" />
     <RootPropertyPathName Name="HideComponentEditingControlsCommand" />
     <RootPropertyPathName Name="ShowComponentEditingControlsCommand" />
-    <RootPropertyPathName Name="RemoveComponent" />
+    <RootPropertyPathName Name="RemoveComponentCommand" />
     <RootPropertyPathName Name="NameWeight" />
     <RootPropertyPathName Name="Weight" />
     <RootPropertyPathName Name="AddNewComponentCommand" />
