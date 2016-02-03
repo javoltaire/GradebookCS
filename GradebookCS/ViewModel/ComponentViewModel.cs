@@ -5,6 +5,7 @@ using GradebookCS.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -116,10 +117,49 @@ namespace GradebookCS.ViewModel
         private void LoadAssigmentsData()
         {
             var items = assignmentRepository.GetAllItemsForId(this.Component.Id);   //get all the items for this component
-            foreach(Assignment a in items)                                          //Loop through all the items
+            foreach (Assignment a in items)                                          //Loop through all the items
             {
                 AssignmentViewModel avm = new AssignmentViewModel(a);                   //create a viewmodel for that assignment instance of assignment
+                Component.TotalGrade.Add(avm.Assignment.Grade);
+                avm.Assignment.Grade.PropertyChanged += AssignmentGrade_PropertyChanged;
                 AssignmentViewModels.Add(avm);                                          //Add the viewmodel to the list of assignmentviewmodels
+            }
+            AssignmentViewModels.CollectionChanged += AssignmentViewModels_CollectionChanged;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AssignmentViewModels_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.Action == NotifyCollectionChangedAction.Add)
+                foreach (AssignmentViewModel newItem in e.NewItems)
+                {
+                    Component.TotalGrade.Add(newItem.Assignment.Grade);
+                    newItem.Assignment.Grade.PropertyChanged += AssignmentGrade_PropertyChanged;
+                }
+            else if (e.Action == NotifyCollectionChangedAction.Remove)
+                foreach (AssignmentViewModel oldIem in e.OldItems)
+                {
+                    Component.TotalGrade.Subtract(oldIem.Assignment.Grade);
+                    oldIem.Assignment.Grade.PropertyChanged -= AssignmentGrade_PropertyChanged;
+                }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AssignmentGrade_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName.Equals("Score") || e.PropertyName.Equals("MaximumScore"))
+            {
+                Component.TotalGrade.Reset();
+                foreach (AssignmentViewModel avm in AssignmentViewModels)
+                    Component.TotalGrade.Add(avm.Assignment.Grade);
             }
         }
 
@@ -174,6 +214,8 @@ namespace GradebookCS.ViewModel
             assignmentViewModel.IsInEditMode = false;                                                           //Set edit mode of that assignment to false
             assignmentInEditMode = null;                                                                        //set the assignmentInEditMode to null
         }
+
+        
         #endregion
 
 

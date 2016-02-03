@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-02-02T22:43:55.715</Modified>
+      <Modified>2016-02-03T01:29:54.256</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.exe">
       <PackagePath>entrypoint\GradebookCS.exe</PackagePath>
-      <Modified>2016-02-02T22:43:54.370</Modified>
+      <Modified>2016-02-03T01:29:53.250</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -518,11 +518,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-02-02T22:43:55.352</Modified>
+      <Modified>2016-02-03T01:29:53.971</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\Core\GradebookCS.exe">
       <PackagePath>GradebookCS.exe</PackagePath>
-      <Modified>2016-02-02T22:43:55.711</Modified>
+      <Modified>2016-02-03T01:29:54.253</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
