@@ -19,7 +19,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Store for the <see cref="Name"/> Property
         /// </summary>
-        private string name = "Course";
+        private string name = string.Empty;
 
         /// <summary>
         /// Store the boolean value stating whether or not actual score or percentage should be used to determine the letter grade

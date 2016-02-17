@@ -26,7 +26,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Store for the <see cref="Name"/> Property
         /// </summary>
-        private string name = "Component";
+        private string name = string.Empty;
 
         /// <summary>
         /// Store for the <see cref="Weight"/> Property
@@ -149,9 +149,10 @@ namespace GradebookCS.Model
         {
             if (e.PropertyName.Equals("Score") || e.PropertyName.Equals("MaximumScore"))
             {
-                WeightedGrade = new ComputedGrade(TotalGrade.GetScaledScore(weight), weight);
-                onPropertyChanged("WeightedGrade");
+                
             }
+            WeightedGrade = new ComputedGrade(TotalGrade.GetScaledScore(weight), weight);
+            onPropertyChanged("WeightedGrade");
 
         }
         #endregion

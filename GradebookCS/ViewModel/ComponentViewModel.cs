@@ -117,7 +117,7 @@ namespace GradebookCS.ViewModel
         private void LoadAssigmentsData()
         {
             var items = assignmentRepository.GetAllItemsForId(this.Component.Id);   //get all the items for this component
-            foreach (Assignment a in items)                                          //Loop through all the items
+            foreach (Assignment a in items)                                         //Loop through all the items
             {
                 AssignmentViewModel avm = new AssignmentViewModel(a);                   //create a viewmodel for that assignment instance of assignment
                 Component.TotalGrade.Add(avm.Assignment.Grade);

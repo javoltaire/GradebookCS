@@ -6,14 +6,14 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="SelectedCourseViewModel" />
     <RootPropertyPathName Name="CanShowComponentDetailPanel" />
-    <RootPropertyPathName Name="AddNewAssignmentCommand" />
     <RootPropertyPathName Name="SelectedComponentViewModel" />
-    <RootPropertyPathName Name="AssignmentViewerViewModels" />
+    <RootPropertyPathName Name="AddNewAssignmentCommand" />
+    <RootPropertyPathName Name="AssignmentViewModels" />
     <RootPropertyPathName Name="DataContext" />
-    <RootPropertyPathName Name="RemoveAssignment" />
-    <RootPropertyPathName Name="HideAssignmentEditingConstolsCommand" />
+    <RootPropertyPathName Name="DeleteAssignmentCommand" />
+    <RootPropertyPathName Name="SaveAssignmentChangesCommand" />
     <RootPropertyPathName Name="IsInEditMode" />
-    <RootPropertyPathName Name="ShowAssignmentEditingConstolsCommand" />
+    <RootPropertyPathName Name="EditAssignmentCommand" />
     <RootPropertyPathName Name="Assignment" />
     <RootPropertyPathName Name="Grade" />
     <RootPropertyPathName Name="PercentWithSign" />
@@ -28,8 +28,8 @@
     <RootPropertyPathName Name="CourseAndComponentName" />
     <RootPropertyPathName Name="ComponentViewModels" />
     <RootPropertyPathName Name="ActualWidth" />
-    <RootPropertyPathName Name="HideComponentEditingControlsCommand" />
-    <RootPropertyPathName Name="ShowComponentEditingControlsCommand" />
+    <RootPropertyPathName Name="SaveComponentChangesCommand" />
+    <RootPropertyPathName Name="EditComponentCommand" />
     <RootPropertyPathName Name="RemoveComponentCommand" />
     <RootPropertyPathName Name="NameWeight" />
     <RootPropertyPathName Name="Weight" />
@@ -132,6 +132,7 @@
       <RootProperty Name="AssignmentLetter" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ItemsControl">
+      <RootProperty Name="DataContext" />
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="Width" />
       <RootProperty Name="ItemTemplate" />
@@ -174,6 +175,7 @@
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="InputScope" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="ItemContainerStyle" />
