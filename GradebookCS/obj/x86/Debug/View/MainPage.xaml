@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="GradebookCS.View.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GradebookCS.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:GradebookCS.ViewModel"
+    xmlns:views="using:GradebookCS.View"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <viewmodels:MainViewModel x:Key="MainPageViewModel"/>
+    </Page.Resources>
+    <Frame x:ConnectionId='1' x:Name="ContentFrame" DataContext="{StaticResource MainPageViewModel}" SourcePageType="{Binding CurrentPageType, Mode=TwoWay}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+</Page>
+
