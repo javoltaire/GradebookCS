@@ -144,7 +144,8 @@ namespace GradebookCS.ViewModel
             foreach (Component c in items)                                   //loop through all of them
             {
                 ComponentViewModel cvm = new ComponentViewModel(c);             //Create a new componentviewmodel for this component
-                Course.Grade.Add(cvm.Component.WeightedGrade);
+                if (cvm.AssignmentViewModels.Count > 0)
+                    Course.Grade.Add(cvm.Component.WeightedGrade);
                 cvm.Component.PropertyChanged += Component_PropertyChanged;
                 ComponentViewModels.Add(cvm);                                   //Add the new componentviewmodel to the list.
             }
