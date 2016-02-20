@@ -1,0 +1,2 @@
+D:\GitHub\GradebookCS\GradebookCS\GradebookCS.csproj;x86
+D:\GitHub\GradebookCS\GradebookCSTest\GradebookCSTest.csproj;x86

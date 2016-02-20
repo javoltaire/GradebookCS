@@ -159,7 +159,7 @@ namespace GradebookCS.ViewModel
             {
                 foreach (ComponentViewModel cvm in e.NewItems)
                 {
-                    Course.Grade.Add(cvm.Component.WeightedGrade);
+                    //Course.Grade.Add(cvm.Component.WeightedGrade);
                     cvm.Component.PropertyChanged += Component_PropertyChanged;
                 }
             }
@@ -179,7 +179,8 @@ namespace GradebookCS.ViewModel
             {
                 Course.Grade.Reset();
                 foreach (ComponentViewModel cvm in ComponentViewModels)
-                    Course.Grade.Add(cvm.Component.WeightedGrade);
+                    if(cvm.AssignmentViewModels.Count > 0)
+                        Course.Grade.Add(cvm.Component.WeightedGrade);
             }
         }
 

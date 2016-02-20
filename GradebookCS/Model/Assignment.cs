@@ -20,7 +20,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Store for the <see cref="Id"/> Property
         /// </summary>
-        private string id = default(string);
+        private string id = Guid.NewGuid().ToString();
 
         /// <summary>
         /// Store for the <see cref="ComponentId"/> property
