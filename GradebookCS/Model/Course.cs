@@ -19,7 +19,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Store for the <see cref="Name"/> Property
         /// </summary>
-        private string name = "Course";
+        private string name = string.Empty;
 
         /// <summary>
         /// Store the boolean value stating whether or not actual score or percentage should be used to determine the letter grade
@@ -274,7 +274,12 @@ namespace GradebookCS.Model
         /// <summary>
         /// Initializes an instance of the Course class
         /// </summary>
-        public Course() { }
+        public Course()
+        {
+            Grade.PropertyChanged += Grade_PropertyChanged;
+        }
+
+        
         #endregion
 
         #region Methods
@@ -300,66 +305,11 @@ namespace GradebookCS.Model
             else
                 return "N/A";
         }
-        #endregion
-
-        #region To be refactored
-        /// <summary>
-        /// Listens for when a new <see cref="Component"/> is added or removed ect, and updates the <see cref="Grade"/>
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Components_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.Action == NotifyCollectionChangedAction.Add)
-            {
-                foreach (Component component in e.NewItems)
-                {
-                    Grade.Add(component.WeightedGrade);
-                    component.PropertyChanged += Component_PropertyChanged;
-                }
-            }
-            else if (e.Action == NotifyCollectionChangedAction.Remove)
-            {
-                foreach (Component component in e.OldItems)
-                {
-                    Grade.Subtract(component.WeightedGrade);
-                    //component.PropertyChanged -= Component_PropertyChanged;
-                }
-            }
-        }
-
-        private void Component_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            //if(e.PropertyName == "WeightedGrade" || e.PropertyName == "Weight")
-            //{
-
-            //}
-            Grade.Reset();
-            foreach (Component component in Components)
-            {
-                Grade.Add(component.WeightedGrade);
-            }
-        }
 
         private void Grade_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             onPropertyChanged("Letter");
         }
-
-        /// <summary>
-        /// Gets the list of <see cref="Component"/>s of this Course
-        /// </summary>
-        /// <value>The list of <see cref="Component"/>s for this Course</value>
-        public ObservableCollection<Component> Components { get; private set; } = new ObservableCollection<Component>();
-
-        /// <summary>
-        /// Initializes an instance of the Course class
-        /// </summary>
-        //public Course()
-        //{
-            //this.Components.CollectionChanged += Components_CollectionChanged;
-            //Grade.PropertyChanged += Grade_PropertyChanged;
-        //}
         #endregion
     }
 }

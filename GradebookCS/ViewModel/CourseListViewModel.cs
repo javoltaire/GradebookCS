@@ -7,7 +7,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GradebookCS.Common.Enums;
 using Windows.UI.Xaml.Controls;
 using GradebookCS.Common;
 using System.Collections.Specialized;

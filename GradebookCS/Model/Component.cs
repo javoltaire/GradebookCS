@@ -26,7 +26,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Store for the <see cref="Name"/> Property
         /// </summary>
-        private string name = "Component";
+        private string name = string.Empty;
 
         /// <summary>
         /// Store for the <see cref="Weight"/> Property
@@ -152,6 +152,7 @@ namespace GradebookCS.Model
                 WeightedGrade = new ComputedGrade(TotalGrade.GetScaledScore(weight), weight);
                 onPropertyChanged("WeightedGrade");
             }
+            
 
         }
         #endregion

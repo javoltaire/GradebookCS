@@ -30,7 +30,7 @@ namespace GradebookCS.Model
         /// <summary>
         /// Store for the <see cref="Name"/> Property
         /// </summary>
-        private string name = "Assignment";
+        private string name = string.Empty;
         #endregion
 
         #region Properties

@@ -157,7 +157,7 @@ namespace GradebookCS.ViewModel
             {
                 foreach (ComponentViewModel cvm in e.NewItems)
                 {
-                    Course.Grade.Add(cvm.Component.WeightedGrade);
+                    //Course.Grade.Add(cvm.Component.WeightedGrade);
                     cvm.Component.PropertyChanged += Component_PropertyChanged;
                 }
             }
@@ -173,7 +173,7 @@ namespace GradebookCS.ViewModel
 
         private void Component_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName.Equals("WeigthedGrade"))
+            if (e.PropertyName.Equals("WeightedGrade"))
             {
                 Course.Grade.Reset();
                 foreach (ComponentViewModel cvm in ComponentViewModels)

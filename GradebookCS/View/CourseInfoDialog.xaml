@@ -31,9 +31,9 @@
         <customcontrols:AutoSelectOnFocusTextBox Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" PlaceholderText="Course Name" Text="{Binding Name, Mode=TwoWay}"/>
         <!--A Block-->
         <TextBlock Grid.Row="1" Text="A:" VerticalAlignment="Center"/>
-        <customcontrols:AutoSelectOnFocusTextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding ARangeLowEnd, Mode=TwoWay}"/>
+        <customcontrols:AutoSelectOnFocusTextBox InputScope="Number" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding ARangeLowEnd, Mode=TwoWay}"/>
         <TextBlock Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Text="-" HorizontalAlignment="Center"/>
-        <customcontrols:AutoSelectOnFocusTextBox Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding ARangeHighEnd, Mode=TwoWay}"/>
+        <customcontrols:AutoSelectOnFocusTextBox InputScope="Number" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" PlaceholderText="To" Text="{Binding ARangeHighEnd, Mode=TwoWay}"/>
         <!--B Block-->
         <TextBlock Grid.Row="2" Text="B:" VerticalAlignment="Center"/>
         <customcontrols:AutoSelectOnFocusTextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding BRangeLowEnd, Mode=TwoWay}"/>
