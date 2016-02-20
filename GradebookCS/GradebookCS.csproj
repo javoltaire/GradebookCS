@@ -99,7 +99,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\BaseINPC.cs" />
-    <Compile Include="Common\Enums\DialogResult.cs" />
     <Compile Include="DataBase\AssignmentTable.cs" />
     <Compile Include="DataBase\ComponentTable.cs" />
     <Compile Include="DataBase\CourseTable.cs" />

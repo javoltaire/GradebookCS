@@ -306,9 +306,15 @@ namespace GradebookCS.Model
                 return "N/A";
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Grade_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            onPropertyChanged("Letter");
+            if(e.PropertyName.Equals("Score") || e.PropertyName.Equals("MaximumScore"))
+                onPropertyChanged("Letter");
         }
         #endregion
     }

@@ -149,6 +149,8 @@ namespace GradebookCS.ViewModel
                 ComponentViewModels.Add(cvm);                                   //Add the new componentviewmodel to the list.
             }
             ComponentViewModels.CollectionChanged += ComponentViewModels_CollectionChanged;
+            if (ComponentViewModels.Count >= 1)
+                SelectedComponentViewModel = ComponentViewModels.First();
         }
 
         private void ComponentViewModels_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -157,7 +159,7 @@ namespace GradebookCS.ViewModel
             {
                 foreach (ComponentViewModel cvm in e.NewItems)
                 {
-                    //Course.Grade.Add(cvm.Component.WeightedGrade);
+                    Course.Grade.Add(cvm.Component.WeightedGrade);
                     cvm.Component.PropertyChanged += Component_PropertyChanged;
                 }
             }
