@@ -133,6 +133,7 @@
       <DependentUpon>CourseListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CustomControls\AutoSelectOnFocusTextBox.cs" />
+    <Compile Include="View\CustomControls\NumericTextbox.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -148,6 +149,7 @@
     <None Include="GradebookCS_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FeaturesAndBugs.txt" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

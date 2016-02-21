@@ -195,6 +195,12 @@
       <RootProperty Name="SecondaryButtonText" />
       <RootProperty Name="Content" />
     </RootType>
+    <RootType FullName="GradebookCS.View.CustomControls.NumericTextbox">
+      <RootProperty Name="InputScope" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="Text" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
       <RootProperty Name="IsChecked" />
       <RootProperty Name="Content" />

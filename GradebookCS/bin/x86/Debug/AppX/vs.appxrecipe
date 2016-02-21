@@ -22,13 +22,13 @@
     <AppXManifest Include="D:\GitHub\GradebookCS\GradebookCS\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-02-20T00:59:18.481</Modified>
+      <Modified>2016-02-21T22:54:07.580</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCS\bin\x86\Debug\GradebookCS.exe">
       <PackagePath>entrypoint\GradebookCS.exe</PackagePath>
-      <Modified>2016-02-20T00:48:51.359</Modified>
+      <Modified>2016-02-21T18:56:31.461</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -470,6 +470,10 @@
       <PackagePath>ApplicationInsights.config</PackagePath>
       <Modified>2016-01-14T05:41:56.179</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCS\FeaturesAndBugs.txt">
+      <PackagePath>FeaturesAndBugs.txt</PackagePath>
+      <Modified>2016-02-21T19:14:59.312</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCS\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2016-01-14T05:41:56.242</Modified>
@@ -518,11 +522,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCS\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-02-20T00:59:18.295</Modified>
+      <Modified>2016-02-21T22:54:07.229</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCS\bin\x86\Debug\Core\GradebookCS.exe">
       <PackagePath>GradebookCS.exe</PackagePath>
-      <Modified>2016-02-20T00:59:18.480</Modified>
+      <Modified>2016-02-21T22:54:07.575</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

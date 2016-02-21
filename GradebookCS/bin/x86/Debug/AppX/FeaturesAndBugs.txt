@@ -1,0 +1,20 @@
+﻿Features
+	- An algorithm to anticipate The different possible grades a user needs to improve their current grades for the course
+    - When adding a new assignment, create a name automatically using the name of the component
+    - Tab navigation for editing components and assignments
+    - Enter to save
+    - Mobile responsiveness
+    - Highlighting an assignment
+    - Double click an assignment to start editing
+    - Hide Edit and delete button like for components
+
+Things to change
+    - Change the prompt text for the course name
+    - Change the prompt text for the course name
+    - Change Component total Grade to Total Grade
+    - Change Component weighted Grade to Weighted Grade
+    - for the course info dialog box, change all the binding modes to explicit and then call UpdateSource() on save and UpdateTarget() on cancel.
+
+Bugs
+    
+
