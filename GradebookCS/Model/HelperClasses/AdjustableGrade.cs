@@ -71,18 +71,6 @@ namespace GradebookCS.Model
         /// <param name="maximumScore">The given initial maximum score</param>
         public AdjustableGrade(double score, double maximumScore) : base(score, maximumScore) { }
         #endregion
-
-        #region Methods
-        /// <summary>
-        /// Scales the <see cref="Score"/> of the grade based on the given value
-        /// </summary>
-        /// <param name="scaleValue">The maximum score to scale the <see cref="score"/> to</param>
-        /// <returns>A new <see cref="AdjustableGrade"/> with the scaled values</returns>
-        //public AdjustableGrade Scale(double scaleValue)
-        //{
-        //    double scaledScore = scaleValue * score / maximumScore;
-        //    return new AdjustableGrade(scaledScore, scaleValue);
-        //}
-        #endregion
+        
     }
 }

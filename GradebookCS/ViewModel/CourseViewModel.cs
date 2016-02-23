@@ -144,7 +144,8 @@ namespace GradebookCS.ViewModel
             foreach (Component c in items)                                   //loop through all of them
             {
                 ComponentViewModel cvm = new ComponentViewModel(c);             //Create a new componentviewmodel for this component
-                Course.Grade.Add(cvm.Component.WeightedGrade);
+                if (cvm.AssignmentViewModels.Count > 0)
+                    Course.Grade.Add(cvm.Component.WeightedGrade);
                 cvm.Component.PropertyChanged += Component_PropertyChanged;
                 ComponentViewModels.Add(cvm);                                   //Add the new componentviewmodel to the list.
             }
@@ -167,7 +168,8 @@ namespace GradebookCS.ViewModel
             {
                 foreach (ComponentViewModel cvm in e.OldItems)
                 {
-                    Course.Grade.Subtract(cvm.Component.WeightedGrade);
+                    if (cvm.AssignmentViewModels.Count > 0)
+                        Course.Grade.Subtract(cvm.Component.WeightedGrade);
                     cvm.Component.PropertyChanged -= Component_PropertyChanged;
                 }
             }
@@ -179,9 +181,11 @@ namespace GradebookCS.ViewModel
             {
                 Course.Grade.Reset();
                 foreach (ComponentViewModel cvm in ComponentViewModels)
-                    if(cvm.AssignmentViewModels.Count > 0)
+                    if (cvm.AssignmentViewModels.Count > 0)
                         Course.Grade.Add(cvm.Component.WeightedGrade);
             }
+            else if (e.PropertyName.Equals("Name"))
+                onPropertyChanged("CourseAndComponentName");
         }
 
         /// <summary>

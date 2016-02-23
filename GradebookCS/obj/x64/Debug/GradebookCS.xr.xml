@@ -131,11 +131,14 @@
       <RootProperty Name="AssignmentPercent" />
       <RootProperty Name="AssignmentLetter" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ItemsControl">
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="SelectionMode" />
       <RootProperty Name="DataContext" />
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="Width" />
       <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="ItemContainerStyle" />
+      <RootProperty Name="SelectedItem" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Style" />
@@ -176,14 +179,6 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Visibility" />
       <RootProperty Name="InputScope" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
-      <RootProperty Name="ItemContainerStyle" />
-      <RootProperty Name="SelectionMode" />
-      <RootProperty Name="SelectedItem" />
-      <RootProperty Name="ItemsSource" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="ItemTemplate" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
       <RootProperty Name="Height" />

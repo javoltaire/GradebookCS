@@ -28,7 +28,7 @@
         </Grid.ColumnDefinitions>
         <!--Name Block-->
         <TextBlock VerticalAlignment="Center" Text="Name:"/>
-        <customcontrols:AutoSelectOnFocusTextBox Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" PlaceholderText="Course Name" Text="{Binding Name, Mode=TwoWay}"/>
+        <customcontrols:AutoSelectOnFocusTextBox Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" PlaceholderText="Name (e.g. MA1021)" Text="{Binding Name, Mode=TwoWay}"/>
         <!--A Block-->
         <TextBlock Grid.Row="1" Text="A:" VerticalAlignment="Center"/>
         <customcontrols:AutoSelectOnFocusTextBox InputScope="Number" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" PlaceholderText="From" Text="{Binding ARangeLowEnd, Mode=TwoWay}"/>

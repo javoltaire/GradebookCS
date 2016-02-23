@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-02-21T17:23:51.179</Modified>
+      <Modified>2016-02-23T17:13:53.531</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.exe">
       <PackagePath>entrypoint\GradebookCS.exe</PackagePath>
-      <Modified>2016-02-21T17:23:38.447</Modified>
+      <Modified>2016-02-23T17:13:52.848</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -470,6 +470,10 @@
       <PackagePath>ApplicationInsights.config</PackagePath>
       <Modified>2016-01-26T20:20:51.390</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\FeaturesAndBugs.txt">
+      <PackagePath>FeaturesAndBugs.txt</PackagePath>
+      <Modified>2016-02-23T17:13:49.944</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2016-01-26T20:20:51.470</Modified>
@@ -510,7 +514,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.xr.xml">
       <PackagePath>GradebookCS.xr.xml</PackagePath>
-      <Modified>2016-02-21T17:22:48.239</Modified>
+      <Modified>2016-02-23T16:59:37.248</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -518,11 +522,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-02-21T17:23:51.005</Modified>
+      <Modified>2016-02-23T17:13:53.338</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\Core\GradebookCS.exe">
       <PackagePath>GradebookCS.exe</PackagePath>
-      <Modified>2016-02-21T17:23:51.177</Modified>
+      <Modified>2016-02-23T17:13:53.529</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -26,7 +26,7 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <customcontrols:AutoSelectOnFocusTextBox PlaceholderText="Name" Text="{Binding Component.Name, Mode=TwoWay}" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}" Grid.RowSpan="2" VerticalAlignment="Center"/>
+                            <customcontrols:AutoSelectOnFocusTextBox PlaceholderText="Name (e.g. Quizzes)" Text="{Binding Component.Name, Mode=TwoWay}" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}" Grid.RowSpan="2" VerticalAlignment="Center"/>
                             <customcontrols:AutoSelectOnFocusTextBox PlaceholderText="Weight" Text="{Binding Component.Weight, Mode=TwoWay}" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Center"/>
                             <TextBlock Text="{Binding Component.NameWeight}" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="5" />
                             <Button Style="{StaticResource InverseSmallButtonStyle}" Height="20" Width="25" Content="&#59153;" Grid.Column="2" Grid.Row="0" Command="{Binding DataContext.RemoveComponentCommand, ElementName=Root}" CommandParameter="{Binding}"/>
@@ -41,10 +41,10 @@
             <StackPanel x:ConnectionId='3' x:Name="ComponentDetailsStackPanel" Visibility="{Binding CanShowComponentDetailPanel, Converter={StaticResource BoolToVisConverter}}" Width="600" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True">
                 <TextBlock x:ConnectionId='4' x:Name="CourseAndComponentTextBlock" Text="{Binding CourseAndComponentName}" FontSize="20" HorizontalAlignment="Center"/>
                 <usercontrols:ViewOnlyAssignmentViewer x:ConnectionId='5' x:Name="CourseAssignmentViewer" Height="30" Width="600" AssignmentName="Course Grade" AssignmentScore="{Binding Course.Grade.Score}" AssignmentMaximumScore="{Binding Course.Grade.MaximumScore}" AssignmentPercent="{Binding Course.Grade.PercentWithSign}" AssignmentLetter="{Binding Course.Letter}"/>
-                <usercontrols:ViewOnlyAssignmentViewer x:ConnectionId='6' x:Name="ComponentWeightedAssignmentViewer" Height="30" Width="600" AssignmentName="Component Weighted Grade" AssignmentScore="{Binding SelectedComponentViewModel.Component.WeightedGrade.Score}" AssignmentMaximumScore="{Binding SelectedComponentViewModel.Component.WeightedGrade.MaximumScore}" AssignmentPercent="{Binding SelectedComponentViewModel.Component.WeightedGrade.PercentWithSign}"/>
-                <usercontrols:ViewOnlyAssignmentViewer x:ConnectionId='7' x:Name="ComponentTotalAssignmentViewer" Height="30" Width="600" AssignmentName="Component total Grade" AssignmentScore="{Binding SelectedComponentViewModel.Component.TotalGrade.Score}" AssignmentMaximumScore="{Binding SelectedComponentViewModel.Component.TotalGrade.MaximumScore}" AssignmentPercent="{Binding SelectedComponentViewModel.Component.TotalGrade.PercentWithSign}"/>
-                <ItemsControl x:ConnectionId='8' x:Name="AssignmentItemsList" DataContext="{Binding SelectedComponentViewModel}" ItemsSource="{Binding AssignmentViewModels}" Width="600">
-                    <ItemsControl.ItemTemplate>
+                <usercontrols:ViewOnlyAssignmentViewer x:ConnectionId='6' x:Name="ComponentWeightedAssignmentViewer" Height="30" Width="600" AssignmentName="Weighted Grade" AssignmentScore="{Binding SelectedComponentViewModel.Component.WeightedGrade.Score}" AssignmentMaximumScore="{Binding SelectedComponentViewModel.Component.WeightedGrade.MaximumScore}" AssignmentPercent="{Binding SelectedComponentViewModel.Component.WeightedGrade.PercentWithSign}"/>
+                <usercontrols:ViewOnlyAssignmentViewer x:ConnectionId='7' x:Name="ComponentTotalAssignmentViewer" Height="30" Width="600" AssignmentName="Total Grade" AssignmentScore="{Binding SelectedComponentViewModel.Component.TotalGrade.Score}" AssignmentMaximumScore="{Binding SelectedComponentViewModel.Component.TotalGrade.MaximumScore}" AssignmentPercent="{Binding SelectedComponentViewModel.Component.TotalGrade.PercentWithSign}"/>
+                <ListView x:ConnectionId='8' x:Name="AssignmentItemsList" SelectionMode="None" DataContext="{Binding SelectedComponentViewModel}" ItemsSource="{Binding AssignmentViewModels}" Width="600">
+                    <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid Height="32">
                                 <Grid.ColumnDefinitions>
@@ -56,7 +56,7 @@
                                     <ColumnDefinition Width="30"/>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Text="{Binding Assignment.Name, Mode=OneWay}" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
-                                <customcontrols:AutoSelectOnFocusTextBox Text="{Binding Assignment.Name, Mode=TwoWay}" PlaceholderText="Assignment Name" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
+                                <customcontrols:AutoSelectOnFocusTextBox Text="{Binding Assignment.Name, Mode=TwoWay}" PlaceholderText="Name (e.g. Quiz 1)" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
                                 <TextBlock Grid.Column="1" Text="{Binding Assignment.Grade.Score, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
                                 <customcontrols:AutoSelectOnFocusTextBox Grid.Column="1" Text="{Binding Assignment.Grade.Score, Mode=TwoWay}" PlaceholderText="Score" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
                                 <TextBlock Grid.Column="2" Text="{Binding Assignment.Grade.MaximumScore, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
@@ -67,8 +67,8 @@
                                 <Button Style="{StaticResource SmallButtonStyle}" Content="&#59153;" Grid.Column="5" Command="{Binding DataContext.DeleteAssignmentCommand, ElementName=AssignmentItemsList}" CommandParameter="{Binding}"/>
                             </Grid>
                         </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                    </ListView.ItemTemplate>
+                </ListView>
                 <Button Style="{StaticResource BigButtonStyle}" Content="&#59152;" Command="{Binding SelectedComponentViewModel.AddNewAssignmentCommand}" Height="30" Width="600"/>
             </StackPanel>
             <TextBlock Text="Click on the + to add a new Component" Visibility="{Binding CanShowComponentDetailPanel, Converter={StaticResource InverseBoolToVisConverter}}" FontSize="25" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True"/>

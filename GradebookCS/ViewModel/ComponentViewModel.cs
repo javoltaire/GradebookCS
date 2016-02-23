@@ -216,8 +216,6 @@ namespace GradebookCS.ViewModel
             assignmentViewModel.IsInEditMode = false;                                                           //Set edit mode of that assignment to false
             assignmentInEditMode = null;                                                                        //set the assignmentInEditMode to null
         }
-
-        
         #endregion
 
 

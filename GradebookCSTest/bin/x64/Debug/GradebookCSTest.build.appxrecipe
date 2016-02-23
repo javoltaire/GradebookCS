@@ -423,6 +423,9 @@
     <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\FeaturesAndBugs.txt">
+      <PackagePath>FeaturesAndBugs.txt</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
