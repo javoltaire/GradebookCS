@@ -22,7 +22,7 @@
     <AppXManifest Include="D:\GitHub\GradebookCS\GradebookCS\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-02-21T22:54:07.580</Modified>
+      <Modified>2016-02-22T03:36:27.426</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -472,7 +472,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCS\FeaturesAndBugs.txt">
       <PackagePath>FeaturesAndBugs.txt</PackagePath>
-      <Modified>2016-02-21T19:14:59.312</Modified>
+      <Modified>2016-02-22T00:39:02.022</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCS\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
@@ -522,11 +522,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCS\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-02-21T22:54:07.229</Modified>
+      <Modified>2016-02-22T03:36:27.125</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCS\bin\x86\Debug\Core\GradebookCS.exe">
       <PackagePath>GradebookCS.exe</PackagePath>
-      <Modified>2016-02-21T22:54:07.575</Modified>
+      <Modified>2016-02-22T03:36:27.422</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

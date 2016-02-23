@@ -1,12 +1,18 @@
 ﻿Features
 	- An algorithm to anticipate The different possible grades a user needs to improve their current grades for the course
+    - Dropping/ignaoring the lowest number of assignments
     - When adding a new assignment, create a name automatically using the name of the component
-    - Tab navigation for editing components and assignments
+    - (DONE) Tab navigation for editing components and assignments
     - Enter to save
     - Mobile responsiveness
     - Highlighting an assignment
+        - Use a listview instead and set selection mode to none
     - Double click an assignment to start editing
-    - Hide Edit and delete button like for components
+    - Hide Edit and delete button like for components (maybe)
+    - Error Checking and validation
+        -Should be done in the view component (I think)
+    - Auto selecting the first component in the list if there are any
+        - Also change the binding mode for selected component to two ways if its not
 
 Things to change
     - Change the prompt text for the course name
