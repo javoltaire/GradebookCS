@@ -1,0 +1,78 @@
+﻿<Page
+    x:Class="GradebookCS.View.CourseDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GradebookCS.View"
+    xmlns:customcontrols="using:GradebookCS.View.CustomControls"
+    xmlns:usercontrols="using:GradebookCS.View.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding SelectedCourseViewModel}">
+    
+    <RelativePanel x:ConnectionId='1' x:Name="Root" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <RelativePanel x:ConnectionId='2' x:Name="ComponentsListRoot" Background="{ThemeResource SystemControlBackgroundAccentBrush}" Width="350" MaxWidth="350" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True">
+            <Button x:ConnectionId='9' x:Name="AddComponentButton" Style="{StaticResource BigButtonStyle}" Content="&#59152;" Width="{Binding ActualWidth,ElementName=ComponentsListRoot}" Command="{Binding AddNewComponentCommand}"/>
+            <ListView x:ConnectionId='10' x:Name="ComponentsListView" ItemContainerStyle="{StaticResource ComponentListViewItemStyle}" SelectionMode="Single" SelectedItem="{Binding SelectedComponentViewModel, Mode=TwoWay}" ItemsSource="{Binding ComponentViewModels}" Width="{Binding ActualWidth, ElementName=ComponentsListRoot}" RelativePanel.Below="AddComponentButton" RelativePanel.AlignBottomWithPanel="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="40" Width="350">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="25"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <customcontrols:AutoSelectOnFocusTextBox PlaceholderText="Name" Text="{Binding Component.Name, Mode=TwoWay}" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}" Grid.RowSpan="2" VerticalAlignment="Center"/>
+                            <customcontrols:AutoSelectOnFocusTextBox PlaceholderText="Weight" Text="{Binding Component.Weight, Mode=TwoWay}" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Component.NameWeight}" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="5" />
+                            <Button Style="{StaticResource InverseSmallButtonStyle}" Height="20" Width="25" Content="&#59153;" Grid.Column="2" Grid.Row="0" Command="{Binding DataContext.RemoveComponentCommand, ElementName=Root}" CommandParameter="{Binding}"/>
+                            <Button Style="{StaticResource InverseSmallButtonStyle}" Height="20" Width="25" Content="&#59151;" Grid.Column="2" Grid.Row="1" Command="{Binding DataContext.EditComponentCommand, ElementName=Root}" CommandParameter="{Binding}" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}" />
+                            <Button Style="{StaticResource InverseSmallButtonStyle}" Height="20" Width="25" Content="&#59214;" Grid.Column="2" Grid.Row="1" Command="{Binding DataContext.SaveComponentChangesCommand, ElementName=Root}" CommandParameter="{Binding}" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </RelativePanel>
+        <RelativePanel RelativePanel.RightOf="ComponentsListRoot" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True">
+            <StackPanel x:ConnectionId='3' x:Name="ComponentDetailsStackPanel" Visibility="{Binding CanShowComponentDetailPanel, Converter={StaticResource BoolToVisConverter}}" Width="600" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True">
+                <TextBlock x:ConnectionId='4' x:Name="CourseAndComponentTextBlock" Text="{Binding CourseAndComponentName}" FontSize="20" HorizontalAlignment="Center"/>
+                <usercontrols:ViewOnlyAssignmentViewer x:ConnectionId='5' x:Name="CourseAssignmentViewer" Height="30" Width="600" AssignmentName="Course Grade" AssignmentScore="{Binding Course.Grade.Score}" AssignmentMaximumScore="{Binding Course.Grade.MaximumScore}" AssignmentPercent="{Binding Course.Grade.PercentWithSign}" AssignmentLetter="{Binding Course.Letter}"/>
+                <usercontrols:ViewOnlyAssignmentViewer x:ConnectionId='6' x:Name="ComponentWeightedAssignmentViewer" Height="30" Width="600" AssignmentName="Component Weighted Grade" AssignmentScore="{Binding SelectedComponentViewModel.Component.WeightedGrade.Score}" AssignmentMaximumScore="{Binding SelectedComponentViewModel.Component.WeightedGrade.MaximumScore}" AssignmentPercent="{Binding SelectedComponentViewModel.Component.WeightedGrade.PercentWithSign}"/>
+                <usercontrols:ViewOnlyAssignmentViewer x:ConnectionId='7' x:Name="ComponentTotalAssignmentViewer" Height="30" Width="600" AssignmentName="Component total Grade" AssignmentScore="{Binding SelectedComponentViewModel.Component.TotalGrade.Score}" AssignmentMaximumScore="{Binding SelectedComponentViewModel.Component.TotalGrade.MaximumScore}" AssignmentPercent="{Binding SelectedComponentViewModel.Component.TotalGrade.PercentWithSign}"/>
+                <ItemsControl x:ConnectionId='8' x:Name="AssignmentItemsList" DataContext="{Binding SelectedComponentViewModel}" ItemsSource="{Binding AssignmentViewModels}" Width="600">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="32">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="30"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding Assignment.Name, Mode=OneWay}" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
+                                <customcontrols:AutoSelectOnFocusTextBox Text="{Binding Assignment.Name, Mode=TwoWay}" PlaceholderText="Assignment Name" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
+                                <TextBlock Grid.Column="1" Text="{Binding Assignment.Grade.Score, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
+                                <customcontrols:AutoSelectOnFocusTextBox Grid.Column="1" Text="{Binding Assignment.Grade.Score, Mode=TwoWay}" PlaceholderText="Score" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
+                                <TextBlock Grid.Column="2" Text="{Binding Assignment.Grade.MaximumScore, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
+                                <customcontrols:AutoSelectOnFocusTextBox Grid.Column="2" Text="{Binding Assignment.Grade.MaximumScore, Mode=TwoWay}" PlaceholderText="Max" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
+                                <TextBlock Grid.Column="3" Text="{Binding Assignment.Grade.PercentWithSign, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <Button Style="{StaticResource SmallButtonStyle}" Content="&#59151;" Grid.Column="4" Command="{Binding DataContext.EditAssignmentCommand, ElementName=AssignmentItemsList}" CommandParameter="{Binding}" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
+                                <Button Style="{StaticResource SmallButtonStyle}" Content="&#59214;" Grid.Column="4" Command="{Binding DataContext.SaveAssignmentChangesCommand, ElementName=AssignmentItemsList}" CommandParameter="{Binding}" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
+                                <Button Style="{StaticResource SmallButtonStyle}" Content="&#59153;" Grid.Column="5" Command="{Binding DataContext.DeleteAssignmentCommand, ElementName=AssignmentItemsList}" CommandParameter="{Binding}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <Button Style="{StaticResource BigButtonStyle}" Content="&#59152;" Command="{Binding SelectedComponentViewModel.AddNewAssignmentCommand}" Height="30" Width="600"/>
+            </StackPanel>
+            <TextBlock Text="Click on the + to add a new Component" Visibility="{Binding CanShowComponentDetailPanel, Converter={StaticResource InverseBoolToVisConverter}}" FontSize="25" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+        </RelativePanel>
+    </RelativePanel>
+</Page>
+

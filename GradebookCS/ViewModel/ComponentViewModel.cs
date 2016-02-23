@@ -128,14 +128,16 @@ namespace GradebookCS.ViewModel
         }
 
         /// <summary>
-        /// 
+        /// Listens for changes to the ObservableCollection
+        /// If Items are added then all the scores gets added to total component grade
+        /// If Items are removed then all the scores gets substracted from the total component grade
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void AssignmentViewModels_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            if (e.Action == NotifyCollectionChangedAction.Add)
-                foreach (AssignmentViewModel newItem in e.NewItems)
+            if (e.Action == NotifyCollectionChangedAction.Add)                                  //If The Items are being added
+                foreach (AssignmentViewModel newItem in e.NewItems)                                 //Loop through all those items
                 {
                     Component.TotalGrade.Add(newItem.Assignment.Grade);
                     newItem.Assignment.Grade.PropertyChanged += AssignmentGrade_PropertyChanged;

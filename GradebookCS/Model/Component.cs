@@ -149,72 +149,12 @@ namespace GradebookCS.Model
         {
             if (e.PropertyName.Equals("Score") || e.PropertyName.Equals("MaximumScore"))
             {
-                
+                WeightedGrade = new ComputedGrade(TotalGrade.GetScaledScore(weight), weight);
+                onPropertyChanged("WeightedGrade");
             }
-            WeightedGrade = new ComputedGrade(TotalGrade.GetScaledScore(weight), weight);
-            onPropertyChanged("WeightedGrade");
+            
 
         }
-        #endregion
-
-        #region To be refactored
-        /// <summary>
-        /// Gets the list that hold all the assignments
-        /// </summary>
-        /// <value>The list containing all the assignments</value>
-        public ObservableCollection<Assignment> Assignments { get; private set; } = new ObservableCollection<Assignment>();
-
-        /// <summary>
-        /// updates the total grade whenever changes occurs in the list
-        /// </summary>
-        /// <param name="sender">The sender of the event</param>
-        /// <param name="e">The Event</param>
-        private void Assignments_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.Action == NotifyCollectionChangedAction.Add)
-            {
-                foreach (Assignment assignment in e.NewItems)
-                {
-                    TotalGrade.Add(assignment.Grade);
-                    assignment.Grade.PropertyChanged += AssignmentGrade_PropertyChanged;
-                }
-            }
-            else if (e.Action == NotifyCollectionChangedAction.Remove)
-            {
-                foreach (Assignment assignment in e.OldItems)
-                {
-                    TotalGrade.Subtract(assignment.Grade);
-                    assignment.Grade.PropertyChanged -= AssignmentGrade_PropertyChanged;
-                }
-            }
-
-        }
-
-        /// <summary>
-        /// Recalculates the TotalGrade when Score or MaximumScore of the <see cref="ComputedGrade"/> of 
-        /// one item in the <see cref="Assignments"/> list has changed
-        /// </summary>
-        /// <param name="sender">The sender of the event</param>
-        /// <param name="e">The event</param>
-        private void AssignmentGrade_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            TotalGrade.Reset();
-            foreach (Assignment assingment in Assignments)
-            {
-                TotalGrade.Add(assingment.Grade);
-            }
-        }
-
-
-        /// <summary>
-        /// Initializes an instance of the Component class
-        /// </summary>
-        //public Component()
-        //{
-        //    WeightedGrade = new ComputedGrade(0.0, weight);
-        //    Assignments.CollectionChanged += Assignments_CollectionChanged;
-        //    TotalGrade.PropertyChanged += TotalGrade_PropertyChanged;
-        //}
         #endregion
     }
 }

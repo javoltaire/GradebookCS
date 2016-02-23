@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GradebookCS.Common.Enums;
 using Windows.UI.Xaml.Controls;
 
 namespace GradebookCS.ViewModel
