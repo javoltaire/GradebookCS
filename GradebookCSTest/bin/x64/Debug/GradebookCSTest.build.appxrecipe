@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>JULESLT</Machine>
+    <Machine>JULESDT</Machine>
     <WindowsUser>jules</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
@@ -9,19 +9,19 @@
     <SolutionConfiguration>Debug|x64</SolutionConfiguration>
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>b7d3fe7f-940c-48aa-ae9e-bf5e061b8bf5</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>D:\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="D:\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\GradebookCSTest.exe">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\GradebookCSTest.exe">
       <PackagePath>entrypoint\GradebookCSTest.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.exe">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.exe">
       <PackagePath>GradebookCS.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\TestPlatform.Universal\14.0\References\CommonConfiguration\neutral\Microsoft.VisualStudio.TestPlatform.TestExecutor.Core.dll">
@@ -381,58 +381,58 @@
     <AppxPackagedFile Include="C:\Users\jules\.nuget\packages\SQLitePCL\3.8.7.2\build\netcore451\SQLitePCL.Ext.dll">
       <PackagePath>SQLitePCL.Ext.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\Properties\UnitTestApp.rd.xml">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCSTest\Properties\UnitTestApp.rd.xml">
       <PackagePath>Properties\UnitTestApp.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCS\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCSTest\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCSTest\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCSTest\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCSTest\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCSTest\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCSTest\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCSTest\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\GradebookCSTest.xr.xml">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\GradebookCSTest.xr.xml">
       <PackagePath>GradebookCSTest.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.xr.xml">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.xr.xml">
       <PackagePath>GradebookCS.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\ApplicationInsights.config">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCS\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\FeaturesAndBugs.txt">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCS\FeaturesAndBugs.txt">
       <PackagePath>FeaturesAndBugs.txt</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\Core\GradebookCSTest.exe">
+    <AppxPackagedFile Include="D:\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\Core\GradebookCSTest.exe">
       <PackagePath>GradebookCSTest.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

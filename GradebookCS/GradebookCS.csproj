@@ -98,7 +98,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\BaseINPC.cs" />
+    <Compile Include="Helpers\BaseINPC.cs" />
     <Compile Include="DataBase\AssignmentTable.cs" />
     <Compile Include="DataBase\ComponentTable.cs" />
     <Compile Include="DataBase\CourseTable.cs" />
@@ -110,6 +110,7 @@
     <Compile Include="Model\Component.cs" />
     <Compile Include="Model\HelperClasses\ComputedGrade.cs" />
     <Compile Include="Model\Course.cs" />
+    <Compile Include="Helpers\Errors.cs" />
     <Compile Include="Model\HelperClasses\GradeBase.cs" />
     <Compile Include="Model\HelperClasses\LetterGradeRange.cs" />
     <Compile Include="ViewModel\Commands\RelayCommand.cs" />

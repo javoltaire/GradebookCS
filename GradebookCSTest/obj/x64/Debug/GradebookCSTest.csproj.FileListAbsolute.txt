@@ -1394,3 +1394,8 @@ C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\FxReso
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\FxResources.System.Xml.XmlDocument.SR\qualifiers.txt
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\FxResources.System.Xml.XmlSerializer.SR.pri
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\FxResources.System.Xml.XmlSerializer.SR\qualifiers.txt
+D:\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\SQLitePCL.Ext.dll
+D:\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\SQLitePCL.Ext.pri
+D:\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\SQLitePCL.dll
+D:\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\SQLitePCL\en\SQLitePCL.Resources.resw
+D:\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\SQLitePCL.Ext.pri.xml
