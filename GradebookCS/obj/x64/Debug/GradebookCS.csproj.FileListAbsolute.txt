@@ -459,7 +459,6 @@ C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\View\Cours
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\View\MainPage.xbf
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\View\Resources\DataTemplates.xbf
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\View\Resources\Styles.xbf
-C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\View\UserControls\ViewOnlyAssignmentViewer.xbf
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.xr.xml
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.exe
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.pdb
@@ -586,8 +585,6 @@ C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\Cours
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseListPage.g.cs
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\MainPage.g.i.cs
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\MainPage.g.cs
-C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentViewer.g.i.cs
-C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentViewer.g.cs
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\XamlTypeInfo.g.cs
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\Resources\DataTemplates.xaml
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\Resources\Styles.xaml
@@ -596,7 +593,6 @@ C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\Cours
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseInfoDialog.xaml
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseListPage.xaml
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\MainPage.xaml
-C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentViewer.xaml
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\Resources\DataTemplates.xbf
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\Resources\Styles.xbf
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\App.xbf
@@ -604,7 +600,6 @@ C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\Cours
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseInfoDialog.xbf
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\CourseListPage.xbf
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\MainPage.xbf
-C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentViewer.xbf
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\XamlSaveStateFile.xml
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\ResourceHandlingTask.state
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\FxResources.Microsoft.CSharp.SR.resw
@@ -681,3 +676,13 @@ D:\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\SQLitePCL.dll
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\SQLitePCL\en\SQLitePCL.Resources.resw
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\GradebookCS.csproj.GenerateResource.Cache
 D:\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\SQLitePCL.Ext.pri.xml
+C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\View\UserControls\AssignmentUserControl.xbf
+C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\View\UserControls\ViewOnlyAssignmentUserControl.xbf
+C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\AssignmentUserControl.g.i.cs
+C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\AssignmentUserControl.g.cs
+C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentUserControl.g.i.cs
+C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentUserControl.g.cs
+C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\AssignmentUserControl.xaml
+C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentUserControl.xaml
+C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\AssignmentUserControl.xbf
+C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\View\UserControls\ViewOnlyAssignmentUserControl.xbf

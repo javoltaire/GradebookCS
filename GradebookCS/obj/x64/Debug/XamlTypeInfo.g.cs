@@ -132,7 +132,7 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[20];
+            _typeNameTable = new string[21];
             _typeNameTable[0] = "GradebookCS.View.Converters.BooleanToVisibilityConverter";
             _typeNameTable[1] = "Object";
             _typeNameTable[2] = "GradebookCS.View.Converters.InverseBooleanToVisibilityConverter";
@@ -153,8 +153,9 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
             _typeNameTable[17] = "GradebookCS.ViewModel.CourseViewModel";
             _typeNameTable[18] = "GradebookCS.ViewModel.CourseListViewModel";
             _typeNameTable[19] = "GradebookCS.View.MainPage";
+            _typeNameTable[20] = "GradebookCS.View.UserControls.AssignmentUserControl";
 
-            _typeTable = new global::System.Type[20];
+            _typeTable = new global::System.Type[21];
             _typeTable[0] = typeof(global::GradebookCS.View.Converters.BooleanToVisibilityConverter);
             _typeTable[1] = typeof(global::System.Object);
             _typeTable[2] = typeof(global::GradebookCS.View.Converters.InverseBooleanToVisibilityConverter);
@@ -175,6 +176,7 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
             _typeTable[17] = typeof(global::GradebookCS.ViewModel.CourseViewModel);
             _typeTable[18] = typeof(global::GradebookCS.ViewModel.CourseListViewModel);
             _typeTable[19] = typeof(global::GradebookCS.View.MainPage);
+            _typeTable[20] = typeof(global::GradebookCS.View.UserControls.AssignmentUserControl);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -219,6 +221,7 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
         private object Activate_14_MainViewModel() { return new global::GradebookCS.ViewModel.MainViewModel(); }
         private object Activate_17_CourseViewModel() { return new global::GradebookCS.ViewModel.CourseViewModel(); }
         private object Activate_19_MainPage() { return new global::GradebookCS.View.MainPage(); }
+        private object Activate_20_AssignmentUserControl() { return new global::GradebookCS.View.UserControls.AssignmentUserControl(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -351,6 +354,13 @@ namespace GradebookCS.GradebookCS_XamlTypeInfo
             case 19:   //  GradebookCS.View.MainPage
                 userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_19_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 20:   //  GradebookCS.View.UserControls.AssignmentUserControl
+                userType = new global::GradebookCS.GradebookCS_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_20_AssignmentUserControl;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

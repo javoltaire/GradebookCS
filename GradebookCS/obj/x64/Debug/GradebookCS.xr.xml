@@ -308,5 +308,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
       <RootProperty Name="Content" />
     </RootType>
+    <RootType FullName="GradebookCS.View.UserControls.AssignmentUserControl" />
   </Roots.RootTypes>
 </Roots>

@@ -138,8 +138,11 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\UserControls\ViewOnlyAssignmentViewer.xaml.cs">
-      <DependentUpon>ViewOnlyAssignmentViewer.xaml</DependentUpon>
+    <Compile Include="View\UserControls\AssignmentUserControl.xaml.cs">
+      <DependentUpon>AssignmentUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\VOAssignmentUserControl.xaml.cs">
+      <DependentUpon>VOAssignmentUserControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -190,7 +193,11 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
-    <Page Include="View\UserControls\ViewOnlyAssignmentViewer.xaml">
+    <Page Include="View\UserControls\AssignmentUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\VOAssignmentUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

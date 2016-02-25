@@ -5,4 +5,5 @@ View\CourseListPage.xbf
 View\MainPage.xbf
 View\Resources\DataTemplates.xbf
 View\Resources\Styles.xbf
-View\UserControls\ViewOnlyAssignmentViewer.xbf
+View\UserControls\AssignmentUserControl.xbf
+View\UserControls\ViewOnlyAssignmentUserControl.xbf
