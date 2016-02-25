@@ -23,6 +23,7 @@ Things to change
 	- (DONE) Change the prompt text for the Assigngment name
     - (DONE) Change Component total Grade to Total Grade
     - (DONE) Change Component weighted Grade to Weighted Grade
+	- Switch to x:bind as opposed to binding
     - for the course info dialog box, change all the binding modes to explicit and then call UpdateSource() on save and UpdateTarget() on cancel. Part of error handling
 
 Bugs

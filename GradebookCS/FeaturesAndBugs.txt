@@ -2,11 +2,12 @@
 	- An algorithm to anticipate The different possible grades a user needs to improve their current grades for the course
     - Dropping/ignaoring the lowest number of assignments
     - When adding a new assignment, create a name automatically using the name of the component
+		- Use the name of the first assignment
     - (DONE) Tab navigation for editing components and assignments
     - Enter to save
     - Mobile responsiveness
-    - (DONE) Highlighting an assignment
-        - (DONE) Use a listview instead and set selection mode to none
+    - Highlighting an assignment
+        - Use a listview instead and set selection mode to none click enabled to false
     - Double click an assignment to start editing
     - Hide Edit and delete button like for components (maybe)
     - Error Checking and validation
