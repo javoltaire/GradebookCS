@@ -9,7 +9,7 @@
     <SolutionConfiguration>Debug|x64</SolutionConfiguration>
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>53592fbd-3486-41ba-9d1a-525de1cd3a54</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\obj\x64\Debug\</IntermediateOutputPath>
     <RegisteredManifestChecksum>254B450B7F13C461758F0B2449574248E34F1E803B87AA037506AB7077455846</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>53592fbd-3486-41ba-9d1a-525de1cd3a54_1.0.0.0_x64__54gth723yrzva</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>53592fbd-3486-41ba-9d1a-525de1cd3a54_54gth723yrzva!App</RegisteredUserModeAppID>
@@ -19,16 +19,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-02-23T20:20:38.736</Modified>
+      <Modified>2017-01-06T21:33:23.696</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.exe">
+    <AppxPackagedFile Include="C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.exe">
       <PackagePath>entrypoint\GradebookCS.exe</PackagePath>
-      <Modified>2016-02-23T20:20:38.033</Modified>
+      <Modified>2017-01-06T21:33:22.836</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jules\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -466,67 +466,67 @@
       <PackagePath>SQLitePCL.Ext.dll</PackagePath>
       <Modified>2016-01-26T22:45:53.818</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\ApplicationInsights.config">
+    <AppxPackagedFile Include="C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
       <Modified>2016-01-26T20:20:51.390</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\FeaturesAndBugs.txt">
+    <AppxPackagedFile Include="C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\FeaturesAndBugs.txt">
       <PackagePath>FeaturesAndBugs.txt</PackagePath>
-      <Modified>2016-02-23T17:22:46.892</Modified>
+      <Modified>2016-03-11T23:29:29.136</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2016-01-26T20:20:51.470</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2016-01-26T20:20:51.390</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-01-26T20:20:51.394</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-01-26T20:20:51.394</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-01-26T20:20:51.394</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-01-26T20:20:51.394</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-01-26T20:20:51.398</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-01-26T20:20:51.398</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.xr.xml">
+    <AppxPackagedFile Include="C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\GradebookCS.xr.xml">
       <PackagePath>GradebookCS.xr.xml</PackagePath>
-      <Modified>2016-02-23T20:20:13.262</Modified>
+      <Modified>2017-01-06T21:33:22.550</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2015-12-04T20:27:09.745</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-02-23T20:20:38.550</Modified>
+      <Modified>2017-01-06T21:33:23.406</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\Core\GradebookCS.exe">
+    <AppxPackagedFile Include="C:\Users\jules\Documents\Programming\GitHub\GradebookCS\GradebookCS\bin\x64\Debug\Core\GradebookCS.exe">
       <PackagePath>GradebookCS.exe</PackagePath>
-      <Modified>2016-02-23T20:20:38.734</Modified>
+      <Modified>2017-01-06T21:33:23.692</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

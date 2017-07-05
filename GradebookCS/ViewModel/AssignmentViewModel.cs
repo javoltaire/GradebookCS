@@ -44,15 +44,6 @@ namespace GradebookCS.ViewModel
 
         #region Constructors
         /// <summary>
-        /// Constructor to initialize a new instance of this class and set the Parent componentID to the given ID 
-        /// </summary>
-        /// <param name="assignmentId"></param>
-        public AssignmentViewModel(string componentId)
-        {
-            Assignment.ComponentId = componentId;
-        }
-
-        /// <summary>
         /// Constructor to initialize a new instance of this class
         /// </summary>
         /// <param name="assignment">the assignment for this view model</param>

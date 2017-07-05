@@ -6,4 +6,6 @@ View\MainPage.xbf
 View\Resources\DataTemplates.xbf
 View\Resources\Styles.xbf
 View\UserControls\AssignmentUserControl.xbf
-View\UserControls\ViewOnlyAssignmentUserControl.xbf
+View\UserControls\ComponentUserControl.xbf
+View\UserControls\CourseUserControl.xbf
+View\UserControls\VOAssignmentUserControl.xbf

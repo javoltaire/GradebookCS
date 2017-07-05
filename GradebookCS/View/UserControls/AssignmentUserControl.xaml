@@ -10,7 +10,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid Height="32">
+    <Grid x:Name="Root" Height="32" DoubleTapped="AssignmentUserControl_DoubleTapped">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="*"/>
@@ -19,15 +19,15 @@
             <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="30"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="{Binding Assignment.Name, Mode=OneWay}" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
-        <customcontrols:AutoSelectOnFocusTextBox Text="{Binding Assignment.Name, Mode=TwoWay}" PlaceholderText="Name (e.g. Quiz 1)" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
-        <TextBlock Grid.Column="1" Text="{Binding Assignment.Grade.Score, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
-        <customcontrols:AutoSelectOnFocusTextBox Grid.Column="1" Text="{Binding Assignment.Grade.Score, Mode=TwoWay}" PlaceholderText="Score" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
-        <TextBlock Grid.Column="2" Text="{Binding Assignment.Grade.MaximumScore, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
-        <customcontrols:AutoSelectOnFocusTextBox Grid.Column="2" Text="{Binding Assignment.Grade.MaximumScore, Mode=TwoWay}" PlaceholderText="Max" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
-        <TextBlock Grid.Column="3" Text="{Binding Assignment.Grade.PercentWithSign, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button Style="{StaticResource SmallButtonStyle}" Content="&#59151;" Grid.Column="4" Command="{Binding DataContext.EditAssignmentCommand, ElementName=AssignmentItemsList}" CommandParameter="{Binding}" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
-        <Button Style="{StaticResource SmallButtonStyle}" Content="&#59214;" Grid.Column="4" Command="{Binding DataContext.SaveAssignmentChangesCommand, ElementName=AssignmentItemsList}" CommandParameter="{Binding}" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
-        <Button Style="{StaticResource SmallButtonStyle}" Content="&#59153;" Grid.Column="5" Command="{Binding DataContext.DeleteAssignmentCommand, ElementName=AssignmentItemsList}" CommandParameter="{Binding}"/>
+        <TextBlock x:Name="NameTextBlock" Text="{Binding Assignment.Name, Mode=OneWay}" VerticalAlignment="Center" DoubleTapped="AssignmentUserControl_DoubleTapped" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
+        <customcontrols:AutoSelectOnFocusTextBox x:Name="NameTextBox" Text="{Binding Assignment.Name, Mode=TwoWay}" PlaceholderText="Name (e.g. Quiz 1)" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
+        <TextBlock x:Name="ScoreTextBlock" Grid.Column="1" Text="{Binding Assignment.Grade.Score, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" DoubleTapped="AssignmentUserControl_DoubleTapped" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
+        <customcontrols:AutoSelectOnFocusTextBox x:Name="ScoreTextBox" Grid.Column="1" Text="{Binding Assignment.Grade.Score, Mode=TwoWay}" PlaceholderText="Score" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
+        <TextBlock x:Name="MaxScoreTextBlock" Grid.Column="2" Text="{Binding Assignment.Grade.MaximumScore, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" DoubleTapped="AssignmentUserControl_DoubleTapped" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
+        <customcontrols:AutoSelectOnFocusTextBox x:Name="MaxScoreTextBox" Grid.Column="2" Text="{Binding Assignment.Grade.MaximumScore, Mode=TwoWay}" PlaceholderText="Max" VerticalAlignment="Center" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
+        <TextBlock x:Name="PercentTextBlock" Grid.Column="3" Text="{Binding Assignment.Grade.PercentWithSign, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" DoubleTapped="AssignmentUserControl_DoubleTapped"/>
+        <Button x:Name="EditButton" Style="{StaticResource SmallButtonStyle}" Content="&#59151;" Grid.Column="4" Tapped="EditButton_Tapped" DoubleTapped="AssignmentUserControl_DoubleTapped" Visibility="{Binding IsInEditMode, Converter={StaticResource InverseBoolToVisConverter}}"/>
+        <Button x:Name="SaveButton" Style="{StaticResource SmallButtonStyle}" Content="&#59214;" Grid.Column="4" Tapped="SaveButton_Tapped" Visibility="{Binding IsInEditMode, Converter={StaticResource BoolToVisConverter}}"/>
+        <Button x:Name="DeleteButton" Style="{StaticResource SmallButtonStyle}" Content="&#59153;" Grid.Column="5" DoubleTapped="AssignmentUserControl_DoubleTapped" Tapped="DeleteButton_Tapped" />
     </Grid>
 </UserControl>

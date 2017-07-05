@@ -98,7 +98,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\BaseINPC.cs" />
+    <Compile Include="Helpers\BaseINPC.cs" />
     <Compile Include="DataBase\AssignmentTable.cs" />
     <Compile Include="DataBase\ComponentTable.cs" />
     <Compile Include="DataBase\CourseTable.cs" />
@@ -110,6 +110,7 @@
     <Compile Include="Model\Component.cs" />
     <Compile Include="Model\HelperClasses\ComputedGrade.cs" />
     <Compile Include="Model\Course.cs" />
+    <Compile Include="Helpers\Errors.cs" />
     <Compile Include="Model\HelperClasses\GradeBase.cs" />
     <Compile Include="Model\HelperClasses\LetterGradeRange.cs" />
     <Compile Include="ViewModel\Commands\RelayCommand.cs" />
@@ -140,6 +141,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\UserControls\AssignmentUserControl.xaml.cs">
       <DependentUpon>AssignmentUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\ComponentUserControl.xaml.cs">
+      <DependentUpon>ComponentUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\CourseUserControl.xaml.cs">
+      <DependentUpon>CourseUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\VOAssignmentUserControl.xaml.cs">
       <DependentUpon>VOAssignmentUserControl.xaml</DependentUpon>
@@ -194,6 +201,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="View\UserControls\AssignmentUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\ComponentUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\CourseUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

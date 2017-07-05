@@ -1394,6 +1394,7 @@ C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\FxReso
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\FxResources.System.Xml.XmlDocument.SR\qualifiers.txt
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\FxResources.System.Xml.XmlSerializer.SR.pri
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\FxResources.System.Xml.XmlSerializer.SR\qualifiers.txt
+<<<<<<< HEAD
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\FxResources.Microsoft.CSharp.SR\layout.resfiles
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\FxResources.Microsoft.CSharp.SR\layout.resfiles.intermediate
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\FxResources.Microsoft.CSharp.SR\Resources.resfiles
@@ -1834,3 +1835,10 @@ C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\Micros
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\Microsoft.VisualStudio.TestPlatform.ObjectModel\pri.resfiles.intermediate
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\Microsoft.VisualStudio.TestPlatform.ObjectModel\priconfig.xml
 C:\Users\jules\Documents\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\Microsoft.VisualStudio.TestPlatform.ObjectModel\priconfig.xml.intermediate
+=======
+D:\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\SQLitePCL.Ext.dll
+D:\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\SQLitePCL.Ext.pri
+D:\GitHub\GradebookCS\GradebookCSTest\bin\x64\Debug\SQLitePCL.dll
+D:\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\SQLitePCL\en\SQLitePCL.Resources.resw
+D:\GitHub\GradebookCS\GradebookCSTest\obj\x64\Debug\SQLitePCL.Ext.pri.xml
+>>>>>>> 4e54eb9d631e5fb93a1450fb08cb21ee0d2fa2f0

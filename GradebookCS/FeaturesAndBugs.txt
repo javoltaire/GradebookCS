@@ -1,20 +1,35 @@
 ﻿Features
 	- An algorithm to anticipate The different possible grades a user needs to improve their current grades for the course
-    - Dropping/ignaoring the lowest number of assignments
-    - When adding a new assignment, create a name automatically using the name of the component
+    - Dropping/ignoring the lowest number of assignments
+    - (DONE) When adding a new assignment, create a name automatically using the name of the component
+		- (DONE) Use the name of the Last assignment
     - (DONE) Tab navigation for editing components and assignments
-    - Enter to save
+    - (DONE) Enter to save
     - Mobile responsiveness
+		- Right click on Course
+			- Edit, Delete
+		- Right click on Component
+			- Edit, Delete
+		- Right click on Assingment
+			- Edit, Delete
     - (DONE) Highlighting an assignment
-        - (DONE) Use a listview instead and set selection mode to none
-    - Double click an assignment to start editing
-    - Hide Edit and delete button like for components (maybe)
+    - (DONE) Double click an assignment to start editing
+	- (DONE) Double click an Component to start editing
     - Error Checking and validation
         -Should be done in the view component (I think)
 		- Check if data is valid before setting property value in the models
 		- Create Custom Textboxes with an Icon and a text field specifying the error.
     - Auto selecting the first component in the list if there are any
         - Also change the binding mode for selected component to two ways if its not
+	- Auto Selecting the first textbox (name textbox) when edit mode is set to true
+		- For Assignment
+		- For Component
+		- For Course
+	- Add Tab Stops
+	- Implement date assignment is/was due
+	- Scrolling
+	- Exporting to a file
+	- Print
 		
 
 Things to change
@@ -23,9 +38,17 @@ Things to change
 	- (DONE) Change the prompt text for the Assigngment name
     - (DONE) Change Component total Grade to Total Grade
     - (DONE) Change Component weighted Grade to Weighted Grade
+	- Delete and Edit Button should be shown on mouse over for Course and save should always be visible when in edit mode
+	- Delete and Edit Button should be shown on mouse over for Assignment and save should always be visible when in edit mode
+	- Delete and Edit Button should be shown on mouse over for Component and save should always be visible when in edit mode
+	- For components, mouse down should change the background color slightly
+	- (DONE) Switch to user controls for Assignment
+	- (DONE) Switch to user controls for Component
+	- Switch to user controls for Course (Maybe)
 	- Switch to x:bind as opposed to binding
     - for the course info dialog box, change all the binding modes to explicit and then call UpdateSource() on save and UpdateTarget() on cancel. Part of error handling
 
 Bugs
+	- Updating the Course MaxScore when the all assignments are deleted
     
 

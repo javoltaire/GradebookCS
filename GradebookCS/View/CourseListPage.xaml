@@ -28,6 +28,11 @@
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
+        <ToggleButton x:Name="tog" Content="Toggle me" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True"/>
+        <ComboBox Margin="10,0" SelectedIndex="0" RelativePanel.RightOf="tog" RelativePanel.AlignBottomWithPanel="True">
+            <ComboBoxItem Content="Item 1"/>
+            <ComboBoxItem Content="Item 2"/>
+        </ComboBox>
         <TextBlock Text="Click on the + to add a new Course." FontSize="25" Visibility="{Binding CanShowCourseListGridview, Converter={StaticResource InverseBoolToVisConverter}}" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
         <Button Style="{StaticResource BigButtonStyle}" Content="&#59152;"  Margin="10" Width="40" Height="40" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Command="{Binding AddNewCourseCommand}"/>
     </RelativePanel>

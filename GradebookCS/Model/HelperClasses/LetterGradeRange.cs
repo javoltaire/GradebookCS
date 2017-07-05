@@ -117,8 +117,15 @@ namespace GradebookCS.Model
         {
             return value >= lowEnd && value <= highEnd;
         }
+
+        #region Validation and error checking
+        private bool isLetterValid(string value)
+        {
+            return !string.IsNullOrWhiteSpace(value) && value.Length < 2;
+        }
         #endregion
-        
+        #endregion
+
     }
 
 

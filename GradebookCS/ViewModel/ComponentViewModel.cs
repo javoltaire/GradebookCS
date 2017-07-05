@@ -170,7 +170,13 @@ namespace GradebookCS.ViewModel
         /// </summary>
         public void AddNewAssignment()
         {
-            AssignmentViewModel newAssignmentViewModel = new AssignmentViewModel(Component.Id); //Create a new AssignmentViewmodel and pass it the id of this component
+            Assignment newAssignment = new Assignment()
+            {
+                Name = GetLastAssignmentName(),
+                ComponentId = Component.Id
+            };
+
+            AssignmentViewModel newAssignmentViewModel = new AssignmentViewModel(newAssignment); //Create a new AssignmentViewmodel and pass it the id of this component
             AssignmentViewModels.Add(newAssignmentViewModel);                                   //Add this new assignmentviewmodel to the list
             assignmentRepository.InsertItem(newAssignmentViewModel.Assignment);                 //Insert that assignment in the database
             EditAssignment(newAssignmentViewModel);                                             //go in to edit mode
@@ -215,6 +221,22 @@ namespace GradebookCS.ViewModel
             assignmentRepository.UpdateItem(assignmentViewModel.Assignment.Id, assignmentViewModel.Assignment); //Update the assignment in the database
             assignmentViewModel.IsInEditMode = false;                                                           //Set edit mode of that assignment to false
             assignmentInEditMode = null;                                                                        //set the assignmentInEditMode to null
+        }
+
+        /// <summary>
+        /// Gets the last assignment name
+        /// </summary>
+        /// <remarks>
+        /// If there aren't any assignment in the list then it returns an empty string
+        /// </remarks>
+        /// <returns>The name of the last assignment</returns>
+        private string GetLastAssignmentName()
+        {
+            if(AssignmentViewModels.Count > 0)
+            {
+                return AssignmentViewModels.Last().Assignment.Name;
+            }
+            return string.Empty;
         }
         #endregion
 
