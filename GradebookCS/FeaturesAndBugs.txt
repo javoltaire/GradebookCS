@@ -30,6 +30,7 @@
 	- Scrolling
 	- Exporting to a file
 	- Print
+    - Add a readme
 		
 
 Things to change
